@@ -17,4 +17,14 @@
     <OutputPath>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\</OutputPath>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutputPath>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutputPath>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\</OutputPath>
+  </PropertyGroup>
+
 </Project>

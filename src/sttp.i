@@ -35,7 +35,7 @@
 // Define SWIG types to wrap in target language
 namespace sttp
 {
-    // Mark auto-generated wrapper classes as internal
+    // Mark C++ library specific class pointer wrappers as internal
     %typemap(csclassmodifiers) decimal_t, decimal_t*, decimal_t&, decimal_t[], decimal_t (CLASS::*) "internal class"
     %typemap(csclassmodifiers) datetime_t, datetime_t*, datetime_t&, datetime_t[], datetime_t (CLASS::*) "internal class"
     %typemap(csclassmodifiers) Guid, Guid*, Guid&, Guid[], Guid (CLASS::*) "internal class"
@@ -167,15 +167,8 @@ namespace sttp
         const T& GetValueOrDefault() const;
     };
 
-    %include "nullable.i"
-
-    // If there is no language-specific DEFINE_NULLABLE_CLASS() definition, assume
-    // that we only have "simple" nullable values.
-    #ifndef DEFINE_NULLABLE_CLASS
-    %define DEFINE_NULLABLE_CLASS(scope, classname)
-    DEFINE_NULLABLE_SIMPLE(Nullable ## classname, scope::classname)
-    %enddef
-    #endif
+    %typemap(cstype) Nullable<T>, const Nullable<T> & "$typemap(cstype, T)?"
+    %naturalvar Nullable<T>;
 
     %template(NullableString) Nullable<std::string>;
     %template(NullableBool) Nullable<bool>;
