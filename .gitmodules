@@ -1,3 +1,0 @@
-[submodule "cppapi"]
-	path = cppapi
-	url = https://github.com/sttp/cppapi.git
