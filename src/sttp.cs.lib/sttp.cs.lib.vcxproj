@@ -73,25 +73,25 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\</OutDir>
     <IntDir>obj\$(Configuration)\</IntDir>
-    <LibraryPath>$(SolutionDir)\..\..\boost\stage\lib\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)boost\stage\lib\;$(LibraryPath)</LibraryPath>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\</OutDir>
     <IntDir>obj\$(Configuration)\</IntDir>
-    <LibraryPath>$(SolutionDir)\..\..\boost\stage\lib\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)boost\stage\lib\;$(LibraryPath)</LibraryPath>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\</OutDir>
     <IntDir>obj\$(Configuration)\</IntDir>
-    <LibraryPath>$(SolutionDir)\..\..\boost\stage\lib\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)boost\stage\lib\;$(LibraryPath)</LibraryPath>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\</OutDir>
     <IntDir>obj\$(Configuration)\</IntDir>
-    <LibraryPath>$(SolutionDir)\..\..\boost\stage\lib\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)boost\stage\lib\;$(LibraryPath)</LibraryPath>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
