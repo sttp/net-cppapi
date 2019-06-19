@@ -23,12 +23,13 @@
 
 %{
 // Include STTP library header files
-#include "../../cppapi/src/lib/CommonTypes.h"
-#include "../../cppapi/src/lib/Nullable.h"
-#include "../../cppapi/src/lib/data/DataSet.h"
-#include "../../cppapi/src/lib/transport/TransportTypes.h"
-#include "../../cppapi/src/lib/transport/SubscriberInstance.h"
-#include "../../cppapi/src/lib/transport/PublisherInstance.h"
+#include "../cppapi/src/lib/CommonTypes.h"
+#include "../cppapi/src/lib/Nullable.h"
+#include "../cppapi/src/lib/data/DataSet.h"
+#include "../cppapi/src/lib/transport/TransportTypes.h"
+#include "../cppapi/src/lib/transport/SubscriberInstance.h"
+#include "../cppapi/src/lib/transport/DataPublisher.h"
+#include "../cppapi/src/lib/transport/PublisherInstance.h"
 %}
 
 // Define SWIG types to wrap in target language
@@ -38,6 +39,8 @@ namespace sttp
     %typemap(csclassmodifiers) decimal_t, decimal_t*, decimal_t&, decimal_t[], decimal_t (CLASS::*) "internal class"
     %typemap(csclassmodifiers) datetime_t, datetime_t*, datetime_t&, datetime_t[], datetime_t (CLASS::*) "internal class"
     %typemap(csclassmodifiers) Guid, Guid*, Guid&, Guid[], Guid (CLASS::*) "internal class"
+    %typemap(csclassmodifiers) DataPublisher, DataPublisher*, DataPublisher&, DataPublisher[], DataPublisher (CLASS::*) "internal class"
+    %typemap(csclassmodifiers) IOContext, IOContext*, IOContext&, IOContext[], IOContext (CLASS::*) "internal class"
 
     typedef float float32_t;
     typedef double float64_t;
@@ -61,6 +64,13 @@ namespace sttp
         datetime_t(const datetime_t&);
     };
 
+    %rename(io_context_t) IOContext;
+    class IOContext
+    {
+        IOContext();
+        IOContext(const IOContext&);
+    };
+
     namespace data
     {
         class DataSet;
@@ -78,7 +88,17 @@ namespace sttp
         struct DeviceMetadata;
         struct ConfigurationFrame;
         class SignalIndexCache;
+        class SubscriberInstance;
+
+        %rename(datapublisher_t) DataPublisher;
+        class DataPublisher
+        {
+            DataPublisher();
+            DataPublisher(const DataPublisher&);
+        };
+
         class SubscriberConnection;
+        class PublisherInstance;
     }
 }
 
@@ -94,7 +114,10 @@ namespace sttp
 %shared_ptr(sttp::transport::DeviceMetadata)
 %shared_ptr(sttp::transport::ConfigurationFrame)
 %shared_ptr(sttp::transport::SignalIndexCache)
+%shared_ptr(sttp::transport::SubscriberInstance)
+%shared_ptr(sttp::transport::DataPublisher)
 %shared_ptr(sttp::transport::SubscriberConnection)
+%shared_ptr(sttp::transport::PublisherInstance)
 
 %csmethodmodifiers GetGuidBytes "internal unsafe";
 %apply uint8_t FIXED[] {uint8_t* data}
@@ -1611,6 +1634,8 @@ namespace transport
         }
     %}}
 
+    typedef boost::shared_ptr<SubscriberInstance> SubscriberInstancePtr;
+
     // Security modes used by the DataPublisher to secure data sent over the command channel.
     enum class SecurityMode
     {
@@ -1649,10 +1674,14 @@ namespace transport
 
     typedef boost::shared_ptr<SignalIndexCache> SignalIndexCachePtr;
 
+    typedef boost::shared_ptr<DataPublisher> DataPublisherPtr;
+
     // Represents a subscriber connection to a data publisher
     class SubscriberConnection
     {
     public:
+        %csmethodmodifiers SubscriberConnection "internal";
+        SubscriberConnection(DataPublisherPtr parent, sttp::IOContext& commandChannelService);
         ~SubscriberConnection();
 
         // Gets subscriber UUID used when subscriber is known and pre-established
@@ -1946,4 +1975,6 @@ namespace transport
             set => SetCipherKeyRotationPeriod(value);
         }
     %}}
+    
+    typedef boost::shared_ptr<PublisherInstance> PublisherInstancePtr;
 }}

@@ -202,6 +202,12 @@ class CommonPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_delete_datetime_t")]
   public static extern void delete_datetime_t(global::System.Runtime.InteropServices.HandleRef jarg1);
 
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_delete_io_context_t")]
+  public static extern void delete_io_context_t(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_delete_datapublisher_t")]
+  public static extern void delete_datapublisher_t(global::System.Runtime.InteropServices.HandleRef jarg1);
+
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_GetGuidBytes")]
   public static extern void GetGuidBytes(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.IntPtr jarg2);
 
@@ -2212,6 +2218,9 @@ class CommonPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_delete_SignalIndexCache")]
   public static extern void delete_SignalIndexCache(global::System.Runtime.InteropServices.HandleRef jarg1);
 
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_new_SubscriberConnection")]
+  public static extern global::System.IntPtr new_SubscriberConnection(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_delete_SubscriberConnection")]
   public static extern void delete_SubscriberConnection(global::System.Runtime.InteropServices.HandleRef jarg1);
 
@@ -2328,9 +2337,6 @@ class CommonPINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberConnection_SendResponse__SWIG_2")]
   public static extern bool SubscriberConnection_SendResponse__SWIG_2(global::System.Runtime.InteropServices.HandleRef jarg1, byte jarg2, byte jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
-
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_new_SubscriberConnection")]
-  public static extern global::System.IntPtr new_SubscriberConnection();
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_StatusMessage")]
   public static extern void PublisherInstance_StatusMessage(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2);

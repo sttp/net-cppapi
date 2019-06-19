@@ -377,12 +377,13 @@ SWIGINTERN void SWIG_CSharpException(int code, const char *msg) {
 
 
 // Include STTP library header files
-#include "../../cppapi/src/lib/CommonTypes.h"
-#include "../../cppapi/src/lib/Nullable.h"
-#include "../../cppapi/src/lib/data/DataSet.h"
-#include "../../cppapi/src/lib/transport/TransportTypes.h"
-#include "../../cppapi/src/lib/transport/SubscriberInstance.h"
-#include "../../cppapi/src/lib/transport/PublisherInstance.h"
+#include "../cppapi/src/lib/CommonTypes.h"
+#include "../cppapi/src/lib/Nullable.h"
+#include "../cppapi/src/lib/data/DataSet.h"
+#include "../cppapi/src/lib/transport/TransportTypes.h"
+#include "../cppapi/src/lib/transport/SubscriberInstance.h"
+#include "../cppapi/src/lib/transport/DataPublisher.h"
+#include "../cppapi/src/lib/transport/PublisherInstance.h"
 
 
     // Get byte array representing a globally unique identifier
@@ -1419,6 +1420,44 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_delete_datetime_t(void * jarg1) {
   sttp::datetime_t *arg1 = (sttp::datetime_t *) 0 ;
   
   arg1 = (sttp::datetime_t *)jarg1; 
+  {
+    try
+    {
+      delete arg1;
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_delete_io_context_t(void * jarg1) {
+  sttp::IOContext *arg1 = (sttp::IOContext *) 0 ;
+  
+  arg1 = (sttp::IOContext *)jarg1; 
+  {
+    try
+    {
+      delete arg1;
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_delete_datapublisher_t(void * jarg1) {
+  sttp::transport::DataPublisher *arg1 = (sttp::transport::DataPublisher *) 0 ;
+  
+  arg1 = (sttp::transport::DataPublisher *)jarg1; 
   {
     try
     {
@@ -15681,8 +15720,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_delete_SubscriberConnector(void * jarg1)
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetupSubscriberConnector(void * jarg1, void * jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   sttp::transport::SubscriberConnector *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (sttp::transport::SubscriberConnector *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "sttp::transport::SubscriberConnector & type is null", 0);
@@ -15706,9 +15748,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetupSubscriberConnec
 SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_SubscriberInstance_CreateSubscriptionInfo(void * jarg1) {
   void * jresult ;
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   sttp::transport::SubscriptionInfo result;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -15729,8 +15774,11 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_SubscriberInstance_CreateSubscriptionI
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_StatusMessage(void * jarg1, char * jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   std::string *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   if (!jarg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
     return ;
@@ -15755,8 +15803,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_StatusMessage(void * 
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_ErrorMessage(void * jarg1, char * jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   std::string *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   if (!jarg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
     return ;
@@ -15781,9 +15832,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_ErrorMessage(void * j
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_DataStartTime(void * jarg1, void * jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   SwigValueWrapper< sttp::datetime_t > arg2 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   sttp::datetime_t *argp2 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   argp2 = (sttp::datetime_t *)jarg2; 
   if (!argp2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null sttp::datetime_t", 0);
@@ -15808,8 +15862,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_DataStartTime(void * 
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_ReceivedMetadata(void * jarg1, void * jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   std::vector< uint8_t > *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (std::vector< uint8_t > *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< uint8_t > const & type is null", 0);
@@ -15832,8 +15889,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_ReceivedMetadata(void
 
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_ParsedMetadata(void * jarg1) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -15852,8 +15912,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_ParsedMetadata(void *
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_ReceivedNewMeasurements(void * jarg1, void * jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   std::vector< sttp::transport::MeasurementPtr > *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (std::vector< sttp::transport::MeasurementPtr > *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< sttp::transport::MeasurementPtr > const & type is null", 0);
@@ -15876,8 +15939,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_ReceivedNewMeasuremen
 
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_ConfigurationChanged(void * jarg1) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -15895,8 +15961,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_ConfigurationChanged(
 
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_HistoricalReadComplete(void * jarg1) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -15914,8 +15983,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_HistoricalReadComplet
 
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_ConnectionEstablished(void * jarg1) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -15933,8 +16005,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_ConnectionEstablished
 
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_ConnectionTerminated(void * jarg1) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -15966,19 +16041,24 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_new_SubscriberInstance() {
       };
     }
   }
-  jresult = (void *)result; 
+  
+  jresult = result ? new boost::shared_ptr<  sttp::transport::SubscriberInstance >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
   return jresult;
 }
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_delete_SubscriberInstance(void * jarg1) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
-      delete arg1;
+      (void)arg1; delete smartarg1;
     }
     catch (const std::exception& e)
     {
@@ -16025,8 +16105,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_Initialize__SWIG_0(vo
   std::string *arg2 = 0 ;
   uint16_t arg3 ;
   uint16_t arg4 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   if (!jarg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
     return ;
@@ -16054,8 +16137,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_Initialize__SWIG_1(vo
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   std::string *arg2 = 0 ;
   uint16_t arg3 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   if (!jarg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
     return ;
@@ -16081,9 +16167,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_Initialize__SWIG_1(vo
 SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetSubscriberID(void * jarg1) {
   void * jresult ;
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   sttp::Guid *result = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -16104,9 +16193,12 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetSubscriberID(voi
 SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetAutoReconnect(void * jarg1) {
   unsigned int jresult ;
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   bool result;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -16127,8 +16219,11 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetAutoReconn
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetAutoReconnect(void * jarg1, unsigned int jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   bool arg2 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = jarg2 ? true : false; 
   {
     try
@@ -16148,9 +16243,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetAutoReconnect(void
 SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetAutoParseMetadata(void * jarg1) {
   unsigned int jresult ;
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   bool result;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -16171,8 +16269,11 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetAutoParseM
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetAutoParseMetadata(void * jarg1, unsigned int jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   bool arg2 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = jarg2 ? true : false; 
   {
     try
@@ -16192,9 +16293,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetAutoParseMetadata(
 SWIGEXPORT short SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetMaxRetries(void * jarg1) {
   short jresult ;
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   int16_t result;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -16215,8 +16319,11 @@ SWIGEXPORT short SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetMaxRetries(void *
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetMaxRetries(void * jarg1, short jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   int16_t arg2 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (int16_t)jarg2; 
   {
     try
@@ -16236,9 +16343,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetMaxRetries(void * 
 SWIGEXPORT short SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetRetryInterval(void * jarg1) {
   short jresult ;
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   int16_t result;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -16259,8 +16369,11 @@ SWIGEXPORT short SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetRetryInterval(voi
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetRetryInterval(void * jarg1, short jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   int16_t arg2 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (int16_t)jarg2; 
   {
     try
@@ -16280,9 +16393,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetRetryInterval(void
 SWIGEXPORT char * SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetFilterExpression(void * jarg1) {
   char * jresult ;
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   std::string *result = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -16303,8 +16419,11 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetFilterExpression
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetFilterExpression(void * jarg1, char * jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   std::string *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   if (!jarg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
     return ;
@@ -16329,9 +16448,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetFilterExpression(v
 SWIGEXPORT char * SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetMetadataFilters(void * jarg1) {
   char * jresult ;
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   std::string *result = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -16352,8 +16474,11 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetMetadataFilters(
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetMetadataFilters(void * jarg1, char * jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   std::string *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   if (!jarg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
     return ;
@@ -16377,8 +16502,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetMetadataFilters(vo
 
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_Connect(void * jarg1) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -16396,8 +16524,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_Connect(void * jarg1)
 
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_ConnectAsync(void * jarg1) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -16415,8 +16546,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_ConnectAsync(void * j
 
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_Disconnect(void * jarg1) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -16436,8 +16570,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_EstablishHistoricalRe
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   std::string *arg2 = 0 ;
   std::string *arg3 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   if (!jarg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
     return ;
@@ -16468,8 +16605,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_EstablishHistoricalRe
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetHistoricalReplayInterval(void * jarg1, int jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   int32_t arg2 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (int32_t)jarg2; 
   {
     try
@@ -16489,9 +16629,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetHistoricalReplayIn
 SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_IsPayloadDataCompressed(void * jarg1) {
   unsigned int jresult ;
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   bool result;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -16512,8 +16655,11 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_IsPayloadData
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetPayloadDataCompressed(void * jarg1, unsigned int jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   bool arg2 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = jarg2 ? true : false; 
   {
     try
@@ -16533,9 +16679,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetPayloadDataCompres
 SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_IsMetadataCompressed(void * jarg1) {
   unsigned int jresult ;
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   bool result;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -16556,8 +16705,11 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_IsMetadataCom
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetMetadataCompressed(void * jarg1, unsigned int jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   bool arg2 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = jarg2 ? true : false; 
   {
     try
@@ -16577,9 +16729,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetMetadataCompressed
 SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_IsSignalIndexCacheCompressed(void * jarg1) {
   unsigned int jresult ;
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   bool result;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -16600,8 +16755,11 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_IsSignalIndex
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetSignalIndexCacheCompressed(void * jarg1, unsigned int jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   bool arg2 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = jarg2 ? true : false; 
   {
     try
@@ -16621,9 +16779,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_SetSignalIndexCacheCo
 SWIGEXPORT unsigned long long SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetTotalCommandChannelBytesReceived(void * jarg1) {
   unsigned long long jresult ;
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   uint64_t result;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -16644,9 +16805,12 @@ SWIGEXPORT unsigned long long SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetTota
 SWIGEXPORT unsigned long long SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetTotalDataChannelBytesReceived(void * jarg1) {
   unsigned long long jresult ;
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   uint64_t result;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -16667,9 +16831,12 @@ SWIGEXPORT unsigned long long SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetTota
 SWIGEXPORT unsigned long long SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetTotalMeasurementsReceived(void * jarg1) {
   unsigned long long jresult ;
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   uint64_t result;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -16690,9 +16857,12 @@ SWIGEXPORT unsigned long long SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetTota
 SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_IsConnected(void * jarg1) {
   unsigned int jresult ;
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   bool result;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -16713,9 +16883,12 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_IsConnected(v
 SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_IsSubscribed(void * jarg1) {
   unsigned int jresult ;
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
   bool result;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -16737,9 +16910,12 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_TryGetDeviceA
   unsigned int jresult ;
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   std::vector< std::string > *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   bool result;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (std::vector< std::string > *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< std::string > & type is null", 0);
@@ -16765,8 +16941,11 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_TryGetDeviceA
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetParsedDeviceMetadata(void * jarg1, void * jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   std::map< std::string,sttp::transport::DeviceMetadataPtr,std::less< std::string > > *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (std::map< std::string,sttp::transport::DeviceMetadataPtr,std::less< std::string > > *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::map< std::string,sttp::transport::DeviceMetadataPtr,std::less< std::string > > & type is null", 0);
@@ -16790,8 +16969,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetParsedDeviceMetada
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstance_GetParsedMeasurementMetadata(void * jarg1, void * jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   std::map< sttp::Guid,sttp::transport::MeasurementMetadataPtr,std::less< sttp::Guid > > *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (std::map< sttp::Guid,sttp::transport::MeasurementMetadataPtr,std::less< sttp::Guid > > *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::map< sttp::Guid,sttp::transport::MeasurementMetadataPtr,std::less< sttp::Guid > > & type is null", 0);
@@ -16817,10 +16999,13 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_TryGetDeviceM
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   std::string *arg2 = 0 ;
   sttp::transport::DeviceMetadataPtr *arg3 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   sttp::transport::DeviceMetadataPtr tempnull3 ;
   bool result;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   if (!jarg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
     return 0;
@@ -16850,10 +17035,13 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_TryGetMeasure
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   sttp::Guid *arg2 = 0 ;
   sttp::transport::MeasurementMetadataPtr *arg3 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   sttp::transport::MeasurementMetadataPtr tempnull3 ;
   bool result;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (sttp::Guid *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "sttp::Guid const & type is null", 0);
@@ -16882,10 +17070,13 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_TryGetConfigu
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   std::string *arg2 = 0 ;
   sttp::transport::ConfigurationFramePtr *arg3 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   sttp::transport::ConfigurationFramePtr tempnull3 ;
   bool result;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   if (!jarg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
     return 0;
@@ -16915,10 +17106,13 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstance_TryFindTarget
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   sttp::Guid *arg2 = 0 ;
   sttp::transport::ConfigurationFramePtr *arg3 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
   sttp::transport::ConfigurationFramePtr tempnull3 ;
   bool result;
   
-  arg1 = (sttp::transport::SubscriberInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (sttp::Guid *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "sttp::Guid const & type is null", 0);
@@ -17187,6 +17381,37 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_delete_SignalIndexCache(void * jarg1) {
       };
     }
   }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_new_SubscriberConnection(void * jarg1, void * jarg2) {
+  void * jresult ;
+  sttp::transport::DataPublisherPtr arg1 ;
+  sttp::IOContext *arg2 = 0 ;
+  sttp::transport::SubscriberConnection *result = 0 ;
+  
+  if (jarg1) arg1 = *(sttp::transport::DataPublisherPtr *)jarg1; 
+  arg2 = (sttp::IOContext *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "sttp::IOContext & type is null", 0);
+    return 0;
+  } 
+  {
+    try
+    {
+      result = (sttp::transport::SubscriberConnection *)new sttp::transport::SubscriberConnection(arg1,*arg2);
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
+      };
+    }
+  }
+  
+  jresult = result ? new boost::shared_ptr<  sttp::transport::SubscriberConnection >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
 }
 
 
@@ -18215,34 +18440,14 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberConnection_SendRespons
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_new_SubscriberConnection() {
-  void * jresult ;
-  sttp::transport::SubscriberConnection *result = 0 ;
-  
-  {
-    try
-    {
-      result = (sttp::transport::SubscriberConnection *)new sttp::transport::SubscriberConnection();
-    }
-    catch (const std::exception& e)
-    {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
-      };
-    }
-  }
-  
-  jresult = result ? new boost::shared_ptr<  sttp::transport::SubscriberConnection >(result SWIG_NO_NULL_DELETER_1) : 0;
-  
-  return jresult;
-}
-
-
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_StatusMessage(void * jarg1, char * jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   std::string *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   if (!jarg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
     return ;
@@ -18267,8 +18472,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_StatusMessage(void * j
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_ErrorMessage(void * jarg1, char * jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   std::string *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   if (!jarg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
     return ;
@@ -18293,9 +18501,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_ErrorMessage(void * ja
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_ClientConnected(void * jarg1, void * jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   sttp::transport::SubscriberConnectionPtr *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance > *smartarg1 = 0 ;
   sttp::transport::SubscriberConnectionPtr tempnull2 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = jarg2 ? (sttp::transport::SubscriberConnectionPtr *)jarg2 : &tempnull2; 
   {
     try
@@ -18315,9 +18526,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_ClientConnected(void *
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_ClientDisconnected(void * jarg1, void * jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   sttp::transport::SubscriberConnectionPtr *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance > *smartarg1 = 0 ;
   sttp::transport::SubscriberConnectionPtr tempnull2 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = jarg2 ? (sttp::transport::SubscriberConnectionPtr *)jarg2 : &tempnull2; 
   {
     try
@@ -18337,9 +18551,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_ClientDisconnected(voi
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_ProcessingIntervalChangeRequested(void * jarg1, void * jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   sttp::transport::SubscriberConnectionPtr *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance > *smartarg1 = 0 ;
   sttp::transport::SubscriberConnectionPtr tempnull2 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = jarg2 ? (sttp::transport::SubscriberConnectionPtr *)jarg2 : &tempnull2; 
   {
     try
@@ -18359,9 +18576,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_ProcessingIntervalChan
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_TemporalSubscriptionRequested(void * jarg1, void * jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   sttp::transport::SubscriberConnectionPtr *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance > *smartarg1 = 0 ;
   sttp::transport::SubscriberConnectionPtr tempnull2 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = jarg2 ? (sttp::transport::SubscriberConnectionPtr *)jarg2 : &tempnull2; 
   {
     try
@@ -18381,9 +18601,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_TemporalSubscriptionRe
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_TemporalSubscriptionCanceled(void * jarg1, void * jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   sttp::transport::SubscriberConnectionPtr *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance > *smartarg1 = 0 ;
   sttp::transport::SubscriberConnectionPtr tempnull2 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = jarg2 ? (sttp::transport::SubscriberConnectionPtr *)jarg2 : &tempnull2; 
   {
     try
@@ -18405,9 +18628,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_HandleUserCommand(void
   sttp::transport::SubscriberConnectionPtr *arg2 = 0 ;
   uint32_t arg3 ;
   std::vector< uint8_t > *arg4 = 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance > *smartarg1 = 0 ;
   sttp::transport::SubscriberConnectionPtr tempnull2 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = jarg2 ? (sttp::transport::SubscriberConnectionPtr *)jarg2 : &tempnull2; 
   arg3 = (uint32_t)jarg3; 
   arg4 = (std::vector< uint8_t > *)jarg4;
@@ -18446,19 +18672,24 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_new_PublisherInstance() {
       };
     }
   }
-  jresult = (void *)result; 
+  
+  jresult = result ? new boost::shared_ptr<  sttp::transport::PublisherInstance >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
   return jresult;
 }
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_delete_PublisherInstance(void * jarg1) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
-      delete arg1;
+      (void)arg1; delete smartarg1;
     }
     catch (const std::exception& e)
     {
@@ -18476,8 +18707,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_DefineMetadata__SWIG_0
   std::vector< sttp::transport::MeasurementMetadataPtr > *arg3 = 0 ;
   std::vector< sttp::transport::PhasorMetadataPtr > *arg4 = 0 ;
   int32_t arg5 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (std::vector< sttp::transport::DeviceMetadataPtr > *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< sttp::transport::DeviceMetadataPtr > const & type is null", 0);
@@ -18514,8 +18748,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_DefineMetadata__SWIG_1
   std::vector< sttp::transport::DeviceMetadataPtr > *arg2 = 0 ;
   std::vector< sttp::transport::MeasurementMetadataPtr > *arg3 = 0 ;
   std::vector< sttp::transport::PhasorMetadataPtr > *arg4 = 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (std::vector< sttp::transport::DeviceMetadataPtr > *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< sttp::transport::DeviceMetadataPtr > const & type is null", 0);
@@ -18549,9 +18786,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_DefineMetadata__SWIG_1
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_DefineMetadata__SWIG_2(void * jarg1, void * jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   sttp::data::DataSetPtr *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   sttp::data::DataSetPtr tempnull2 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = jarg2 ? (sttp::data::DataSetPtr *)jarg2 : &tempnull2; 
   {
     try
@@ -18571,9 +18811,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_DefineMetadata__SWIG_2
 SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_PublisherInstance_GetMetadata(void * jarg1) {
   void * jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   sttp::data::DataSetPtr *result = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -18594,9 +18837,12 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_PublisherInstance_GetMetadata(void * j
 SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_PublisherInstance_GetFilteringMetadata(void * jarg1) {
   void * jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   sttp::data::DataSetPtr *result = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -18618,9 +18864,12 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_PublisherInstance_FilterMetadata(void 
   void * jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   std::string *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   std::vector< sttp::transport::MeasurementMetadataPtr > result;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   if (!jarg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
     return 0;
@@ -18649,9 +18898,12 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_Start__SWIG_0(
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   uint16_t arg2 ;
   bool arg3 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance > *smartarg1 = 0 ;
   bool result;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (uint16_t)jarg2; 
   arg3 = jarg3 ? true : false; 
   {
@@ -18675,9 +18927,12 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_Start__SWIG_1(
   unsigned int jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   uint16_t arg2 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance > *smartarg1 = 0 ;
   bool result;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (uint16_t)jarg2; 
   {
     try
@@ -18701,9 +18956,12 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_Start__SWIG_2(
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   std::string *arg2 = 0 ;
   uint16_t arg3 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance > *smartarg1 = 0 ;
   bool result;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   if (!jarg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
     return 0;
@@ -18730,8 +18988,11 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_Start__SWIG_2(
 
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_Stop(void * jarg1) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -18750,9 +19011,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_Stop(void * jarg1) {
 SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_IsStarted(void * jarg1) {
   unsigned int jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   bool result;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -18773,8 +19037,11 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_IsStarted(void
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_PublishMeasurements(void * jarg1, void * jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   std::vector< sttp::transport::MeasurementPtr > *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (std::vector< sttp::transport::MeasurementPtr > *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< sttp::transport::MeasurementPtr > const & type is null", 0);
@@ -18798,9 +19065,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_PublishMeasurements(vo
 SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_PublisherInstance_GetNodeID(void * jarg1) {
   void * jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   sttp::Guid *result = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -18821,8 +19091,11 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_PublisherInstance_GetNodeID(void * jar
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_SetNodeID(void * jarg1, void * jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   sttp::Guid *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (sttp::Guid *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "sttp::Guid const & type is null", 0);
@@ -18846,9 +19119,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_SetNodeID(void * jarg1
 SWIGEXPORT int SWIGSTDCALL CSharp_sttp_PublisherInstance_GetSecurityMode(void * jarg1) {
   int jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   sttp::transport::SecurityMode result;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -18869,8 +19145,11 @@ SWIGEXPORT int SWIGSTDCALL CSharp_sttp_PublisherInstance_GetSecurityMode(void * 
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_SetSecurityMode(void * jarg1, int jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   sttp::transport::SecurityMode arg2 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (sttp::transport::SecurityMode)jarg2; 
   {
     try
@@ -18890,9 +19169,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_SetSecurityMode(void *
 SWIGEXPORT int SWIGSTDCALL CSharp_sttp_PublisherInstance_GetMaximumAllowedConnections(void * jarg1) {
   int jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   int32_t result;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -18913,8 +19195,11 @@ SWIGEXPORT int SWIGSTDCALL CSharp_sttp_PublisherInstance_GetMaximumAllowedConnec
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_SetMaximumAllowedConnections(void * jarg1, int jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   int32_t arg2 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (int32_t)jarg2; 
   {
     try
@@ -18934,9 +19219,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_SetMaximumAllowedConne
 SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_IsMetadataRefreshAllowed(void * jarg1) {
   unsigned int jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   bool result;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -18957,8 +19245,11 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_IsMetadataRefr
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_SetMetadataRefreshAllowed(void * jarg1, unsigned int jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   bool arg2 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = jarg2 ? true : false; 
   {
     try
@@ -18978,9 +19269,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_SetMetadataRefreshAllo
 SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_IsNaNValueFilterAllowed(void * jarg1) {
   unsigned int jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   bool result;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -19001,8 +19295,11 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_IsNaNValueFilt
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_SetNaNValueFilterAllowed(void * jarg1, unsigned int jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   bool arg2 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = jarg2 ? true : false; 
   {
     try
@@ -19022,9 +19319,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_SetNaNValueFilterAllow
 SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_IsNaNValueFilterForced(void * jarg1) {
   unsigned int jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   bool result;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -19045,8 +19345,11 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_IsNaNValueFilt
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_SetNaNValueFilterForced(void * jarg1, unsigned int jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   bool arg2 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = jarg2 ? true : false; 
   {
     try
@@ -19066,9 +19369,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_SetNaNValueFilterForce
 SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_GetSupportsTemporalSubscriptions(void * jarg1) {
   unsigned int jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   bool result;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -19089,8 +19395,11 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_GetSupportsTem
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_SetSupportsTemporalSubscriptions(void * jarg1, unsigned int jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   bool arg2 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = jarg2 ? true : false; 
   {
     try
@@ -19110,9 +19419,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_SetSupportsTemporalSub
 SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_GetCipherKeyRotationPeriod(void * jarg1) {
   unsigned int jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   uint32_t result;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -19133,8 +19445,11 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_GetCipherKeyRo
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_SetCipherKeyRotationPeriod(void * jarg1, unsigned int jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   uint32_t arg2 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (uint32_t)jarg2; 
   {
     try
@@ -19154,9 +19469,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_SetCipherKeyRotationPe
 SWIGEXPORT unsigned short SWIGSTDCALL CSharp_sttp_PublisherInstance_GetPort(void * jarg1) {
   unsigned short jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   uint16_t result;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -19177,9 +19495,12 @@ SWIGEXPORT unsigned short SWIGSTDCALL CSharp_sttp_PublisherInstance_GetPort(void
 SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_IsIPv6(void * jarg1) {
   unsigned int jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   bool result;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -19200,9 +19521,12 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_IsIPv6(void * 
 SWIGEXPORT unsigned long long SWIGSTDCALL CSharp_sttp_PublisherInstance_GetTotalCommandChannelBytesSent(void * jarg1) {
   unsigned long long jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   uint64_t result;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -19223,9 +19547,12 @@ SWIGEXPORT unsigned long long SWIGSTDCALL CSharp_sttp_PublisherInstance_GetTotal
 SWIGEXPORT unsigned long long SWIGSTDCALL CSharp_sttp_PublisherInstance_GetTotalDataChannelBytesSent(void * jarg1) {
   unsigned long long jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   uint64_t result;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -19246,9 +19573,12 @@ SWIGEXPORT unsigned long long SWIGSTDCALL CSharp_sttp_PublisherInstance_GetTotal
 SWIGEXPORT unsigned long long SWIGSTDCALL CSharp_sttp_PublisherInstance_GetTotalMeasurementsSent(void * jarg1) {
   unsigned long long jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   uint64_t result;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
@@ -19270,9 +19600,12 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_TryGetSubscrib
   unsigned int jresult ;
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   std::vector< sttp::transport::SubscriberConnectionPtr > *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   bool result;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (std::vector< sttp::transport::SubscriberConnectionPtr > *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< sttp::transport::SubscriberConnectionPtr > & type is null", 0);
@@ -19298,9 +19631,12 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_TryGetSubscrib
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_DisconnectSubscriber__SWIG_0(void * jarg1, void * jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   sttp::transport::SubscriberConnectionPtr *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   sttp::transport::SubscriberConnectionPtr tempnull2 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = jarg2 ? (sttp::transport::SubscriberConnectionPtr *)jarg2 : &tempnull2; 
   {
     try
@@ -19320,8 +19656,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_DisconnectSubscriber__
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_DisconnectSubscriber__SWIG_1(void * jarg1, void * jarg2) {
   sttp::transport::PublisherInstance *arg1 = (sttp::transport::PublisherInstance *) 0 ;
   sttp::Guid *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::PublisherInstance const > *smartarg1 = 0 ;
   
-  arg1 = (sttp::transport::PublisherInstance *)jarg1; 
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::PublisherInstance > *)jarg1;
+  arg1 = (sttp::transport::PublisherInstance *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (sttp::Guid *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "sttp::Guid const & type is null", 0);
