@@ -10,21 +10,21 @@
 
 namespace sttp {
 
-public class MeasurementCollection : global::System.IDisposable, global::System.Collections.IEnumerable, global::System.Collections.Generic.IEnumerable<Measurement>
+public class ExtendedMeasurementCollection : global::System.IDisposable, global::System.Collections.IEnumerable, global::System.Collections.Generic.IEnumerable<ExtendedMeasurement>
  {
   private global::System.Runtime.InteropServices.HandleRef swigCPtr;
   protected bool swigCMemOwn;
 
-  internal MeasurementCollection(global::System.IntPtr cPtr, bool cMemoryOwn) {
+  internal ExtendedMeasurementCollection(global::System.IntPtr cPtr, bool cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
   }
 
-  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(MeasurementCollection obj) {
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(ExtendedMeasurementCollection obj) {
     return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
   }
 
-  ~MeasurementCollection() {
+  ~ExtendedMeasurementCollection() {
     Dispose(false);
   }
 
@@ -38,25 +38,25 @@ public class MeasurementCollection : global::System.IDisposable, global::System.
       if (swigCPtr.Handle != global::System.IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          CommonPINVOKE.delete_MeasurementCollection(swigCPtr);
+          CommonPINVOKE.delete_ExtendedMeasurementCollection(swigCPtr);
         }
         swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
       }
     }
   }
 
-  public MeasurementCollection(global::System.Collections.IEnumerable c) : this() {
+  public ExtendedMeasurementCollection(global::System.Collections.IEnumerable c) : this() {
     if (c == null)
       throw new global::System.ArgumentNullException("c");
-    foreach (Measurement element in c) {
+    foreach (ExtendedMeasurement element in c) {
       this.Add(element);
     }
   }
 
-  public MeasurementCollection(global::System.Collections.Generic.IEnumerable<Measurement> c) : this() {
+  public ExtendedMeasurementCollection(global::System.Collections.Generic.IEnumerable<ExtendedMeasurement> c) : this() {
     if (c == null)
       throw new global::System.ArgumentNullException("c");
-    foreach (Measurement element in c) {
+    foreach (ExtendedMeasurement element in c) {
       this.Add(element);
     }
   }
@@ -73,7 +73,7 @@ public class MeasurementCollection : global::System.IDisposable, global::System.
     }
   }
 
-  public Measurement this[int index]  {
+  public ExtendedMeasurement this[int index]  {
     get {
       return getitem(index);
     }
@@ -105,17 +105,17 @@ public class MeasurementCollection : global::System.IDisposable, global::System.
     }
   }
 
-  public void CopyTo(Measurement[] array)
+  public void CopyTo(ExtendedMeasurement[] array)
   {
     CopyTo(0, array, 0, this.Count);
   }
 
-  public void CopyTo(Measurement[] array, int arrayIndex)
+  public void CopyTo(ExtendedMeasurement[] array, int arrayIndex)
   {
     CopyTo(0, array, arrayIndex, this.Count);
   }
 
-  public void CopyTo(int index, Measurement[] array, int arrayIndex, int count)
+  public void CopyTo(int index, ExtendedMeasurement[] array, int arrayIndex, int count)
   {
     if (array == null)
       throw new global::System.ArgumentNullException("array");
@@ -133,22 +133,22 @@ public class MeasurementCollection : global::System.IDisposable, global::System.
       array.SetValue(getitemcopy(index+i), arrayIndex+i);
   }
 
-  public Measurement[] ToArray() {
-    Measurement[] array = new Measurement[this.Count];
+  public ExtendedMeasurement[] ToArray() {
+    ExtendedMeasurement[] array = new ExtendedMeasurement[this.Count];
     this.CopyTo(array);
     return array;
   }
 
-  global::System.Collections.Generic.IEnumerator<Measurement> global::System.Collections.Generic.IEnumerable<Measurement>.GetEnumerator() {
-    return new MeasurementCollectionEnumerator(this);
+  global::System.Collections.Generic.IEnumerator<ExtendedMeasurement> global::System.Collections.Generic.IEnumerable<ExtendedMeasurement>.GetEnumerator() {
+    return new ExtendedMeasurementCollectionEnumerator(this);
   }
 
   global::System.Collections.IEnumerator global::System.Collections.IEnumerable.GetEnumerator() {
-    return new MeasurementCollectionEnumerator(this);
+    return new ExtendedMeasurementCollectionEnumerator(this);
   }
 
-  public MeasurementCollectionEnumerator GetEnumerator() {
-    return new MeasurementCollectionEnumerator(this);
+  public ExtendedMeasurementCollectionEnumerator GetEnumerator() {
+    return new ExtendedMeasurementCollectionEnumerator(this);
   }
 
   // Type-safe enumerator
@@ -156,15 +156,15 @@ public class MeasurementCollection : global::System.IDisposable, global::System.
   /// whenever the collection is modified. This has been done for changes in the size of the
   /// collection but not when one of the elements of the collection is modified as it is a bit
   /// tricky to detect unmanaged code that modifies the collection under our feet.
-  public sealed class MeasurementCollectionEnumerator : global::System.Collections.IEnumerator
-    , global::System.Collections.Generic.IEnumerator<Measurement>
+  public sealed class ExtendedMeasurementCollectionEnumerator : global::System.Collections.IEnumerator
+    , global::System.Collections.Generic.IEnumerator<ExtendedMeasurement>
   {
-    private MeasurementCollection collectionRef;
+    private ExtendedMeasurementCollection collectionRef;
     private int currentIndex;
     private object currentObject;
     private int currentSize;
 
-    public MeasurementCollectionEnumerator(MeasurementCollection collection) {
+    public ExtendedMeasurementCollectionEnumerator(ExtendedMeasurementCollection collection) {
       collectionRef = collection;
       currentIndex = -1;
       currentObject = null;
@@ -172,7 +172,7 @@ public class MeasurementCollection : global::System.IDisposable, global::System.
     }
 
     // Type-safe iterator Current
-    public Measurement Current {
+    public ExtendedMeasurement Current {
       get {
         if (currentIndex == -1)
           throw new global::System.InvalidOperationException("Enumeration not started.");
@@ -180,7 +180,7 @@ public class MeasurementCollection : global::System.IDisposable, global::System.
           throw new global::System.InvalidOperationException("Enumeration finished.");
         if (currentObject == null)
           throw new global::System.InvalidOperationException("Collection modified.");
-        return (Measurement)currentObject;
+        return (ExtendedMeasurement)currentObject;
       }
     }
 
@@ -218,114 +218,114 @@ public class MeasurementCollection : global::System.IDisposable, global::System.
   }
 
   public void Clear() {
-    CommonPINVOKE.MeasurementCollection_Clear(swigCPtr);
+    CommonPINVOKE.ExtendedMeasurementCollection_Clear(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public void Add(Measurement x) {
-    CommonPINVOKE.MeasurementCollection_Add(swigCPtr, Measurement.getCPtr(x));
+  public void Add(ExtendedMeasurement x) {
+    CommonPINVOKE.ExtendedMeasurementCollection_Add(swigCPtr, ExtendedMeasurement.getCPtr(x));
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   private uint size() {
-    uint ret = CommonPINVOKE.MeasurementCollection_size(swigCPtr);
+    uint ret = CommonPINVOKE.ExtendedMeasurementCollection_size(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
   private uint capacity() {
-    uint ret = CommonPINVOKE.MeasurementCollection_capacity(swigCPtr);
+    uint ret = CommonPINVOKE.ExtendedMeasurementCollection_capacity(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
   private void reserve(uint n) {
-    CommonPINVOKE.MeasurementCollection_reserve(swigCPtr, n);
+    CommonPINVOKE.ExtendedMeasurementCollection_reserve(swigCPtr, n);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public MeasurementCollection() : this(CommonPINVOKE.new_MeasurementCollection__SWIG_0(), true) {
+  public ExtendedMeasurementCollection() : this(CommonPINVOKE.new_ExtendedMeasurementCollection__SWIG_0(), true) {
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public MeasurementCollection(MeasurementCollection other) : this(CommonPINVOKE.new_MeasurementCollection__SWIG_1(MeasurementCollection.getCPtr(other)), true) {
+  public ExtendedMeasurementCollection(ExtendedMeasurementCollection other) : this(CommonPINVOKE.new_ExtendedMeasurementCollection__SWIG_1(ExtendedMeasurementCollection.getCPtr(other)), true) {
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public MeasurementCollection(int capacity) : this(CommonPINVOKE.new_MeasurementCollection__SWIG_2(capacity), true) {
+  public ExtendedMeasurementCollection(int capacity) : this(CommonPINVOKE.new_ExtendedMeasurementCollection__SWIG_2(capacity), true) {
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  private Measurement getitemcopy(int index) {
-    global::System.IntPtr cPtr = CommonPINVOKE.MeasurementCollection_getitemcopy(swigCPtr, index);
-    Measurement ret = (cPtr == global::System.IntPtr.Zero) ? null : new Measurement(cPtr, true);
-    if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-    return ret;
-  }
-
-  private Measurement getitem(int index) {
-    global::System.IntPtr cPtr = CommonPINVOKE.MeasurementCollection_getitem(swigCPtr, index);
-    Measurement ret = (cPtr == global::System.IntPtr.Zero) ? null : new Measurement(cPtr, true);
+  private ExtendedMeasurement getitemcopy(int index) {
+    global::System.IntPtr cPtr = CommonPINVOKE.ExtendedMeasurementCollection_getitemcopy(swigCPtr, index);
+    ExtendedMeasurement ret = (cPtr == global::System.IntPtr.Zero) ? null : new ExtendedMeasurement(cPtr, true);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
-  private void setitem(int index, Measurement val) {
-    CommonPINVOKE.MeasurementCollection_setitem(swigCPtr, index, Measurement.getCPtr(val));
-    if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-  }
-
-  public void AddRange(MeasurementCollection values) {
-    CommonPINVOKE.MeasurementCollection_AddRange(swigCPtr, MeasurementCollection.getCPtr(values));
-    if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-  }
-
-  public MeasurementCollection GetRange(int index, int count) {
-    global::System.IntPtr cPtr = CommonPINVOKE.MeasurementCollection_GetRange(swigCPtr, index, count);
-    MeasurementCollection ret = (cPtr == global::System.IntPtr.Zero) ? null : new MeasurementCollection(cPtr, true);
+  private ExtendedMeasurement getitem(int index) {
+    global::System.IntPtr cPtr = CommonPINVOKE.ExtendedMeasurementCollection_getitem(swigCPtr, index);
+    ExtendedMeasurement ret = (cPtr == global::System.IntPtr.Zero) ? null : new ExtendedMeasurement(cPtr, true);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
-  public void Insert(int index, Measurement x) {
-    CommonPINVOKE.MeasurementCollection_Insert(swigCPtr, index, Measurement.getCPtr(x));
+  private void setitem(int index, ExtendedMeasurement val) {
+    CommonPINVOKE.ExtendedMeasurementCollection_setitem(swigCPtr, index, ExtendedMeasurement.getCPtr(val));
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public void InsertRange(int index, MeasurementCollection values) {
-    CommonPINVOKE.MeasurementCollection_InsertRange(swigCPtr, index, MeasurementCollection.getCPtr(values));
+  public void AddRange(ExtendedMeasurementCollection values) {
+    CommonPINVOKE.ExtendedMeasurementCollection_AddRange(swigCPtr, ExtendedMeasurementCollection.getCPtr(values));
+    if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public ExtendedMeasurementCollection GetRange(int index, int count) {
+    global::System.IntPtr cPtr = CommonPINVOKE.ExtendedMeasurementCollection_GetRange(swigCPtr, index, count);
+    ExtendedMeasurementCollection ret = (cPtr == global::System.IntPtr.Zero) ? null : new ExtendedMeasurementCollection(cPtr, true);
+    if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public void Insert(int index, ExtendedMeasurement x) {
+    CommonPINVOKE.ExtendedMeasurementCollection_Insert(swigCPtr, index, ExtendedMeasurement.getCPtr(x));
+    if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public void InsertRange(int index, ExtendedMeasurementCollection values) {
+    CommonPINVOKE.ExtendedMeasurementCollection_InsertRange(swigCPtr, index, ExtendedMeasurementCollection.getCPtr(values));
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   public void RemoveAt(int index) {
-    CommonPINVOKE.MeasurementCollection_RemoveAt(swigCPtr, index);
+    CommonPINVOKE.ExtendedMeasurementCollection_RemoveAt(swigCPtr, index);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   public void RemoveRange(int index, int count) {
-    CommonPINVOKE.MeasurementCollection_RemoveRange(swigCPtr, index, count);
+    CommonPINVOKE.ExtendedMeasurementCollection_RemoveRange(swigCPtr, index, count);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public static MeasurementCollection Repeat(Measurement value, int count) {
-    global::System.IntPtr cPtr = CommonPINVOKE.MeasurementCollection_Repeat(Measurement.getCPtr(value), count);
-    MeasurementCollection ret = (cPtr == global::System.IntPtr.Zero) ? null : new MeasurementCollection(cPtr, true);
+  public static ExtendedMeasurementCollection Repeat(ExtendedMeasurement value, int count) {
+    global::System.IntPtr cPtr = CommonPINVOKE.ExtendedMeasurementCollection_Repeat(ExtendedMeasurement.getCPtr(value), count);
+    ExtendedMeasurementCollection ret = (cPtr == global::System.IntPtr.Zero) ? null : new ExtendedMeasurementCollection(cPtr, true);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
   public void Reverse() {
-    CommonPINVOKE.MeasurementCollection_Reverse__SWIG_0(swigCPtr);
+    CommonPINVOKE.ExtendedMeasurementCollection_Reverse__SWIG_0(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   public void Reverse(int index, int count) {
-    CommonPINVOKE.MeasurementCollection_Reverse__SWIG_1(swigCPtr, index, count);
+    CommonPINVOKE.ExtendedMeasurementCollection_Reverse__SWIG_1(swigCPtr, index, count);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public void SetRange(int index, MeasurementCollection values) {
-    CommonPINVOKE.MeasurementCollection_SetRange(swigCPtr, index, MeasurementCollection.getCPtr(values));
+  public void SetRange(int index, ExtendedMeasurementCollection values) {
+    CommonPINVOKE.ExtendedMeasurementCollection_SetRange(swigCPtr, index, ExtendedMeasurementCollection.getCPtr(values));
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 

@@ -255,8 +255,8 @@ public class SubscriberConnection : global::System.IDisposable {
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public void PublishMeasurements(MeasurementCollection measurements) {
-    CommonPINVOKE.SubscriberConnection_PublishMeasurements(swigCPtr, MeasurementCollection.getCPtr(measurements));
+  public void PublishMeasurements(ExtendedMeasurementCollection measurements) {
+    CommonPINVOKE.SubscriberConnection_PublishMeasurements(swigCPtr, ExtendedMeasurementCollection.getCPtr(measurements));
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 

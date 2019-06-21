@@ -10,7 +10,40 @@
 
 namespace sttp {
 
-public class Common {
+
+    [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential, CharSet = System.Runtime.InteropServices.CharSet.Ansi)]
+    public struct Measurement
+    {
+        // Identification number used in human-readable measurement key.
+        public ulong ID;
+
+        // Source used in human-readable measurement key.
+        public string Source;
+
+        // Measurement's globally unique identifier.
+        public System.Guid SignalID;
+
+        // Human-readable tag name to help describe the measurement.
+        public string Tag;
+
+        // Instantaneous value
+        // of the measurement.
+        public double Value;
+
+        // Additive value modifier.
+        public double Adder;
+
+        // Multiplicative value modifier.
+        public double Multiplier;
+
+        // The time, in ticks, that this measurement was taken.
+        public long Timestamp;
+
+        // Flags indicating the state of the measurement as reported by the device that took it.
+        public MeasurementStateFlags Flags;
+    };
+
+  public class Common {
   internal unsafe static void GetGuidBytes(guid_t value, byte[] data) {
     fixed ( byte* swig_ptrTo_data = data ) {
     {

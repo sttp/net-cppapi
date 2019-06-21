@@ -676,71 +676,71 @@ class CommonPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_delete_DataTableCollection")]
   public static extern void delete_DataTableCollection(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementCollection_Clear")]
-  public static extern void MeasurementCollection_Clear(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurementCollection_Clear")]
+  public static extern void ExtendedMeasurementCollection_Clear(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementCollection_Add")]
-  public static extern void MeasurementCollection_Add(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurementCollection_Add")]
+  public static extern void ExtendedMeasurementCollection_Add(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementCollection_size")]
-  public static extern uint MeasurementCollection_size(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurementCollection_size")]
+  public static extern uint ExtendedMeasurementCollection_size(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementCollection_capacity")]
-  public static extern uint MeasurementCollection_capacity(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurementCollection_capacity")]
+  public static extern uint ExtendedMeasurementCollection_capacity(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementCollection_reserve")]
-  public static extern void MeasurementCollection_reserve(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurementCollection_reserve")]
+  public static extern void ExtendedMeasurementCollection_reserve(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_new_MeasurementCollection__SWIG_0")]
-  public static extern global::System.IntPtr new_MeasurementCollection__SWIG_0();
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_new_ExtendedMeasurementCollection__SWIG_0")]
+  public static extern global::System.IntPtr new_ExtendedMeasurementCollection__SWIG_0();
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_new_MeasurementCollection__SWIG_1")]
-  public static extern global::System.IntPtr new_MeasurementCollection__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_new_ExtendedMeasurementCollection__SWIG_1")]
+  public static extern global::System.IntPtr new_ExtendedMeasurementCollection__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_new_MeasurementCollection__SWIG_2")]
-  public static extern global::System.IntPtr new_MeasurementCollection__SWIG_2(int jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_new_ExtendedMeasurementCollection__SWIG_2")]
+  public static extern global::System.IntPtr new_ExtendedMeasurementCollection__SWIG_2(int jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementCollection_getitemcopy")]
-  public static extern global::System.IntPtr MeasurementCollection_getitemcopy(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurementCollection_getitemcopy")]
+  public static extern global::System.IntPtr ExtendedMeasurementCollection_getitemcopy(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementCollection_getitem")]
-  public static extern global::System.IntPtr MeasurementCollection_getitem(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurementCollection_getitem")]
+  public static extern global::System.IntPtr ExtendedMeasurementCollection_getitem(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementCollection_setitem")]
-  public static extern void MeasurementCollection_setitem(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurementCollection_setitem")]
+  public static extern void ExtendedMeasurementCollection_setitem(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementCollection_AddRange")]
-  public static extern void MeasurementCollection_AddRange(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurementCollection_AddRange")]
+  public static extern void ExtendedMeasurementCollection_AddRange(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementCollection_GetRange")]
-  public static extern global::System.IntPtr MeasurementCollection_GetRange(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, int jarg3);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurementCollection_GetRange")]
+  public static extern global::System.IntPtr ExtendedMeasurementCollection_GetRange(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, int jarg3);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementCollection_Insert")]
-  public static extern void MeasurementCollection_Insert(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurementCollection_Insert")]
+  public static extern void ExtendedMeasurementCollection_Insert(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementCollection_InsertRange")]
-  public static extern void MeasurementCollection_InsertRange(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurementCollection_InsertRange")]
+  public static extern void ExtendedMeasurementCollection_InsertRange(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementCollection_RemoveAt")]
-  public static extern void MeasurementCollection_RemoveAt(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurementCollection_RemoveAt")]
+  public static extern void ExtendedMeasurementCollection_RemoveAt(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementCollection_RemoveRange")]
-  public static extern void MeasurementCollection_RemoveRange(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, int jarg3);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurementCollection_RemoveRange")]
+  public static extern void ExtendedMeasurementCollection_RemoveRange(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, int jarg3);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementCollection_Repeat")]
-  public static extern global::System.IntPtr MeasurementCollection_Repeat(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurementCollection_Repeat")]
+  public static extern global::System.IntPtr ExtendedMeasurementCollection_Repeat(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementCollection_Reverse__SWIG_0")]
-  public static extern void MeasurementCollection_Reverse__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurementCollection_Reverse__SWIG_0")]
+  public static extern void ExtendedMeasurementCollection_Reverse__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementCollection_Reverse__SWIG_1")]
-  public static extern void MeasurementCollection_Reverse__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, int jarg3);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurementCollection_Reverse__SWIG_1")]
+  public static extern void ExtendedMeasurementCollection_Reverse__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, int jarg3);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementCollection_SetRange")]
-  public static extern void MeasurementCollection_SetRange(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurementCollection_SetRange")]
+  public static extern void ExtendedMeasurementCollection_SetRange(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_delete_MeasurementCollection")]
-  public static extern void delete_MeasurementCollection(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_delete_ExtendedMeasurementCollection")]
+  public static extern void delete_ExtendedMeasurementCollection(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_MeasurementMetadataCollection_Clear")]
   public static extern void MeasurementMetadataCollection_Clear(global::System.Runtime.InteropServices.HandleRef jarg1);
@@ -1495,71 +1495,80 @@ class CommonPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_DataColumn__Index")]
   public static extern int DataColumn__Index(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_ID_set")]
-  public static extern void Measurement_ID_set(global::System.Runtime.InteropServices.HandleRef jarg1, ulong jarg2);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SimpleMeasurement_ID_set")]
+  public static extern void SimpleMeasurement_ID_set(global::System.Runtime.InteropServices.HandleRef jarg1, ulong jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_ID_get")]
-  public static extern ulong Measurement_ID_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SimpleMeasurement_ID_get")]
+  public static extern ulong SimpleMeasurement_ID_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_Source_set")]
-  public static extern void Measurement_Source_set(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SimpleMeasurement_Source_set")]
+  public static extern void SimpleMeasurement_Source_set(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_Source_get")]
-  public static extern string Measurement_Source_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SimpleMeasurement_Source_get")]
+  public static extern string SimpleMeasurement_Source_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_SignalID_set")]
-  public static extern void Measurement_SignalID_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SimpleMeasurement_SignalID_set")]
+  public static extern void SimpleMeasurement_SignalID_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_SignalID_get")]
-  public static extern global::System.IntPtr Measurement_SignalID_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SimpleMeasurement_SignalID_get")]
+  public static extern global::System.IntPtr SimpleMeasurement_SignalID_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_Tag_set")]
-  public static extern void Measurement_Tag_set(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SimpleMeasurement_Tag_set")]
+  public static extern void SimpleMeasurement_Tag_set(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_Tag_get")]
-  public static extern string Measurement_Tag_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SimpleMeasurement_Tag_get")]
+  public static extern string SimpleMeasurement_Tag_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_Value_set")]
-  public static extern void Measurement_Value_set(global::System.Runtime.InteropServices.HandleRef jarg1, double jarg2);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SimpleMeasurement_Value_set")]
+  public static extern void SimpleMeasurement_Value_set(global::System.Runtime.InteropServices.HandleRef jarg1, double jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_Value_get")]
-  public static extern double Measurement_Value_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SimpleMeasurement_Value_get")]
+  public static extern double SimpleMeasurement_Value_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_Adder_set")]
-  public static extern void Measurement_Adder_set(global::System.Runtime.InteropServices.HandleRef jarg1, double jarg2);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SimpleMeasurement_Adder_set")]
+  public static extern void SimpleMeasurement_Adder_set(global::System.Runtime.InteropServices.HandleRef jarg1, double jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_Adder_get")]
-  public static extern double Measurement_Adder_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SimpleMeasurement_Adder_get")]
+  public static extern double SimpleMeasurement_Adder_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_Multiplier_set")]
-  public static extern void Measurement_Multiplier_set(global::System.Runtime.InteropServices.HandleRef jarg1, double jarg2);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SimpleMeasurement_Multiplier_set")]
+  public static extern void SimpleMeasurement_Multiplier_set(global::System.Runtime.InteropServices.HandleRef jarg1, double jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_Multiplier_get")]
-  public static extern double Measurement_Multiplier_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SimpleMeasurement_Multiplier_get")]
+  public static extern double SimpleMeasurement_Multiplier_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_Timestamp_set")]
-  public static extern void Measurement_Timestamp_set(global::System.Runtime.InteropServices.HandleRef jarg1, long jarg2);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SimpleMeasurement_Timestamp_set")]
+  public static extern void SimpleMeasurement_Timestamp_set(global::System.Runtime.InteropServices.HandleRef jarg1, long jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_Timestamp_get")]
-  public static extern long Measurement_Timestamp_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SimpleMeasurement_Timestamp_get")]
+  public static extern long SimpleMeasurement_Timestamp_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_Flags_set")]
-  public static extern void Measurement_Flags_set(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SimpleMeasurement_Flags_set")]
+  public static extern void SimpleMeasurement_Flags_set(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_Flags_get")]
-  public static extern int Measurement_Flags_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SimpleMeasurement_Flags_get")]
+  public static extern int SimpleMeasurement_Flags_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_new_Measurement")]
-  public static extern global::System.IntPtr new_Measurement();
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_new_SimpleMeasurement")]
+  public static extern global::System.IntPtr new_SimpleMeasurement();
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_AdjustedValue")]
-  public static extern double Measurement_AdjustedValue(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_delete_SimpleMeasurement")]
+  public static extern void delete_SimpleMeasurement(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_Measurement_GetDateTime")]
-  public static extern global::System.IntPtr Measurement_GetDateTime(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_new_ExtendedMeasurement__SWIG_0")]
+  public static extern global::System.IntPtr new_ExtendedMeasurement__SWIG_0();
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_delete_Measurement")]
-  public static extern void delete_Measurement(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_new_ExtendedMeasurement__SWIG_1")]
+  public static extern global::System.IntPtr new_ExtendedMeasurement__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurement_AdjustedValue")]
+  public static extern double ExtendedMeasurement_AdjustedValue(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurement_GetDateTime")]
+  public static extern global::System.IntPtr ExtendedMeasurement_GetDateTime(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_delete_ExtendedMeasurement")]
+  public static extern void delete_ExtendedMeasurement(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_GetSignalTypeAcronym__SWIG_0")]
   public static extern string GetSignalTypeAcronym__SWIG_0(int jarg1, char jarg2);
@@ -2029,38 +2038,80 @@ class CommonPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_SetupSubscriberConnector")]
   public static extern void SubscriberInstance_SetupSubscriberConnector(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_SetupSubscriberConnectorSwigExplicitSubscriberInstance")]
+  public static extern void SubscriberInstance_SetupSubscriberConnectorSwigExplicitSubscriberInstance(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_CreateSubscriptionInfo")]
   public static extern global::System.IntPtr SubscriberInstance_CreateSubscriptionInfo(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_CreateSubscriptionInfoSwigExplicitSubscriberInstance")]
+  public static extern global::System.IntPtr SubscriberInstance_CreateSubscriptionInfoSwigExplicitSubscriberInstance(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_StatusMessage")]
   public static extern void SubscriberInstance_StatusMessage(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2);
 
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_StatusMessageSwigExplicitSubscriberInstance")]
+  public static extern void SubscriberInstance_StatusMessageSwigExplicitSubscriberInstance(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2);
+
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_ErrorMessage")]
   public static extern void SubscriberInstance_ErrorMessage(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_ErrorMessageSwigExplicitSubscriberInstance")]
+  public static extern void SubscriberInstance_ErrorMessageSwigExplicitSubscriberInstance(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_DataStartTime")]
   public static extern void SubscriberInstance_DataStartTime(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_DataStartTimeSwigExplicitSubscriberInstance")]
+  public static extern void SubscriberInstance_DataStartTimeSwigExplicitSubscriberInstance(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_ReceivedMetadata")]
   public static extern void SubscriberInstance_ReceivedMetadata(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_ReceivedMetadataSwigExplicitSubscriberInstance")]
+  public static extern void SubscriberInstance_ReceivedMetadataSwigExplicitSubscriberInstance(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_ParsedMetadata")]
   public static extern void SubscriberInstance_ParsedMetadata(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_ReceivedNewMeasurements")]
-  public static extern void SubscriberInstance_ReceivedNewMeasurements(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_ParsedMetadataSwigExplicitSubscriberInstance")]
+  public static extern void SubscriberInstance_ParsedMetadataSwigExplicitSubscriberInstance(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_ReceivedNewMeasurements__SWIG_0")]
+  public static extern void SubscriberInstance_ReceivedNewMeasurements__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_ReceivedNewMeasurementsSwigExplicitSubscriberInstance__SWIG_0")]
+  public static extern void SubscriberInstance_ReceivedNewMeasurementsSwigExplicitSubscriberInstance__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_ReceivedNewMeasurements__SWIG_1")]
+  public static extern void SubscriberInstance_ReceivedNewMeasurements__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, int jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_ReceivedNewMeasurementsSwigExplicitSubscriberInstance__SWIG_1")]
+  public static extern void SubscriberInstance_ReceivedNewMeasurementsSwigExplicitSubscriberInstance__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, int jarg3);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_ConfigurationChanged")]
   public static extern void SubscriberInstance_ConfigurationChanged(global::System.Runtime.InteropServices.HandleRef jarg1);
 
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_ConfigurationChangedSwigExplicitSubscriberInstance")]
+  public static extern void SubscriberInstance_ConfigurationChangedSwigExplicitSubscriberInstance(global::System.Runtime.InteropServices.HandleRef jarg1);
+
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_HistoricalReadComplete")]
   public static extern void SubscriberInstance_HistoricalReadComplete(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_HistoricalReadCompleteSwigExplicitSubscriberInstance")]
+  public static extern void SubscriberInstance_HistoricalReadCompleteSwigExplicitSubscriberInstance(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_ConnectionEstablished")]
   public static extern void SubscriberInstance_ConnectionEstablished(global::System.Runtime.InteropServices.HandleRef jarg1);
 
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_ConnectionEstablishedSwigExplicitSubscriberInstance")]
+  public static extern void SubscriberInstance_ConnectionEstablishedSwigExplicitSubscriberInstance(global::System.Runtime.InteropServices.HandleRef jarg1);
+
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_ConnectionTerminated")]
   public static extern void SubscriberInstance_ConnectionTerminated(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_ConnectionTerminatedSwigExplicitSubscriberInstance")]
+  public static extern void SubscriberInstance_ConnectionTerminatedSwigExplicitSubscriberInstance(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_new_SubscriberInstance")]
   public static extern global::System.IntPtr new_SubscriberInstance();
@@ -2193,6 +2244,9 @@ class CommonPINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_TryGetMeasurementMetdataFromConfigurationFrame")]
   public static extern bool SubscriberInstance_TryGetMeasurementMetdataFromConfigurationFrame(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SubscriberInstance_director_connect")]
+  public static extern void SubscriberInstance_director_connect(global::System.Runtime.InteropServices.HandleRef jarg1, SubscriberInstance.SwigDelegateSubscriberInstance_0 delegate0, SubscriberInstance.SwigDelegateSubscriberInstance_1 delegate1, SubscriberInstance.SwigDelegateSubscriberInstance_2 delegate2, SubscriberInstance.SwigDelegateSubscriberInstance_3 delegate3, SubscriberInstance.SwigDelegateSubscriberInstance_4 delegate4, SubscriberInstance.SwigDelegateSubscriberInstance_5 delegate5, SubscriberInstance.SwigDelegateSubscriberInstance_6 delegate6, SubscriberInstance.SwigDelegateSubscriberInstance_7 delegate7, SubscriberInstance.SwigDelegateSubscriberInstance_8 delegate8, SubscriberInstance.SwigDelegateSubscriberInstance_9 delegate9, SubscriberInstance.SwigDelegateSubscriberInstance_10 delegate10, SubscriberInstance.SwigDelegateSubscriberInstance_11 delegate11, SubscriberInstance.SwigDelegateSubscriberInstance_12 delegate12);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_SignalIndexCache_Contains")]
   public static extern bool SignalIndexCache_Contains(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
@@ -2341,26 +2395,50 @@ class CommonPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_StatusMessage")]
   public static extern void PublisherInstance_StatusMessage(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2);
 
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_StatusMessageSwigExplicitPublisherInstance")]
+  public static extern void PublisherInstance_StatusMessageSwigExplicitPublisherInstance(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2);
+
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_ErrorMessage")]
   public static extern void PublisherInstance_ErrorMessage(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_ErrorMessageSwigExplicitPublisherInstance")]
+  public static extern void PublisherInstance_ErrorMessageSwigExplicitPublisherInstance(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_ClientConnected")]
   public static extern void PublisherInstance_ClientConnected(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_ClientConnectedSwigExplicitPublisherInstance")]
+  public static extern void PublisherInstance_ClientConnectedSwigExplicitPublisherInstance(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_ClientDisconnected")]
   public static extern void PublisherInstance_ClientDisconnected(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_ClientDisconnectedSwigExplicitPublisherInstance")]
+  public static extern void PublisherInstance_ClientDisconnectedSwigExplicitPublisherInstance(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_ProcessingIntervalChangeRequested")]
   public static extern void PublisherInstance_ProcessingIntervalChangeRequested(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_ProcessingIntervalChangeRequestedSwigExplicitPublisherInstance")]
+  public static extern void PublisherInstance_ProcessingIntervalChangeRequestedSwigExplicitPublisherInstance(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_TemporalSubscriptionRequested")]
   public static extern void PublisherInstance_TemporalSubscriptionRequested(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_TemporalSubscriptionRequestedSwigExplicitPublisherInstance")]
+  public static extern void PublisherInstance_TemporalSubscriptionRequestedSwigExplicitPublisherInstance(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_TemporalSubscriptionCanceled")]
   public static extern void PublisherInstance_TemporalSubscriptionCanceled(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_TemporalSubscriptionCanceledSwigExplicitPublisherInstance")]
+  public static extern void PublisherInstance_TemporalSubscriptionCanceledSwigExplicitPublisherInstance(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_HandleUserCommand")]
   public static extern void PublisherInstance_HandleUserCommand(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, uint jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_HandleUserCommandSwigExplicitPublisherInstance")]
+  public static extern void PublisherInstance_HandleUserCommandSwigExplicitPublisherInstance(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, uint jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_new_PublisherInstance")]
   public static extern global::System.IntPtr new_PublisherInstance();
@@ -2389,20 +2467,35 @@ class CommonPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_Start__SWIG_0")]
   public static extern bool PublisherInstance_Start__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, ushort jarg2, bool jarg3);
 
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_StartSwigExplicitPublisherInstance__SWIG_0")]
+  public static extern bool PublisherInstance_StartSwigExplicitPublisherInstance__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, ushort jarg2, bool jarg3);
+
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_Start__SWIG_1")]
   public static extern bool PublisherInstance_Start__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, ushort jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_StartSwigExplicitPublisherInstance__SWIG_1")]
+  public static extern bool PublisherInstance_StartSwigExplicitPublisherInstance__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, ushort jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_Start__SWIG_2")]
   public static extern bool PublisherInstance_Start__SWIG_2(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2, ushort jarg3);
 
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_StartSwigExplicitPublisherInstance__SWIG_2")]
+  public static extern bool PublisherInstance_StartSwigExplicitPublisherInstance__SWIG_2(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2, ushort jarg3);
+
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_Stop")]
   public static extern void PublisherInstance_Stop(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_StopSwigExplicitPublisherInstance")]
+  public static extern void PublisherInstance_StopSwigExplicitPublisherInstance(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_IsStarted")]
   public static extern bool PublisherInstance_IsStarted(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_PublishMeasurements")]
-  public static extern void PublisherInstance_PublishMeasurements(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_PublishMeasurements__SWIG_0")]
+  public static extern void PublisherInstance_PublishMeasurements__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_PublishMeasurements__SWIG_1")]
+  public static extern void PublisherInstance_PublishMeasurements__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, int jarg3);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_GetNodeID")]
   public static extern global::System.IntPtr PublisherInstance_GetNodeID(global::System.Runtime.InteropServices.HandleRef jarg1);
@@ -2475,6 +2568,12 @@ class CommonPINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_DisconnectSubscriber__SWIG_1")]
   public static extern void PublisherInstance_DisconnectSubscriber__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_director_connect")]
+  public static extern void PublisherInstance_director_connect(global::System.Runtime.InteropServices.HandleRef jarg1, PublisherInstance.SwigDelegatePublisherInstance_0 delegate0, PublisherInstance.SwigDelegatePublisherInstance_1 delegate1, PublisherInstance.SwigDelegatePublisherInstance_2 delegate2, PublisherInstance.SwigDelegatePublisherInstance_3 delegate3, PublisherInstance.SwigDelegatePublisherInstance_4 delegate4, PublisherInstance.SwigDelegatePublisherInstance_5 delegate5, PublisherInstance.SwigDelegatePublisherInstance_6 delegate6, PublisherInstance.SwigDelegatePublisherInstance_7 delegate7, PublisherInstance.SwigDelegatePublisherInstance_8 delegate8, PublisherInstance.SwigDelegatePublisherInstance_9 delegate9, PublisherInstance.SwigDelegatePublisherInstance_10 delegate10, PublisherInstance.SwigDelegatePublisherInstance_11 delegate11);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_ExtendedMeasurement_SWIGSmartPtrUpcast")]
+  public static extern global::System.IntPtr ExtendedMeasurement_SWIGSmartPtrUpcast(global::System.IntPtr jarg1);
 }
 
 }

@@ -1,4 +1,4 @@
-%module Common
+%module(directors="1") Common
 %include "stdint.i" 
 %include "std_string.i"
 %include "std_map.i"
@@ -81,6 +81,7 @@ namespace sttp
 
     namespace transport
     {
+        struct SimpleMeasurement;
         struct Measurement;
         struct MeasurementMetadata;
         struct PhasorMetadata;
@@ -483,7 +484,7 @@ namespace std
     %template(ByteBuffer) vector<unsigned char>;
     %template(StringCollection) vector<string>;
     %template(DataTableCollection) vector<boost::shared_ptr<sttp::data::DataTable>>;
-    %template(MeasurementCollection) vector<boost::shared_ptr<sttp::transport::Measurement>>;
+    %template(ExtendedMeasurementCollection) vector<boost::shared_ptr<sttp::transport::Measurement>>;
     %template(MeasurementMetadataCollection) vector<boost::shared_ptr<sttp::transport::MeasurementMetadata>>;
     %template(PhasorMetadataCollection) vector<boost::shared_ptr<sttp::transport::PhasorMetadata>>;
     %template(PhasorReferenceCollection) vector<boost::shared_ptr<sttp::transport::PhasorReference>>;
@@ -1064,7 +1065,7 @@ namespace transport
     };
 
     // Fundamental data type representing a measurement in STTP
-    struct Measurement
+    struct SimpleMeasurement
     {
         // Identification number used in
         // human-readable measurement key.
@@ -1099,9 +1100,53 @@ namespace transport
         // Flags indicating the state of the measurement
         // as reported by the device that took it.
         MeasurementStateFlags Flags;
+    };
 
+    %pragma(csharp) moduleclassmodifiers= %{
+    [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential, CharSet = System.Runtime.InteropServices.CharSet.Ansi)]
+    public struct Measurement
+    {
+        // Identification number used in human-readable measurement key.
+        public ulong ID;
+
+        // Source used in human-readable measurement key.
+        public string Source;
+
+        // Measurement's globally unique identifier.
+        public System.Guid SignalID;
+
+        // Human-readable tag name to help describe the measurement.
+        public string Tag;
+
+        // Instantaneous value
+        // of the measurement.
+        public double Value;
+
+        // Additive value modifier.
+        public double Adder;
+
+        // Multiplicative value modifier.
+        public double Multiplier;
+
+        // The time, in ticks, that this measurement was taken.
+        public long Timestamp;
+
+        // Flags indicating the state of the measurement as reported by the device that took it.
+        public MeasurementStateFlags Flags;
+    };
+
+  public class%}
+
+    // Extended data type representing a measurement in STTP
+    %warnfilter(520) Measurement; // Base class is not a smart pointer
+    %rename(ExtendedMeasurement) Measurement;
+    struct Measurement : SimpleMeasurement
+    {
         // Creates a new instance.
         Measurement();
+
+        // Create instance from existing simple measurement
+        Measurement(SimpleMeasurement source);
 
         // Returns the value after applying the
         // multiplicative and additive value modifiers.
@@ -1355,6 +1400,7 @@ namespace transport
         public bool ConnectionRefused => GetConnectionRefused();
     %}}
 
+    %feature("director") SubscriberInstance;
     class SubscriberInstance
     {
     public:
@@ -1382,7 +1428,9 @@ namespace transport
         %csmethodmodifiers ReceivedNewMeasurements "protected virtual";
         virtual void ReceivedNewMeasurements(const std::vector<MeasurementPtr>& measurements);
 
-        %csmethodmodifiers ConfigurationChanged "protected virtual";
+        %csmethodmodifiers ReceivedNewMeasurements "protected virtual";
+        virtual void ReceivedNewMeasurements(const SimpleMeasurement* measurements, int32_t length);
+
         virtual void ConfigurationChanged();
 
         %csmethodmodifiers HistoricalReadComplete "protected virtual";
@@ -1785,6 +1833,7 @@ namespace transport
 
     typedef boost::shared_ptr<SubscriberConnection> SubscriberConnectionPtr;
 
+    %feature("director") PublisherInstance;
     class PublisherInstance
     {
     public:
@@ -1845,6 +1894,9 @@ namespace transport
         bool IsStarted() const;
 
         void PublishMeasurements(const std::vector<MeasurementPtr>& measurements) const;
+
+        %csmethodmodifiers PublishMeasurements "private";
+        void PublishMeasurements(const SimpleMeasurement* measurements, int32_t count) const;
 
         // Node ID defines a unique identification for the publisher
         // instance that gets included in published metadata so that clients
@@ -1966,6 +2018,15 @@ namespace transport
         {
             get => GetCipherKeyRotationPeriod();
             set => SetCipherKeyRotationPeriod(value);
+        }
+
+        [System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_PublishMeasurements__SWIG_1")]
+        private static extern void PublishMeasurements_ManualMarshal(System.Runtime.InteropServices.HandleRef publisherInstancePtr, [System.Runtime.InteropServices.In] Measurement[] measurements, int length);
+
+        public void PublishMeasurements(Measurement[] measurements)
+        {
+            PublishMeasurements_ManualMarshal(swigCPtr, measurements, measurements.Length);
+            if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
         }
     %}}
     

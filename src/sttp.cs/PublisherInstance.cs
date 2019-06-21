@@ -45,47 +45,48 @@ public class PublisherInstance : global::System.IDisposable {
   }
 
   protected virtual void StatusMessage(string message) {
-    CommonPINVOKE.PublisherInstance_StatusMessage(swigCPtr, message);
+    if (SwigDerivedClassHasMethod("StatusMessage", swigMethodTypes0)) CommonPINVOKE.PublisherInstance_StatusMessageSwigExplicitPublisherInstance(swigCPtr, message); else CommonPINVOKE.PublisherInstance_StatusMessage(swigCPtr, message);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   protected virtual void ErrorMessage(string message) {
-    CommonPINVOKE.PublisherInstance_ErrorMessage(swigCPtr, message);
+    if (SwigDerivedClassHasMethod("ErrorMessage", swigMethodTypes1)) CommonPINVOKE.PublisherInstance_ErrorMessageSwigExplicitPublisherInstance(swigCPtr, message); else CommonPINVOKE.PublisherInstance_ErrorMessage(swigCPtr, message);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   protected virtual void ClientConnected(SubscriberConnection connection) {
-    CommonPINVOKE.PublisherInstance_ClientConnected(swigCPtr, SubscriberConnection.getCPtr(connection));
+    if (SwigDerivedClassHasMethod("ClientConnected", swigMethodTypes2)) CommonPINVOKE.PublisherInstance_ClientConnectedSwigExplicitPublisherInstance(swigCPtr, SubscriberConnection.getCPtr(connection)); else CommonPINVOKE.PublisherInstance_ClientConnected(swigCPtr, SubscriberConnection.getCPtr(connection));
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   protected virtual void ClientDisconnected(SubscriberConnection connection) {
-    CommonPINVOKE.PublisherInstance_ClientDisconnected(swigCPtr, SubscriberConnection.getCPtr(connection));
+    if (SwigDerivedClassHasMethod("ClientDisconnected", swigMethodTypes3)) CommonPINVOKE.PublisherInstance_ClientDisconnectedSwigExplicitPublisherInstance(swigCPtr, SubscriberConnection.getCPtr(connection)); else CommonPINVOKE.PublisherInstance_ClientDisconnected(swigCPtr, SubscriberConnection.getCPtr(connection));
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   protected virtual void ProcessingIntervalChangeRequested(SubscriberConnection connection) {
-    CommonPINVOKE.PublisherInstance_ProcessingIntervalChangeRequested(swigCPtr, SubscriberConnection.getCPtr(connection));
+    if (SwigDerivedClassHasMethod("ProcessingIntervalChangeRequested", swigMethodTypes4)) CommonPINVOKE.PublisherInstance_ProcessingIntervalChangeRequestedSwigExplicitPublisherInstance(swigCPtr, SubscriberConnection.getCPtr(connection)); else CommonPINVOKE.PublisherInstance_ProcessingIntervalChangeRequested(swigCPtr, SubscriberConnection.getCPtr(connection));
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   protected virtual void TemporalSubscriptionRequested(SubscriberConnection connection) {
-    CommonPINVOKE.PublisherInstance_TemporalSubscriptionRequested(swigCPtr, SubscriberConnection.getCPtr(connection));
+    if (SwigDerivedClassHasMethod("TemporalSubscriptionRequested", swigMethodTypes5)) CommonPINVOKE.PublisherInstance_TemporalSubscriptionRequestedSwigExplicitPublisherInstance(swigCPtr, SubscriberConnection.getCPtr(connection)); else CommonPINVOKE.PublisherInstance_TemporalSubscriptionRequested(swigCPtr, SubscriberConnection.getCPtr(connection));
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   protected virtual void TemporalSubscriptionCanceled(SubscriberConnection connection) {
-    CommonPINVOKE.PublisherInstance_TemporalSubscriptionCanceled(swigCPtr, SubscriberConnection.getCPtr(connection));
+    if (SwigDerivedClassHasMethod("TemporalSubscriptionCanceled", swigMethodTypes6)) CommonPINVOKE.PublisherInstance_TemporalSubscriptionCanceledSwigExplicitPublisherInstance(swigCPtr, SubscriberConnection.getCPtr(connection)); else CommonPINVOKE.PublisherInstance_TemporalSubscriptionCanceled(swigCPtr, SubscriberConnection.getCPtr(connection));
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   protected virtual void HandleUserCommand(SubscriberConnection connection, uint command, ByteBuffer buffer) {
-    CommonPINVOKE.PublisherInstance_HandleUserCommand(swigCPtr, SubscriberConnection.getCPtr(connection), command, ByteBuffer.getCPtr(buffer));
+    if (SwigDerivedClassHasMethod("HandleUserCommand", swigMethodTypes7)) CommonPINVOKE.PublisherInstance_HandleUserCommandSwigExplicitPublisherInstance(swigCPtr, SubscriberConnection.getCPtr(connection), command, ByteBuffer.getCPtr(buffer)); else CommonPINVOKE.PublisherInstance_HandleUserCommand(swigCPtr, SubscriberConnection.getCPtr(connection), command, ByteBuffer.getCPtr(buffer));
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   protected PublisherInstance() : this(CommonPINVOKE.new_PublisherInstance(), true) {
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
+    SwigDirectorConnect();
   }
 
   public void DefineMetadata(DeviceMetadataCollection deviceMetadata, MeasurementMetadataCollection measurementMetadata, PhasorMetadataCollection phasorMetadata, int versionNumber) {
@@ -124,25 +125,25 @@ public class PublisherInstance : global::System.IDisposable {
   }
 
   public virtual bool Start(ushort port, bool ipV6) {
-    bool ret = CommonPINVOKE.PublisherInstance_Start__SWIG_0(swigCPtr, port, ipV6);
+    bool ret = (SwigDerivedClassHasMethod("Start", swigMethodTypes8) ? CommonPINVOKE.PublisherInstance_StartSwigExplicitPublisherInstance__SWIG_0(swigCPtr, port, ipV6) : CommonPINVOKE.PublisherInstance_Start__SWIG_0(swigCPtr, port, ipV6));
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
   public virtual bool Start(ushort port) {
-    bool ret = CommonPINVOKE.PublisherInstance_Start__SWIG_1(swigCPtr, port);
+    bool ret = (SwigDerivedClassHasMethod("Start", swigMethodTypes9) ? CommonPINVOKE.PublisherInstance_StartSwigExplicitPublisherInstance__SWIG_1(swigCPtr, port) : CommonPINVOKE.PublisherInstance_Start__SWIG_1(swigCPtr, port));
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
   public virtual bool Start(string networkInterfaceIP, ushort port) {
-    bool ret = CommonPINVOKE.PublisherInstance_Start__SWIG_2(swigCPtr, networkInterfaceIP, port);
+    bool ret = (SwigDerivedClassHasMethod("Start", swigMethodTypes10) ? CommonPINVOKE.PublisherInstance_StartSwigExplicitPublisherInstance__SWIG_2(swigCPtr, networkInterfaceIP, port) : CommonPINVOKE.PublisherInstance_Start__SWIG_2(swigCPtr, networkInterfaceIP, port));
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
   public virtual void Stop() {
-    CommonPINVOKE.PublisherInstance_Stop(swigCPtr);
+    if (SwigDerivedClassHasMethod("Stop", swigMethodTypes11)) CommonPINVOKE.PublisherInstance_StopSwigExplicitPublisherInstance(swigCPtr); else CommonPINVOKE.PublisherInstance_Stop(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
@@ -152,8 +153,13 @@ public class PublisherInstance : global::System.IDisposable {
     return ret;
   }
 
-  public void PublishMeasurements(MeasurementCollection measurements) {
-    CommonPINVOKE.PublisherInstance_PublishMeasurements(swigCPtr, MeasurementCollection.getCPtr(measurements));
+  public void PublishMeasurements(ExtendedMeasurementCollection measurements) {
+    CommonPINVOKE.PublisherInstance_PublishMeasurements__SWIG_0(swigCPtr, ExtendedMeasurementCollection.getCPtr(measurements));
+    if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  private void PublishMeasurements(SimpleMeasurement measurements, int count) {
+    CommonPINVOKE.PublisherInstance_PublishMeasurements__SWIG_1(swigCPtr, SimpleMeasurement.getCPtr(measurements), count);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
@@ -351,7 +357,136 @@ public class PublisherInstance : global::System.IDisposable {
             get => GetCipherKeyRotationPeriod();
             set => SetCipherKeyRotationPeriod(value);
         }
+
+        [System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_PublishMeasurements__SWIG_1")]
+        private static extern void PublishMeasurements_ManualMarshal(System.Runtime.InteropServices.HandleRef publisherInstancePtr, [System.Runtime.InteropServices.In] Measurement[] measurements, int length);
+
+        public void PublishMeasurements(Measurement[] measurements)
+        {
+            PublishMeasurements_ManualMarshal(swigCPtr, measurements, measurements.Length);
+            if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
+        }
     
+  private void SwigDirectorConnect() {
+    if (SwigDerivedClassHasMethod("StatusMessage", swigMethodTypes0))
+      swigDelegate0 = new SwigDelegatePublisherInstance_0(SwigDirectorMethodStatusMessage);
+    if (SwigDerivedClassHasMethod("ErrorMessage", swigMethodTypes1))
+      swigDelegate1 = new SwigDelegatePublisherInstance_1(SwigDirectorMethodErrorMessage);
+    if (SwigDerivedClassHasMethod("ClientConnected", swigMethodTypes2))
+      swigDelegate2 = new SwigDelegatePublisherInstance_2(SwigDirectorMethodClientConnected);
+    if (SwigDerivedClassHasMethod("ClientDisconnected", swigMethodTypes3))
+      swigDelegate3 = new SwigDelegatePublisherInstance_3(SwigDirectorMethodClientDisconnected);
+    if (SwigDerivedClassHasMethod("ProcessingIntervalChangeRequested", swigMethodTypes4))
+      swigDelegate4 = new SwigDelegatePublisherInstance_4(SwigDirectorMethodProcessingIntervalChangeRequested);
+    if (SwigDerivedClassHasMethod("TemporalSubscriptionRequested", swigMethodTypes5))
+      swigDelegate5 = new SwigDelegatePublisherInstance_5(SwigDirectorMethodTemporalSubscriptionRequested);
+    if (SwigDerivedClassHasMethod("TemporalSubscriptionCanceled", swigMethodTypes6))
+      swigDelegate6 = new SwigDelegatePublisherInstance_6(SwigDirectorMethodTemporalSubscriptionCanceled);
+    if (SwigDerivedClassHasMethod("HandleUserCommand", swigMethodTypes7))
+      swigDelegate7 = new SwigDelegatePublisherInstance_7(SwigDirectorMethodHandleUserCommand);
+    if (SwigDerivedClassHasMethod("Start", swigMethodTypes8))
+      swigDelegate8 = new SwigDelegatePublisherInstance_8(SwigDirectorMethodStart__SWIG_0);
+    if (SwigDerivedClassHasMethod("Start", swigMethodTypes9))
+      swigDelegate9 = new SwigDelegatePublisherInstance_9(SwigDirectorMethodStart__SWIG_1);
+    if (SwigDerivedClassHasMethod("Start", swigMethodTypes10))
+      swigDelegate10 = new SwigDelegatePublisherInstance_10(SwigDirectorMethodStart__SWIG_2);
+    if (SwigDerivedClassHasMethod("Stop", swigMethodTypes11))
+      swigDelegate11 = new SwigDelegatePublisherInstance_11(SwigDirectorMethodStop);
+    CommonPINVOKE.PublisherInstance_director_connect(swigCPtr, swigDelegate0, swigDelegate1, swigDelegate2, swigDelegate3, swigDelegate4, swigDelegate5, swigDelegate6, swigDelegate7, swigDelegate8, swigDelegate9, swigDelegate10, swigDelegate11);
+  }
+
+  private bool SwigDerivedClassHasMethod(string methodName, global::System.Type[] methodTypes) {
+    global::System.Reflection.MethodInfo methodInfo = this.GetType().GetMethod(methodName, global::System.Reflection.BindingFlags.Public | global::System.Reflection.BindingFlags.NonPublic | global::System.Reflection.BindingFlags.Instance, null, methodTypes, null);
+    bool hasDerivedMethod = methodInfo.DeclaringType.IsSubclassOf(typeof(PublisherInstance));
+    return hasDerivedMethod;
+  }
+
+  private void SwigDirectorMethodStatusMessage(string message) {
+    StatusMessage(message);
+  }
+
+  private void SwigDirectorMethodErrorMessage(string message) {
+    ErrorMessage(message);
+  }
+
+  private void SwigDirectorMethodClientConnected(global::System.IntPtr connection) {
+    ClientConnected((connection == global::System.IntPtr.Zero) ? null : new SubscriberConnection(connection, true));
+  }
+
+  private void SwigDirectorMethodClientDisconnected(global::System.IntPtr connection) {
+    ClientDisconnected((connection == global::System.IntPtr.Zero) ? null : new SubscriberConnection(connection, true));
+  }
+
+  private void SwigDirectorMethodProcessingIntervalChangeRequested(global::System.IntPtr connection) {
+    ProcessingIntervalChangeRequested((connection == global::System.IntPtr.Zero) ? null : new SubscriberConnection(connection, true));
+  }
+
+  private void SwigDirectorMethodTemporalSubscriptionRequested(global::System.IntPtr connection) {
+    TemporalSubscriptionRequested((connection == global::System.IntPtr.Zero) ? null : new SubscriberConnection(connection, true));
+  }
+
+  private void SwigDirectorMethodTemporalSubscriptionCanceled(global::System.IntPtr connection) {
+    TemporalSubscriptionCanceled((connection == global::System.IntPtr.Zero) ? null : new SubscriberConnection(connection, true));
+  }
+
+  private void SwigDirectorMethodHandleUserCommand(global::System.IntPtr connection, uint command, global::System.IntPtr buffer) {
+    HandleUserCommand((connection == global::System.IntPtr.Zero) ? null : new SubscriberConnection(connection, true), command, new ByteBuffer(buffer, false));
+  }
+
+  private bool SwigDirectorMethodStart__SWIG_0(ushort port, bool ipV6) {
+    return Start(port, ipV6);
+  }
+
+  private bool SwigDirectorMethodStart__SWIG_1(ushort port) {
+    return Start(port);
+  }
+
+  private bool SwigDirectorMethodStart__SWIG_2(string networkInterfaceIP, ushort port) {
+    return Start(networkInterfaceIP, port);
+  }
+
+  private void SwigDirectorMethodStop() {
+    Stop();
+  }
+
+  public delegate void SwigDelegatePublisherInstance_0(string message);
+  public delegate void SwigDelegatePublisherInstance_1(string message);
+  public delegate void SwigDelegatePublisherInstance_2(global::System.IntPtr connection);
+  public delegate void SwigDelegatePublisherInstance_3(global::System.IntPtr connection);
+  public delegate void SwigDelegatePublisherInstance_4(global::System.IntPtr connection);
+  public delegate void SwigDelegatePublisherInstance_5(global::System.IntPtr connection);
+  public delegate void SwigDelegatePublisherInstance_6(global::System.IntPtr connection);
+  public delegate void SwigDelegatePublisherInstance_7(global::System.IntPtr connection, uint command, global::System.IntPtr buffer);
+  public delegate bool SwigDelegatePublisherInstance_8(ushort port, bool ipV6);
+  public delegate bool SwigDelegatePublisherInstance_9(ushort port);
+  public delegate bool SwigDelegatePublisherInstance_10(string networkInterfaceIP, ushort port);
+  public delegate void SwigDelegatePublisherInstance_11();
+
+  private SwigDelegatePublisherInstance_0 swigDelegate0;
+  private SwigDelegatePublisherInstance_1 swigDelegate1;
+  private SwigDelegatePublisherInstance_2 swigDelegate2;
+  private SwigDelegatePublisherInstance_3 swigDelegate3;
+  private SwigDelegatePublisherInstance_4 swigDelegate4;
+  private SwigDelegatePublisherInstance_5 swigDelegate5;
+  private SwigDelegatePublisherInstance_6 swigDelegate6;
+  private SwigDelegatePublisherInstance_7 swigDelegate7;
+  private SwigDelegatePublisherInstance_8 swigDelegate8;
+  private SwigDelegatePublisherInstance_9 swigDelegate9;
+  private SwigDelegatePublisherInstance_10 swigDelegate10;
+  private SwigDelegatePublisherInstance_11 swigDelegate11;
+
+  private static global::System.Type[] swigMethodTypes0 = new global::System.Type[] { typeof(string) };
+  private static global::System.Type[] swigMethodTypes1 = new global::System.Type[] { typeof(string) };
+  private static global::System.Type[] swigMethodTypes2 = new global::System.Type[] { typeof(SubscriberConnection) };
+  private static global::System.Type[] swigMethodTypes3 = new global::System.Type[] { typeof(SubscriberConnection) };
+  private static global::System.Type[] swigMethodTypes4 = new global::System.Type[] { typeof(SubscriberConnection) };
+  private static global::System.Type[] swigMethodTypes5 = new global::System.Type[] { typeof(SubscriberConnection) };
+  private static global::System.Type[] swigMethodTypes6 = new global::System.Type[] { typeof(SubscriberConnection) };
+  private static global::System.Type[] swigMethodTypes7 = new global::System.Type[] { typeof(SubscriberConnection), typeof(uint), typeof(ByteBuffer) };
+  private static global::System.Type[] swigMethodTypes8 = new global::System.Type[] { typeof(ushort), typeof(bool) };
+  private static global::System.Type[] swigMethodTypes9 = new global::System.Type[] { typeof(ushort) };
+  private static global::System.Type[] swigMethodTypes10 = new global::System.Type[] { typeof(string), typeof(ushort) };
+  private static global::System.Type[] swigMethodTypes11 = new global::System.Type[] {  };
 }
 
 }

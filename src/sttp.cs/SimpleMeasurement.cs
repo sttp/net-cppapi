@@ -10,20 +10,20 @@
 
 namespace sttp {
 
-public class Measurement : global::System.IDisposable {
+public class SimpleMeasurement : global::System.IDisposable {
   private global::System.Runtime.InteropServices.HandleRef swigCPtr;
-  private bool swigCMemOwnBase;
+  protected bool swigCMemOwn;
 
-  internal Measurement(global::System.IntPtr cPtr, bool cMemoryOwn) {
-    swigCMemOwnBase = cMemoryOwn;
+  internal SimpleMeasurement(global::System.IntPtr cPtr, bool cMemoryOwn) {
+    swigCMemOwn = cMemoryOwn;
     swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
   }
 
-  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(Measurement obj) {
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SimpleMeasurement obj) {
     return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
   }
 
-  ~Measurement() {
+  ~SimpleMeasurement() {
     Dispose(false);
   }
 
@@ -35,9 +35,9 @@ public class Measurement : global::System.IDisposable {
   protected virtual void Dispose(bool disposing) {
     lock(this) {
       if (swigCPtr.Handle != global::System.IntPtr.Zero) {
-        if (swigCMemOwnBase) {
-          swigCMemOwnBase = false;
-          CommonPINVOKE.delete_Measurement(swigCPtr);
+        if (swigCMemOwn) {
+          swigCMemOwn = false;
+          CommonPINVOKE.delete_SimpleMeasurement(swigCPtr);
         }
         swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
       }
@@ -46,11 +46,11 @@ public class Measurement : global::System.IDisposable {
 
   public ulong ID {
     set {
-      CommonPINVOKE.Measurement_ID_set(swigCPtr, value);
+      CommonPINVOKE.SimpleMeasurement_ID_set(swigCPtr, value);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     } 
     get {
-      ulong ret = CommonPINVOKE.Measurement_ID_get(swigCPtr);
+      ulong ret = CommonPINVOKE.SimpleMeasurement_ID_get(swigCPtr);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     } 
@@ -58,11 +58,11 @@ public class Measurement : global::System.IDisposable {
 
   public string Source {
     set {
-      CommonPINVOKE.Measurement_Source_set(swigCPtr, value);
+      CommonPINVOKE.SimpleMeasurement_Source_set(swigCPtr, value);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     } 
     get {
-      string ret = CommonPINVOKE.Measurement_Source_get(swigCPtr);
+      string ret = CommonPINVOKE.SimpleMeasurement_Source_get(swigCPtr);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     } 
@@ -71,12 +71,12 @@ public class Measurement : global::System.IDisposable {
   public System.Guid SignalID {
       set {
         guid_t tempvalue = Common.ParseGuid(value.ToByteArray(), true);
-        CommonPINVOKE.Measurement_SignalID_set(swigCPtr, guid_t.getCPtr(tempvalue));
+        CommonPINVOKE.SimpleMeasurement_SignalID_set(swigCPtr, guid_t.getCPtr(tempvalue));
         if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
       }
     
       get {
-        global::System.IntPtr cPtr = CommonPINVOKE.Measurement_SignalID_get(swigCPtr);
+        global::System.IntPtr cPtr = CommonPINVOKE.SimpleMeasurement_SignalID_get(swigCPtr);
         if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
         using (guid_t tempGuid = (cPtr == global::System.IntPtr.Zero) ? null : new guid_t(cPtr, false)) {
           byte[] data = new byte[16];
@@ -89,11 +89,11 @@ public class Measurement : global::System.IDisposable {
 
   public string Tag {
     set {
-      CommonPINVOKE.Measurement_Tag_set(swigCPtr, value);
+      CommonPINVOKE.SimpleMeasurement_Tag_set(swigCPtr, value);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     } 
     get {
-      string ret = CommonPINVOKE.Measurement_Tag_get(swigCPtr);
+      string ret = CommonPINVOKE.SimpleMeasurement_Tag_get(swigCPtr);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     } 
@@ -101,11 +101,11 @@ public class Measurement : global::System.IDisposable {
 
   public double Value {
     set {
-      CommonPINVOKE.Measurement_Value_set(swigCPtr, value);
+      CommonPINVOKE.SimpleMeasurement_Value_set(swigCPtr, value);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     } 
     get {
-      double ret = CommonPINVOKE.Measurement_Value_get(swigCPtr);
+      double ret = CommonPINVOKE.SimpleMeasurement_Value_get(swigCPtr);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     } 
@@ -113,11 +113,11 @@ public class Measurement : global::System.IDisposable {
 
   public double Adder {
     set {
-      CommonPINVOKE.Measurement_Adder_set(swigCPtr, value);
+      CommonPINVOKE.SimpleMeasurement_Adder_set(swigCPtr, value);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     } 
     get {
-      double ret = CommonPINVOKE.Measurement_Adder_get(swigCPtr);
+      double ret = CommonPINVOKE.SimpleMeasurement_Adder_get(swigCPtr);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     } 
@@ -125,11 +125,11 @@ public class Measurement : global::System.IDisposable {
 
   public double Multiplier {
     set {
-      CommonPINVOKE.Measurement_Multiplier_set(swigCPtr, value);
+      CommonPINVOKE.SimpleMeasurement_Multiplier_set(swigCPtr, value);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     } 
     get {
-      double ret = CommonPINVOKE.Measurement_Multiplier_get(swigCPtr);
+      double ret = CommonPINVOKE.SimpleMeasurement_Multiplier_get(swigCPtr);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     } 
@@ -137,11 +137,11 @@ public class Measurement : global::System.IDisposable {
 
   public long Timestamp {
     set {
-      CommonPINVOKE.Measurement_Timestamp_set(swigCPtr, value);
+      CommonPINVOKE.SimpleMeasurement_Timestamp_set(swigCPtr, value);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     } 
     get {
-      long ret = CommonPINVOKE.Measurement_Timestamp_get(swigCPtr);
+      long ret = CommonPINVOKE.SimpleMeasurement_Timestamp_get(swigCPtr);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     } 
@@ -149,33 +149,19 @@ public class Measurement : global::System.IDisposable {
 
   public MeasurementStateFlags Flags {
     set {
-      CommonPINVOKE.Measurement_Flags_set(swigCPtr, (int)value);
+      CommonPINVOKE.SimpleMeasurement_Flags_set(swigCPtr, (int)value);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     } 
     get {
-      MeasurementStateFlags ret = (MeasurementStateFlags)CommonPINVOKE.Measurement_Flags_get(swigCPtr);
+      MeasurementStateFlags ret = (MeasurementStateFlags)CommonPINVOKE.SimpleMeasurement_Flags_get(swigCPtr);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     } 
   }
 
-  public Measurement() : this(CommonPINVOKE.new_Measurement(), true) {
+  public SimpleMeasurement() : this(CommonPINVOKE.new_SimpleMeasurement(), true) {
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
-
-  public double AdjustedValue() {
-    double ret = CommonPINVOKE.Measurement_AdjustedValue(swigCPtr);
-    if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-    return ret;
-  }
-
-  public System.DateTime GetDateTime() {
-      global::System.IntPtr cPtr = CommonPINVOKE.Measurement_GetDateTime(swigCPtr);
-      if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-      using (datetime_t tempDate = (cPtr == global::System.IntPtr.Zero) ? null : new datetime_t(cPtr, false)) {
-        return new System.DateTime(Common.ToTicks(tempDate));
-      }
-    }
 
 }
 
