@@ -10,22 +10,22 @@
 
 namespace sttp {
 
-public class MeasurementMap : global::System.IDisposable 
+public class MeasurementMetadataMap : global::System.IDisposable 
     , global::System.Collections.Generic.IDictionary<System.Guid, MeasurementMetadata>
  {
   private global::System.Runtime.InteropServices.HandleRef swigCPtr;
   protected bool swigCMemOwn;
 
-  internal MeasurementMap(global::System.IntPtr cPtr, bool cMemoryOwn) {
+  internal MeasurementMetadataMap(global::System.IntPtr cPtr, bool cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
   }
 
-  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(MeasurementMap obj) {
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(MeasurementMetadataMap obj) {
     return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
   }
 
-  ~MeasurementMap() {
+  ~MeasurementMetadataMap() {
     Dispose(false);
   }
 
@@ -39,7 +39,7 @@ public class MeasurementMap : global::System.IDisposable
       if (swigCPtr.Handle != global::System.IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          CommonPINVOKE.delete_MeasurementMap(swigCPtr);
+          CommonPINVOKE.delete_MeasurementMetadataMap(swigCPtr);
         }
         swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
       }
@@ -145,15 +145,15 @@ public class MeasurementMap : global::System.IDisposable
   }
 
   global::System.Collections.Generic.IEnumerator<global::System.Collections.Generic.KeyValuePair<System.Guid, MeasurementMetadata>> global::System.Collections.Generic.IEnumerable<global::System.Collections.Generic.KeyValuePair<System.Guid, MeasurementMetadata>>.GetEnumerator() {
-    return new MeasurementMapEnumerator(this);
+    return new MeasurementMetadataMapEnumerator(this);
   }
 
   global::System.Collections.IEnumerator global::System.Collections.IEnumerable.GetEnumerator() {
-    return new MeasurementMapEnumerator(this);
+    return new MeasurementMetadataMapEnumerator(this);
   }
 
-  public MeasurementMapEnumerator GetEnumerator() {
-    return new MeasurementMapEnumerator(this);
+  public MeasurementMetadataMapEnumerator GetEnumerator() {
+    return new MeasurementMetadataMapEnumerator(this);
   }
 
   // Type-safe enumerator
@@ -161,16 +161,16 @@ public class MeasurementMap : global::System.IDisposable
   /// whenever the collection is modified. This has been done for changes in the size of the
   /// collection but not when one of the elements of the collection is modified as it is a bit
   /// tricky to detect unmanaged code that modifies the collection under our feet.
-  public sealed class MeasurementMapEnumerator : global::System.Collections.IEnumerator,
+  public sealed class MeasurementMetadataMapEnumerator : global::System.Collections.IEnumerator,
       global::System.Collections.Generic.IEnumerator<global::System.Collections.Generic.KeyValuePair<System.Guid, MeasurementMetadata>>
   {
-    private MeasurementMap collectionRef;
+    private MeasurementMetadataMap collectionRef;
     private global::System.Collections.Generic.IList<System.Guid> keyCollection;
     private int currentIndex;
     private object currentObject;
     private int currentSize;
 
-    public MeasurementMapEnumerator(MeasurementMap collection) {
+    public MeasurementMetadataMapEnumerator(MeasurementMetadataMap collection) {
       collectionRef = collection;
       keyCollection = new global::System.Collections.Generic.List<System.Guid>(collection.Keys);
       currentIndex = -1;
@@ -226,35 +226,35 @@ public class MeasurementMap : global::System.IDisposable
   }
 
 
-  public MeasurementMap() : this(CommonPINVOKE.new_MeasurementMap__SWIG_0(), true) {
+  public MeasurementMetadataMap() : this(CommonPINVOKE.new_MeasurementMetadataMap__SWIG_0(), true) {
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public MeasurementMap(MeasurementMap other) : this(CommonPINVOKE.new_MeasurementMap__SWIG_1(MeasurementMap.getCPtr(other)), true) {
+  public MeasurementMetadataMap(MeasurementMetadataMap other) : this(CommonPINVOKE.new_MeasurementMetadataMap__SWIG_1(MeasurementMetadataMap.getCPtr(other)), true) {
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   private uint size() {
-    uint ret = CommonPINVOKE.MeasurementMap_size(swigCPtr);
+    uint ret = CommonPINVOKE.MeasurementMetadataMap_size(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
   public bool empty() {
-    bool ret = CommonPINVOKE.MeasurementMap_empty(swigCPtr);
+    bool ret = CommonPINVOKE.MeasurementMetadataMap_empty(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
   public void Clear() {
-    CommonPINVOKE.MeasurementMap_Clear(swigCPtr);
+    CommonPINVOKE.MeasurementMetadataMap_Clear(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   private MeasurementMetadata getitem(System.Guid key) {
     guid_t tempkey = Common.ParseGuid(key.ToByteArray(), true);
     {
-      global::System.IntPtr cPtr = CommonPINVOKE.MeasurementMap_getitem(swigCPtr, guid_t.getCPtr(tempkey));
+      global::System.IntPtr cPtr = CommonPINVOKE.MeasurementMetadataMap_getitem(swigCPtr, guid_t.getCPtr(tempkey));
       MeasurementMetadata ret = (cPtr == global::System.IntPtr.Zero) ? null : new MeasurementMetadata(cPtr, true);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
       return ret;
@@ -264,7 +264,7 @@ public class MeasurementMap : global::System.IDisposable
   private void setitem(System.Guid key, MeasurementMetadata x) {
     guid_t tempkey = Common.ParseGuid(key.ToByteArray(), true);
     {
-      CommonPINVOKE.MeasurementMap_setitem(swigCPtr, guid_t.getCPtr(tempkey), MeasurementMetadata.getCPtr(x));
+      CommonPINVOKE.MeasurementMetadataMap_setitem(swigCPtr, guid_t.getCPtr(tempkey), MeasurementMetadata.getCPtr(x));
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     }
   }
@@ -272,7 +272,7 @@ public class MeasurementMap : global::System.IDisposable
   public bool ContainsKey(System.Guid key) {
     guid_t tempkey = Common.ParseGuid(key.ToByteArray(), true);
     {
-      bool ret = CommonPINVOKE.MeasurementMap_ContainsKey(swigCPtr, guid_t.getCPtr(tempkey));
+      bool ret = CommonPINVOKE.MeasurementMetadataMap_ContainsKey(swigCPtr, guid_t.getCPtr(tempkey));
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     }
@@ -281,7 +281,7 @@ public class MeasurementMap : global::System.IDisposable
   public void Add(System.Guid key, MeasurementMetadata value) {
     guid_t tempkey = Common.ParseGuid(key.ToByteArray(), true);
     {
-      CommonPINVOKE.MeasurementMap_Add(swigCPtr, guid_t.getCPtr(tempkey), MeasurementMetadata.getCPtr(value));
+      CommonPINVOKE.MeasurementMetadataMap_Add(swigCPtr, guid_t.getCPtr(tempkey), MeasurementMetadata.getCPtr(value));
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     }
   }
@@ -289,20 +289,20 @@ public class MeasurementMap : global::System.IDisposable
   public bool Remove(System.Guid key) {
     guid_t tempkey = Common.ParseGuid(key.ToByteArray(), true);
     {
-      bool ret = CommonPINVOKE.MeasurementMap_Remove(swigCPtr, guid_t.getCPtr(tempkey));
+      bool ret = CommonPINVOKE.MeasurementMetadataMap_Remove(swigCPtr, guid_t.getCPtr(tempkey));
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     }
   }
 
   private global::System.IntPtr create_iterator_begin() {
-    global::System.IntPtr ret = CommonPINVOKE.MeasurementMap_create_iterator_begin(swigCPtr);
+    global::System.IntPtr ret = CommonPINVOKE.MeasurementMetadataMap_create_iterator_begin(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
   private System.Guid get_next_key(global::System.IntPtr swigiterator) {
-      global::System.IntPtr cPtr = CommonPINVOKE.MeasurementMap_get_next_key(swigCPtr, swigiterator);
+      global::System.IntPtr cPtr = CommonPINVOKE.MeasurementMetadataMap_get_next_key(swigCPtr, swigiterator);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
       using (guid_t tempGuid = (cPtr == global::System.IntPtr.Zero) ? null : new guid_t(cPtr, false)) {
         byte[] data = new byte[16];
@@ -312,7 +312,7 @@ public class MeasurementMap : global::System.IDisposable
     }
 
   private void destroy_iterator(global::System.IntPtr swigiterator) {
-    CommonPINVOKE.MeasurementMap_destroy_iterator(swigCPtr, swigiterator);
+    CommonPINVOKE.MeasurementMetadataMap_destroy_iterator(swigCPtr, swigiterator);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 

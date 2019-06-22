@@ -1,3 +1,26 @@
+//******************************************************************************************************
+//  sttp.i - Gbtc
+//
+//  Copyright © 2019, Grid Protection Alliance.  All Rights Reserved.
+//
+//  Licensed to the Grid Protection Alliance (GPA) under one or more contributor license agreements. See
+//  the NOTICE file distributed with this work for additional information regarding copyright ownership.
+//  The GPA licenses this file to you under the MIT License (MIT), the "License"; you may not use this
+//  file except in compliance with the License. You may obtain a copy of the License at:
+//
+//      http://opensource.org/licenses/MIT
+//
+//  Unless agreed to in writing, the subject software distributed under the License is distributed on an
+//  "AS-IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. Refer to the
+//  License for the specific language governing permissions and limitations.
+//
+//  Code Modification History:
+//  ----------------------------------------------------------------------------------------------------
+//  06/22/2019 - J. Ritchie Carroll
+//       Generated original version of source code.
+//
+//******************************************************************************************************
+
 %module(directors="1") Common
 %include "stdint.i" 
 %include "std_string.i"
@@ -31,6 +54,93 @@
 #include "../cppapi/src/lib/transport/DataPublisher.h"
 #include "../cppapi/src/lib/transport/PublisherInstance.h"
 %}
+
+// Hijack module class modifiers to inject needed target classes into root namespace
+%pragma(csharp) moduleclassmodifiers = %{
+    // Measurement structure uses custom marshaling as an optimization
+
+    // Fundamental data type representing a measurement in STTP
+    [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public unsafe struct Measurement
+    {
+        // Identification number used in human-readable measurement key.
+        public ulong ID;
+
+        // Measurement's globally unique identifier bytes.
+        public fixed byte SignalID[16];
+
+        // Instantaneous value of the measurement.
+        public double Value;
+
+        // Additive value modifier.
+        public double Adder;
+
+        // Multiplicative value modifier.
+        public double Multiplier;
+
+        // The time, in ticks, that this measurement was taken.
+        public long Timestamp;
+
+        // Flags indicating the state of the measurement as reported by the device that took it.
+        public MeasurementStateFlags Flags;
+    }
+
+    public static class MeasurementExtensions
+    {
+        public static unsafe System.Guid GetSignalID(this Measurement measurement)
+        {
+            byte* data = measurement.SignalID;
+
+            return new System.Guid
+            (
+                /* a */ *(uint*)data[0],    // First 4 bytes of GUID
+                /* b */ *(ushort*)data[4],  // Next 2 bytes of GUID
+                /* c */ *(ushort*)data[6],  // Next 2 bytes of GUID
+                /* d */ data[8],            // Remaining bytes
+                /* e */ data[9],
+                /* f */ data[10],
+                /* g */ data[11],
+                /* h */ data[12],
+                /* i */ data[13],
+                /* j */ data[14],
+                /* k */ data[15]
+            );
+        }
+
+        public static unsafe void SetSignalID(this Measurement measurement, System.Guid value)
+        {
+            byte* data = measurement.SignalID;
+            byte[] bytes = value.ToByteArray();
+
+            for (int i = 0; i < 16; i++)
+                data[i] = bytes[i];
+        }
+
+        public static System.DateTime GetTimestamp(this Measurement measurement) => new System.DateTime(measurement.Timestamp);
+
+        public static void SetTimestamp(this Measurement measurement, System.DateTime value) => measurement.Timestamp = value.Ticks;
+
+        public static double AdjustedValue(this Measurement measurement) => measurement.Value * measurement.Multiplier + measurement.Adder;
+     }
+
+    public class SubscriberInstance : SubscriberInstanceBase
+    {
+        internal override unsafe void ReceivedNewMeasurements(SimpleMeasurement simpleMeasurementArray, int length)
+        {
+            Measurement* measurements = (Measurement*)SimpleMeasurement.getCPtr(simpleMeasurementArray).Handle.ToPointer();
+
+            if (measurements == null)
+                return;
+
+            ReceivedNewMeasurements(measurements, length);
+        }
+
+        public virtual unsafe void ReceivedNewMeasurements(Measurement* measurements, int length)
+        {
+        }
+    }
+
+public class%}
 
 // Define SWIG types to wrap in target language
 namespace sttp
@@ -89,6 +199,8 @@ namespace sttp
         struct DeviceMetadata;
         struct ConfigurationFrame;
         class SignalIndexCache;
+
+        %rename(SubscriberInstanceBase) SubscriberInstance;
         class SubscriberInstance;
 
         %rename(datapublisher_t) DataPublisher;
@@ -108,7 +220,6 @@ namespace sttp
 %shared_ptr(sttp::data::DataRow)
 %shared_ptr(sttp::data::DataColumn)
 
-%shared_ptr(sttp::transport::Measurement)
 %shared_ptr(sttp::transport::MeasurementMetadata)
 %shared_ptr(sttp::transport::PhasorMetadata)
 %shared_ptr(sttp::transport::PhasorReference)
@@ -272,7 +383,10 @@ namespace sttp
     %typemap(cstype) Guid& "out System.Guid"
     %typemap(csin,
         pre="    using ($csclassname temp$csinput = new $csclassname()) {", 
-        post="      byte[] $csinput_data = new byte[16];\n      $module.GetGuidBytes(temp$csinput, $csinput_data);\n      $csinput = new System.Guid($csinput_data);",
+        post=
+            "      byte[] $csinput_data = new byte[16];\n"
+            "      $module.GetGuidBytes(temp$csinput, $csinput_data);\n"
+            "      $csinput = new System.Guid($csinput_data);",
         terminator="    }",
         cshin="out $csinput"
     )
@@ -281,7 +395,10 @@ namespace sttp
     %typemap(cstype, out="System.Guid") Guid* "ref System.Guid"
     %typemap(csin,
         pre="    using ($csclassname temp$csinput = $module.ParseGuid($csinput.ToByteArray(), true)) {",
-        post="      byte[] $csinput_data = new byte[16];\n      $module.GetGuidBytes(temp$csinput), $csinput_data);\n      $csinput = new System.Guid($csinput_data);",
+        post=
+            "      byte[] $csinput_data = new byte[16];\n"
+            "      $module.GetGuidBytes(temp$csinput), $csinput_data);\n"
+            "      $csinput = new System.Guid($csinput_data);",
         terminator="    }",
         cshin="ref $csinput"
     )
@@ -336,6 +453,12 @@ namespace sttp
         pre="    $csclassname temp$csinput = $module.FromTicks($csinput.Ticks);"
     )
     const datetime_t& "$csclassname.getCPtr(temp$csinput)"
+    %typemap(csdirectorin,
+        pre = 
+            "    $csclassname tempDate = new datetime_t($iminput, false);\n"
+            "    System.DateTime temp$iminput  = new System.DateTime($module.ToTicks(tempDate));"
+    )
+    datetime_t "temp$iminput"
 
     %typemap(cstype) datetime_t& "out System.DateTime"
     %typemap(csin, 
@@ -382,7 +505,7 @@ namespace sttp
       }
     }
 
-    // Note: Do not change the spacing on the following Nullable typemaps as it affects generated code:
+    // Note: Do not change the spacing on the following Nullable typemaps as it affects spacing in generated code:
 
     // Map sttp::Nullable<std::string> to string
     %typemap(cstype) const sttp::Nullable<std::string>& "string"
@@ -484,15 +607,14 @@ namespace std
     %template(ByteBuffer) vector<unsigned char>;
     %template(StringCollection) vector<string>;
     %template(DataTableCollection) vector<boost::shared_ptr<sttp::data::DataTable>>;
-    %template(ExtendedMeasurementCollection) vector<boost::shared_ptr<sttp::transport::Measurement>>;
     %template(MeasurementMetadataCollection) vector<boost::shared_ptr<sttp::transport::MeasurementMetadata>>;
     %template(PhasorMetadataCollection) vector<boost::shared_ptr<sttp::transport::PhasorMetadata>>;
     %template(PhasorReferenceCollection) vector<boost::shared_ptr<sttp::transport::PhasorReference>>;
     %template(DeviceMetadataCollection) vector<boost::shared_ptr<sttp::transport::DeviceMetadata>>;
     %template(SubscriberConnectionCollection) vector<boost::shared_ptr<sttp::transport::SubscriberConnection>>;
     
-    %template(DeviceMap) map<string, boost::shared_ptr<sttp::transport::DeviceMetadata>>;
-    %template(MeasurementMap) map<sttp::Guid, boost::shared_ptr<sttp::transport::MeasurementMetadata>>;
+    %template(DeviceMetadataMap) map<string, boost::shared_ptr<sttp::transport::DeviceMetadata>>;
+    %template(MeasurementMetadataMap) map<sttp::Guid, boost::shared_ptr<sttp::transport::MeasurementMetadata>>;
 }
 
 namespace sttp {
@@ -1064,27 +1186,17 @@ namespace transport
         MeasurementError = 0x80000000
     };
 
-    // Fundamental data type representing a measurement in STTP
+    // Fundamental POD type representing a measurement in STTP
+    %typemap(csclassmodifiers) SimpleMeasurement "internal class"
     struct SimpleMeasurement
     {
-        // Identification number used in
-        // human-readable measurement key.
+        // Identification number used in human-readable measurement key.
         uint64_t ID;
 
-        // Source used in human-
-        // readable measurement key.
-        std::string Source;
+        // Measurement's globally unique identifier.
+        sttp::Guid SignalID;
 
-        // Measurement's globally
-        // unique identifier.
-        Guid SignalID;
-
-        // Human-readable tag name to
-        // help describe the measurement.
-        std::string Tag;
-
-        // Instantaneous value
-        // of the measurement.
+        // Instantaneous value of the measurement.
         float64_t Value;
 
         // Additive value modifier.
@@ -1093,70 +1205,12 @@ namespace transport
         // Multiplicative value modifier.
         float64_t Multiplier;
 
-        // The time, in ticks, that
-        // this measurement was taken.
+        // The time, in ticks, that this measurement was taken.
         int64_t Timestamp;
 
-        // Flags indicating the state of the measurement
-        // as reported by the device that took it.
+        // Flags indicating the state of the measurement as reported by the device that took it.
         MeasurementStateFlags Flags;
     };
-
-    %pragma(csharp) moduleclassmodifiers= %{
-    [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential, CharSet = System.Runtime.InteropServices.CharSet.Ansi)]
-    public struct Measurement
-    {
-        // Identification number used in human-readable measurement key.
-        public ulong ID;
-
-        // Source used in human-readable measurement key.
-        public string Source;
-
-        // Measurement's globally unique identifier.
-        public System.Guid SignalID;
-
-        // Human-readable tag name to help describe the measurement.
-        public string Tag;
-
-        // Instantaneous value
-        // of the measurement.
-        public double Value;
-
-        // Additive value modifier.
-        public double Adder;
-
-        // Multiplicative value modifier.
-        public double Multiplier;
-
-        // The time, in ticks, that this measurement was taken.
-        public long Timestamp;
-
-        // Flags indicating the state of the measurement as reported by the device that took it.
-        public MeasurementStateFlags Flags;
-    };
-
-  public class%}
-
-    // Extended data type representing a measurement in STTP
-    %warnfilter(520) Measurement; // Base class is not a smart pointer
-    %rename(ExtendedMeasurement) Measurement;
-    struct Measurement : SimpleMeasurement
-    {
-        // Creates a new instance.
-        Measurement();
-
-        // Create instance from existing simple measurement
-        Measurement(SimpleMeasurement source);
-
-        // Returns the value after applying the
-        // multiplicative and additive value modifiers.
-        float64_t AdjustedValue() const;
-
-        // Gets Timestamp as DateTime
-        datetime_t GetDateTime() const;
-    };
-
-    typedef boost::shared_ptr<Measurement> MeasurementPtr;
 
     %typemap(csbase) SignalKind "ushort"
     enum SignalKind : int16_t
@@ -1425,10 +1479,7 @@ namespace transport
         %csmethodmodifiers ParsedMetadata "protected virtual";
         virtual void ParsedMetadata();
 
-        %csmethodmodifiers ReceivedNewMeasurements "protected virtual";
-        virtual void ReceivedNewMeasurements(const std::vector<MeasurementPtr>& measurements);
-
-        %csmethodmodifiers ReceivedNewMeasurements "protected virtual";
+        %csmethodmodifiers ReceivedNewMeasurements "internal virtual";
         virtual void ReceivedNewMeasurements(const SimpleMeasurement* measurements, int32_t length);
 
         virtual void ConfigurationChanged();
@@ -1816,7 +1867,6 @@ namespace transport
         void Start(bool connectionAccepted = true);
         void Stop(bool shutdownSocket = true);
 
-        void PublishMeasurements(const std::vector<MeasurementPtr>& measurements);
         void CancelTemporalSubscription();
 
         bool SendResponse(uint8_t responseCode, uint8_t commandCode);
@@ -1892,8 +1942,6 @@ namespace transport
 
         // Determines if publisher has been started
         bool IsStarted() const;
-
-        void PublishMeasurements(const std::vector<MeasurementPtr>& measurements) const;
 
         %csmethodmodifiers PublishMeasurements "private";
         void PublishMeasurements(const SimpleMeasurement* measurements, int32_t count) const;
@@ -2020,12 +2068,12 @@ namespace transport
             set => SetCipherKeyRotationPeriod(value);
         }
 
-        [System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_PublishMeasurements__SWIG_1")]
-        private static extern void PublishMeasurements_ManualMarshal(System.Runtime.InteropServices.HandleRef publisherInstancePtr, [System.Runtime.InteropServices.In] Measurement[] measurements, int length);
+        [System.Runtime.InteropServices.DllImport("sttp.cs.lib.dll", EntryPoint="CSharp_sttp_PublisherInstance_PublishMeasurements")]
+        private static extern void InvokePublishMeasurements(System.Runtime.InteropServices.HandleRef publisherInstancePtr, [System.Runtime.InteropServices.In, System.Runtime.InteropServices.Out] Measurement[] measurements, int length);
 
         public void PublishMeasurements(Measurement[] measurements)
         {
-            PublishMeasurements_ManualMarshal(swigCPtr, measurements, measurements.Length);
+            InvokePublishMeasurements(swigCPtr, measurements, measurements.Length);
             if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
         }
     %}}

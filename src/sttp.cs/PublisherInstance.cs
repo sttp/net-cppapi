@@ -153,13 +153,8 @@ public class PublisherInstance : global::System.IDisposable {
     return ret;
   }
 
-  public void PublishMeasurements(ExtendedMeasurementCollection measurements) {
-    CommonPINVOKE.PublisherInstance_PublishMeasurements__SWIG_0(swigCPtr, ExtendedMeasurementCollection.getCPtr(measurements));
-    if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-  }
-
   private void PublishMeasurements(SimpleMeasurement measurements, int count) {
-    CommonPINVOKE.PublisherInstance_PublishMeasurements__SWIG_1(swigCPtr, SimpleMeasurement.getCPtr(measurements), count);
+    CommonPINVOKE.PublisherInstance_PublishMeasurements(swigCPtr, SimpleMeasurement.getCPtr(measurements), count);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
@@ -358,12 +353,12 @@ public class PublisherInstance : global::System.IDisposable {
             set => SetCipherKeyRotationPeriod(value);
         }
 
-        [System.Runtime.InteropServices.DllImport("sttp.cs.lib", EntryPoint="CSharp_sttp_PublisherInstance_PublishMeasurements__SWIG_1")]
-        private static extern void PublishMeasurements_ManualMarshal(System.Runtime.InteropServices.HandleRef publisherInstancePtr, [System.Runtime.InteropServices.In] Measurement[] measurements, int length);
+        [System.Runtime.InteropServices.DllImport("sttp.cs.lib.dll", EntryPoint="CSharp_sttp_PublisherInstance_PublishMeasurements")]
+        private static extern void InvokePublishMeasurements(System.Runtime.InteropServices.HandleRef publisherInstancePtr, [System.Runtime.InteropServices.In, System.Runtime.InteropServices.Out] Measurement[] measurements, int length);
 
         public void PublishMeasurements(Measurement[] measurements)
         {
-            PublishMeasurements_ManualMarshal(swigCPtr, measurements, measurements.Length);
+            InvokePublishMeasurements(swigCPtr, measurements, measurements.Length);
             if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
         }
     

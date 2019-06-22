@@ -10,7 +10,7 @@
 
 namespace sttp {
 
-public class SimpleMeasurement : global::System.IDisposable {
+internal class SimpleMeasurement : global::System.IDisposable {
   private global::System.Runtime.InteropServices.HandleRef swigCPtr;
   protected bool swigCMemOwn;
 
@@ -56,18 +56,6 @@ public class SimpleMeasurement : global::System.IDisposable {
     } 
   }
 
-  public string Source {
-    set {
-      CommonPINVOKE.SimpleMeasurement_Source_set(swigCPtr, value);
-      if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-    } 
-    get {
-      string ret = CommonPINVOKE.SimpleMeasurement_Source_get(swigCPtr);
-      if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-      return ret;
-    } 
-  }
-
   public System.Guid SignalID {
       set {
         guid_t tempvalue = Common.ParseGuid(value.ToByteArray(), true);
@@ -85,18 +73,6 @@ public class SimpleMeasurement : global::System.IDisposable {
         }
       }
     
-  }
-
-  public string Tag {
-    set {
-      CommonPINVOKE.SimpleMeasurement_Tag_set(swigCPtr, value);
-      if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-    } 
-    get {
-      string ret = CommonPINVOKE.SimpleMeasurement_Tag_get(swigCPtr);
-      if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-      return ret;
-    } 
   }
 
   public double Value {

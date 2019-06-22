@@ -11,23 +11,19 @@
 namespace sttp {
 
 
-    [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential, CharSet = System.Runtime.InteropServices.CharSet.Ansi)]
-    public struct Measurement
+    // Measurement structure uses custom marshaling as an optimization
+
+    // Fundamental data type representing a measurement in STTP
+    [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public unsafe struct Measurement
     {
         // Identification number used in human-readable measurement key.
         public ulong ID;
 
-        // Source used in human-readable measurement key.
-        public string Source;
+        // Measurement's globally unique identifier bytes.
+        public fixed byte SignalID[16];
 
-        // Measurement's globally unique identifier.
-        public System.Guid SignalID;
-
-        // Human-readable tag name to help describe the measurement.
-        public string Tag;
-
-        // Instantaneous value
-        // of the measurement.
+        // Instantaneous value of the measurement.
         public double Value;
 
         // Additive value modifier.
@@ -41,9 +37,64 @@ namespace sttp {
 
         // Flags indicating the state of the measurement as reported by the device that took it.
         public MeasurementStateFlags Flags;
-    };
+    }
 
-  public class Common {
+    public static class MeasurementExtensions
+    {
+        public static unsafe System.Guid GetSignalID(this Measurement measurement)
+        {
+            byte* data = measurement.SignalID;
+
+            return new System.Guid
+            (
+                /* a */ *(uint*)data[0],    // First 4 bytes of GUID
+                /* b */ *(ushort*)data[4],  // Next 2 bytes of GUID
+                /* c */ *(ushort*)data[6],  // Next 2 bytes of GUID
+                /* d */ data[8],            // Remaining bytes
+                /* e */ data[9],
+                /* f */ data[10],
+                /* g */ data[11],
+                /* h */ data[12],
+                /* i */ data[13],
+                /* j */ data[14],
+                /* k */ data[15]
+            );
+        }
+
+        public static unsafe void SetSignalID(this Measurement measurement, System.Guid value)
+        {
+            byte* data = measurement.SignalID;
+            byte[] bytes = value.ToByteArray();
+
+            for (int i = 0; i < 16; i++)
+                data[i] = bytes[i];
+        }
+
+        public static System.DateTime GetTimestamp(this Measurement measurement) => new System.DateTime(measurement.Timestamp);
+
+        public static void SetTimestamp(this Measurement measurement, System.DateTime value) => measurement.Timestamp = value.Ticks;
+
+        public static double AdjustedValue(this Measurement measurement) => measurement.Value * measurement.Multiplier + measurement.Adder;
+     }
+
+    public class SubscriberInstance : SubscriberInstanceBase
+    {
+        internal override unsafe void ReceivedNewMeasurements(SimpleMeasurement simpleMeasurementArray, int length)
+        {
+            Measurement* measurements = (Measurement*)SimpleMeasurement.getCPtr(simpleMeasurementArray).Handle.ToPointer();
+
+            if (measurements == null)
+                return;
+
+            ReceivedNewMeasurements(measurements, length);
+        }
+
+        public virtual unsafe void ReceivedNewMeasurements(Measurement* measurements, int length)
+        {
+        }
+    }
+
+public class Common {
   internal unsafe static void GetGuidBytes(guid_t value, byte[] data) {
     fixed ( byte* swig_ptrTo_data = data ) {
     {

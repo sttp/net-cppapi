@@ -10,22 +10,22 @@
 
 namespace sttp {
 
-public class DeviceMap : global::System.IDisposable 
+public class DeviceMetadataMap : global::System.IDisposable 
     , global::System.Collections.Generic.IDictionary<string, DeviceMetadata>
  {
   private global::System.Runtime.InteropServices.HandleRef swigCPtr;
   protected bool swigCMemOwn;
 
-  internal DeviceMap(global::System.IntPtr cPtr, bool cMemoryOwn) {
+  internal DeviceMetadataMap(global::System.IntPtr cPtr, bool cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
   }
 
-  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(DeviceMap obj) {
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(DeviceMetadataMap obj) {
     return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
   }
 
-  ~DeviceMap() {
+  ~DeviceMetadataMap() {
     Dispose(false);
   }
 
@@ -39,7 +39,7 @@ public class DeviceMap : global::System.IDisposable
       if (swigCPtr.Handle != global::System.IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          CommonPINVOKE.delete_DeviceMap(swigCPtr);
+          CommonPINVOKE.delete_DeviceMetadataMap(swigCPtr);
         }
         swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
       }
@@ -145,15 +145,15 @@ public class DeviceMap : global::System.IDisposable
   }
 
   global::System.Collections.Generic.IEnumerator<global::System.Collections.Generic.KeyValuePair<string, DeviceMetadata>> global::System.Collections.Generic.IEnumerable<global::System.Collections.Generic.KeyValuePair<string, DeviceMetadata>>.GetEnumerator() {
-    return new DeviceMapEnumerator(this);
+    return new DeviceMetadataMapEnumerator(this);
   }
 
   global::System.Collections.IEnumerator global::System.Collections.IEnumerable.GetEnumerator() {
-    return new DeviceMapEnumerator(this);
+    return new DeviceMetadataMapEnumerator(this);
   }
 
-  public DeviceMapEnumerator GetEnumerator() {
-    return new DeviceMapEnumerator(this);
+  public DeviceMetadataMapEnumerator GetEnumerator() {
+    return new DeviceMetadataMapEnumerator(this);
   }
 
   // Type-safe enumerator
@@ -161,16 +161,16 @@ public class DeviceMap : global::System.IDisposable
   /// whenever the collection is modified. This has been done for changes in the size of the
   /// collection but not when one of the elements of the collection is modified as it is a bit
   /// tricky to detect unmanaged code that modifies the collection under our feet.
-  public sealed class DeviceMapEnumerator : global::System.Collections.IEnumerator,
+  public sealed class DeviceMetadataMapEnumerator : global::System.Collections.IEnumerator,
       global::System.Collections.Generic.IEnumerator<global::System.Collections.Generic.KeyValuePair<string, DeviceMetadata>>
   {
-    private DeviceMap collectionRef;
+    private DeviceMetadataMap collectionRef;
     private global::System.Collections.Generic.IList<string> keyCollection;
     private int currentIndex;
     private object currentObject;
     private int currentSize;
 
-    public DeviceMapEnumerator(DeviceMap collection) {
+    public DeviceMetadataMapEnumerator(DeviceMetadataMap collection) {
       collectionRef = collection;
       keyCollection = new global::System.Collections.Generic.List<string>(collection.Keys);
       currentIndex = -1;
@@ -226,74 +226,74 @@ public class DeviceMap : global::System.IDisposable
   }
 
 
-  public DeviceMap() : this(CommonPINVOKE.new_DeviceMap__SWIG_0(), true) {
+  public DeviceMetadataMap() : this(CommonPINVOKE.new_DeviceMetadataMap__SWIG_0(), true) {
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public DeviceMap(DeviceMap other) : this(CommonPINVOKE.new_DeviceMap__SWIG_1(DeviceMap.getCPtr(other)), true) {
+  public DeviceMetadataMap(DeviceMetadataMap other) : this(CommonPINVOKE.new_DeviceMetadataMap__SWIG_1(DeviceMetadataMap.getCPtr(other)), true) {
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   private uint size() {
-    uint ret = CommonPINVOKE.DeviceMap_size(swigCPtr);
+    uint ret = CommonPINVOKE.DeviceMetadataMap_size(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
   public bool empty() {
-    bool ret = CommonPINVOKE.DeviceMap_empty(swigCPtr);
+    bool ret = CommonPINVOKE.DeviceMetadataMap_empty(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
   public void Clear() {
-    CommonPINVOKE.DeviceMap_Clear(swigCPtr);
+    CommonPINVOKE.DeviceMetadataMap_Clear(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   private DeviceMetadata getitem(string key) {
-    global::System.IntPtr cPtr = CommonPINVOKE.DeviceMap_getitem(swigCPtr, key);
+    global::System.IntPtr cPtr = CommonPINVOKE.DeviceMetadataMap_getitem(swigCPtr, key);
     DeviceMetadata ret = (cPtr == global::System.IntPtr.Zero) ? null : new DeviceMetadata(cPtr, true);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
   private void setitem(string key, DeviceMetadata x) {
-    CommonPINVOKE.DeviceMap_setitem(swigCPtr, key, DeviceMetadata.getCPtr(x));
+    CommonPINVOKE.DeviceMetadataMap_setitem(swigCPtr, key, DeviceMetadata.getCPtr(x));
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   public bool ContainsKey(string key) {
-    bool ret = CommonPINVOKE.DeviceMap_ContainsKey(swigCPtr, key);
+    bool ret = CommonPINVOKE.DeviceMetadataMap_ContainsKey(swigCPtr, key);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
   public void Add(string key, DeviceMetadata value) {
-    CommonPINVOKE.DeviceMap_Add(swigCPtr, key, DeviceMetadata.getCPtr(value));
+    CommonPINVOKE.DeviceMetadataMap_Add(swigCPtr, key, DeviceMetadata.getCPtr(value));
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   public bool Remove(string key) {
-    bool ret = CommonPINVOKE.DeviceMap_Remove(swigCPtr, key);
+    bool ret = CommonPINVOKE.DeviceMetadataMap_Remove(swigCPtr, key);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
   private global::System.IntPtr create_iterator_begin() {
-    global::System.IntPtr ret = CommonPINVOKE.DeviceMap_create_iterator_begin(swigCPtr);
+    global::System.IntPtr ret = CommonPINVOKE.DeviceMetadataMap_create_iterator_begin(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
   private string get_next_key(global::System.IntPtr swigiterator) {
-    string ret = CommonPINVOKE.DeviceMap_get_next_key(swigCPtr, swigiterator);
+    string ret = CommonPINVOKE.DeviceMetadataMap_get_next_key(swigCPtr, swigiterator);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
   private void destroy_iterator(global::System.IntPtr swigiterator) {
-    CommonPINVOKE.DeviceMap_destroy_iterator(swigCPtr, swigiterator);
+    CommonPINVOKE.DeviceMetadataMap_destroy_iterator(swigCPtr, swigiterator);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
