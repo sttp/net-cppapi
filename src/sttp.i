@@ -115,9 +115,9 @@
                 data[i] = bytes[i];
         }
 
-        public static System.DateTime GetTimestamp(this Measurement measurement) => new System.DateTime(measurement.Timestamp);
+        public static System.DateTime GetDateTime(this Measurement measurement) => new System.DateTime(measurement.Timestamp);
 
-        public static void SetTimestamp(this Measurement measurement, System.DateTime value) => measurement.Timestamp = value.Ticks;
+        public static void SetDateTime(this Measurement measurement, System.DateTime value) => measurement.Timestamp = value.Ticks;
 
         public static double AdjustedValue(this Measurement measurement) => measurement.Value * measurement.Multiplier + measurement.Adder;
      }

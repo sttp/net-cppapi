@@ -71,7 +71,7 @@ namespace SpeedTest
                     measurement.Timestamp = startTime.Ticks;
                     measurement.Value = (1 + 1) * (j + 1);
 
-                    DateTime retrieved = measurement.GetTimestamp();
+                    DateTime retrieved = measurement.GetDateTime();
                     Debug.Assert((int)(retrieved - startTime).TotalMilliseconds == 0);
                 }
 
