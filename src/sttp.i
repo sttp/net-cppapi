@@ -92,10 +92,10 @@
 
             return new System.Guid
             (
-                /* a */ *(uint*)data[0],    // First 4 bytes of GUID
-                /* b */ *(ushort*)data[4],  // Next 2 bytes of GUID
-                /* c */ *(ushort*)data[6],  // Next 2 bytes of GUID
-                /* d */ data[8],            // Remaining bytes
+                /* a */ *(uint*)data,           // First 4 bytes of GUID
+                /* b */ *(ushort*)(data + 4),   // Next 2 bytes of GUID
+                /* c */ *(ushort*)(data + 6),   // Next 2 bytes of GUID
+                /* d */ data[8],                // Remaining bytes
                 /* e */ data[9],
                 /* f */ data[10],
                 /* g */ data[11],
@@ -137,6 +137,10 @@
         public virtual unsafe void ReceivedNewMeasurements(Measurement* measurements, int length)
         {
         }
+
+        public new static readonly string SubscribeAllExpression = SubscriberInstanceBase.SubscribeAllExpression;
+        public new static readonly string SubscribeAllNoStatsExpression = SubscriberInstanceBase.SubscribeAllNoStatsExpression;
+        public new static readonly string FilterMetadataStatsExpression = SubscriberInstanceBase.FilterMetadataStatsExpression;
     }
 
 public class%}
@@ -1246,6 +1250,7 @@ namespace transport
     };
 
     typedef boost::shared_ptr<MeasurementMetadata> MeasurementMetadataPtr;
+    %typemap(cstype) MeasurementMetadataPtr "MeasurementMetadata"
 
     struct PhasorMetadata
     {
@@ -1290,6 +1295,12 @@ namespace transport
     };
 
     typedef boost::shared_ptr<DeviceMetadata> DeviceMetadataPtr;
+    %typemap(cstype) DeviceMetadataPtr& "out DeviceMetadata"
+    %typemap(csin,
+        pre = "    $csinput = new DeviceMetadata();",
+        cshin = "out $csinput"
+    )
+    DeviceMetadataPtr& "DeviceMetadata.getCPtr($csinput)"
 
     // Defines the configuration frame "structure" for a device data frame
     struct ConfigurationFrame
@@ -1308,6 +1319,24 @@ namespace transport
     };
 
     typedef boost::shared_ptr<ConfigurationFrame> ConfigurationFramePtr;
+    %typemap(cstype) ConfigurationFramePtr& "out ConfigurationFrame"
+    %typemap(csin,
+        pre = "    $csinput = new ConfigurationFrame();",
+        cshin = "out $csinput"
+    )
+    ConfigurationFramePtr& "ConfigurationFrame.getCPtr($csinput)"
+
+    %typemap(cstype) const ConfigurationFramePtr& "ConfigurationFrame"
+    %typemap(csin)
+    const ConfigurationFramePtr& "ConfigurationFrame.getCPtr($csinput)"
+
+    // This type map is declared after PhasorReference and ConfigurationFrame to prevent properties being generated with an "out"
+    %typemap(cstype) MeasurementMetadataPtr& "out MeasurementMetadata"
+    %typemap(csin,
+        pre = "    $csinput = new MeasurementMetadata();",
+        cshin = "out $csinput"
+    )
+    MeasurementMetadataPtr& "MeasurementMetadata.getCPtr($csinput)"
 
     // Info structure used to configure subscriptions.
     struct SubscriptionInfo
@@ -1463,6 +1492,7 @@ namespace transport
         %csmethodmodifiers ReceivedNewMeasurements "internal virtual";
         virtual void ReceivedNewMeasurements(const SimpleMeasurement* measurements, int32_t length);
 
+        %csmethodmodifiers ConfigurationChanged "protected virtual";
         virtual void ConfigurationChanged();
 
         %csmethodmodifiers HistoricalReadComplete "protected virtual";

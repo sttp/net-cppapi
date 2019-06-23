@@ -47,10 +47,10 @@ namespace sttp {
 
             return new System.Guid
             (
-                /* a */ *(uint*)data[0],    // First 4 bytes of GUID
-                /* b */ *(ushort*)data[4],  // Next 2 bytes of GUID
-                /* c */ *(ushort*)data[6],  // Next 2 bytes of GUID
-                /* d */ data[8],            // Remaining bytes
+                /* a */ *(uint*)data,           // First 4 bytes of GUID
+                /* b */ *(ushort*)(data + 4),   // Next 2 bytes of GUID
+                /* c */ *(ushort*)(data + 6),   // Next 2 bytes of GUID
+                /* d */ data[8],                // Remaining bytes
                 /* e */ data[9],
                 /* f */ data[10],
                 /* g */ data[11],
@@ -92,6 +92,10 @@ namespace sttp {
         public virtual unsafe void ReceivedNewMeasurements(Measurement* measurements, int length)
         {
         }
+
+        public new static readonly string SubscribeAllExpression = SubscriberInstanceBase.SubscribeAllExpression;
+        public new static readonly string SubscribeAllNoStatsExpression = SubscriberInstanceBase.SubscribeAllNoStatsExpression;
+        public new static readonly string FilterMetadataStatsExpression = SubscriberInstanceBase.FilterMetadataStatsExpression;
     }
 
 public class Common {

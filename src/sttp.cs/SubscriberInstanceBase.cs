@@ -88,7 +88,7 @@ public class SubscriberInstanceBase : global::System.IDisposable {
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public virtual void ConfigurationChanged() {
+  protected virtual void ConfigurationChanged() {
     if (SwigDerivedClassHasMethod("ConfigurationChanged", swigMethodTypes8)) CommonPINVOKE.SubscriberInstanceBase_ConfigurationChangedSwigExplicitSubscriberInstanceBase(swigCPtr); else CommonPINVOKE.SubscriberInstanceBase_ConfigurationChanged(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
@@ -303,14 +303,18 @@ public class SubscriberInstanceBase : global::System.IDisposable {
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public bool TryGetDeviceMetadata(string deviceAcronym, DeviceMetadata deviceMetadata) {
-    bool ret = CommonPINVOKE.SubscriberInstanceBase_TryGetDeviceMetadata(swigCPtr, deviceAcronym, DeviceMetadata.getCPtr(deviceMetadata));
-    if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-    return ret;
+  public bool TryGetDeviceMetadata(string deviceAcronym, out DeviceMetadata deviceMetadata) {
+    deviceMetadata = new DeviceMetadata();
+    {
+      bool ret = CommonPINVOKE.SubscriberInstanceBase_TryGetDeviceMetadata(swigCPtr, deviceAcronym, DeviceMetadata.getCPtr(deviceMetadata));
+      if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
+      return ret;
+    }
   }
 
-  public bool TryGetMeasurementMetdata(System.Guid signalID, MeasurementMetadata measurementMetadata) {
+  public bool TryGetMeasurementMetdata(System.Guid signalID, out MeasurementMetadata measurementMetadata) {
     guid_t tempsignalID = Common.ParseGuid(signalID.ToByteArray(), true);
+    measurementMetadata = new MeasurementMetadata();
     {
       bool ret = CommonPINVOKE.SubscriberInstanceBase_TryGetMeasurementMetdata(swigCPtr, guid_t.getCPtr(tempsignalID), MeasurementMetadata.getCPtr(measurementMetadata));
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
@@ -318,14 +322,18 @@ public class SubscriberInstanceBase : global::System.IDisposable {
     }
   }
 
-  public bool TryGetConfigurationFrame(string deviceAcronym, ConfigurationFrame configurationFrame) {
-    bool ret = CommonPINVOKE.SubscriberInstanceBase_TryGetConfigurationFrame(swigCPtr, deviceAcronym, ConfigurationFrame.getCPtr(configurationFrame));
-    if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-    return ret;
+  public bool TryGetConfigurationFrame(string deviceAcronym, out ConfigurationFrame configurationFrame) {
+    configurationFrame = new ConfigurationFrame();
+    {
+      bool ret = CommonPINVOKE.SubscriberInstanceBase_TryGetConfigurationFrame(swigCPtr, deviceAcronym, ConfigurationFrame.getCPtr(configurationFrame));
+      if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
+      return ret;
+    }
   }
 
-  public bool TryFindTargetConfigurationFrame(System.Guid signalID, ConfigurationFrame targetFrame) {
+  public bool TryFindTargetConfigurationFrame(System.Guid signalID, out ConfigurationFrame targetFrame) {
     guid_t tempsignalID = Common.ParseGuid(signalID.ToByteArray(), true);
+    targetFrame = new ConfigurationFrame();
     {
       bool ret = CommonPINVOKE.SubscriberInstanceBase_TryFindTargetConfigurationFrame(swigCPtr, guid_t.getCPtr(tempsignalID), ConfigurationFrame.getCPtr(targetFrame));
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
@@ -333,8 +341,9 @@ public class SubscriberInstanceBase : global::System.IDisposable {
     }
   }
 
-  public static bool TryGetMeasurementMetdataFromConfigurationFrame(System.Guid signalID, ConfigurationFrame sourceFrame, MeasurementMetadata measurementMetadata) {
+  public static bool TryGetMeasurementMetdataFromConfigurationFrame(System.Guid signalID, ConfigurationFrame sourceFrame, out MeasurementMetadata measurementMetadata) {
     guid_t tempsignalID = Common.ParseGuid(signalID.ToByteArray(), true);
+    measurementMetadata = new MeasurementMetadata();
     {
       bool ret = CommonPINVOKE.SubscriberInstanceBase_TryGetMeasurementMetdataFromConfigurationFrame(guid_t.getCPtr(tempsignalID), ConfigurationFrame.getCPtr(sourceFrame), MeasurementMetadata.getCPtr(measurementMetadata));
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
