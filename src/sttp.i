@@ -51,7 +51,6 @@
 #include "../cppapi/src/lib/data/DataSet.h"
 #include "../cppapi/src/lib/transport/TransportTypes.h"
 #include "../cppapi/src/lib/transport/SubscriberInstance.h"
-#include "../cppapi/src/lib/transport/DataPublisher.h"
 #include "../cppapi/src/lib/transport/PublisherInstance.h"
 %}
 
@@ -149,8 +148,6 @@ namespace sttp
     %typemap(csclassmodifiers) decimal_t, decimal_t*, decimal_t&, decimal_t[], decimal_t (CLASS::*) "internal class"
     %typemap(csclassmodifiers) datetime_t, datetime_t*, datetime_t&, datetime_t[], datetime_t (CLASS::*) "internal class"
     %typemap(csclassmodifiers) Guid, Guid*, Guid&, Guid[], Guid (CLASS::*) "internal class"
-    %typemap(csclassmodifiers) DataPublisher, DataPublisher*, DataPublisher&, DataPublisher[], DataPublisher (CLASS::*) "internal class"
-    %typemap(csclassmodifiers) IOContext, IOContext*, IOContext&, IOContext[], IOContext (CLASS::*) "internal class"
 
     typedef float float32_t;
     typedef double float64_t;
@@ -174,13 +171,6 @@ namespace sttp
         datetime_t(const datetime_t&);
     };
 
-    %rename(io_context_t) IOContext;
-    class IOContext
-    {
-        IOContext();
-        IOContext(const IOContext&);
-    };
-
     namespace data
     {
         class DataSet;
@@ -202,14 +192,6 @@ namespace sttp
 
         %rename(SubscriberInstanceBase) SubscriberInstance;
         class SubscriberInstance;
-
-        %rename(datapublisher_t) DataPublisher;
-        class DataPublisher
-        {
-            DataPublisher();
-            DataPublisher(const DataPublisher&);
-        };
-
         class SubscriberConnection;
         class PublisherInstance;
     }
@@ -227,7 +209,6 @@ namespace sttp
 %shared_ptr(sttp::transport::ConfigurationFrame)
 %shared_ptr(sttp::transport::SignalIndexCache)
 %shared_ptr(sttp::transport::SubscriberInstance)
-%shared_ptr(sttp::transport::DataPublisher)
 %shared_ptr(sttp::transport::SubscriberConnection)
 %shared_ptr(sttp::transport::PublisherInstance)
 
@@ -369,7 +350,7 @@ namespace sttp
     %apply uint8_t FIXED[] {const uint8_t* data}
     extern Guid ParseGuid(const uint8_t* data, bool swapEndianness);
 
-    // Map Guid (boost::uuids::uuid Guid) to System.Guid
+    // Map Guid (boost::uuids::uuid) to System.Guid
     %typemap(cstype) Guid, const Guid& "System.Guid"
     %typemap(csin,
         pre="    $csclassname temp$csinput = $module.ParseGuid($csinput.ToByteArray(), true);"
@@ -505,7 +486,7 @@ namespace sttp
       }
     }
 
-    // Note: Do not change the spacing on the following Nullable typemaps as it affects spacing in generated code:
+    // Note: Do not change the spacing on the following Nullable typemaps as it affects spacing in generated code (see DataRow.cs):
 
     // Map sttp::Nullable<std::string> to string
     %typemap(cstype) const sttp::Nullable<std::string>& "string"
@@ -612,7 +593,7 @@ namespace std
     %template(PhasorReferenceCollection) vector<boost::shared_ptr<sttp::transport::PhasorReference>>;
     %template(DeviceMetadataCollection) vector<boost::shared_ptr<sttp::transport::DeviceMetadata>>;
     %template(SubscriberConnectionCollection) vector<boost::shared_ptr<sttp::transport::SubscriberConnection>>;
-    
+
     %template(DeviceMetadataMap) map<string, boost::shared_ptr<sttp::transport::DeviceMetadata>>;
     %template(MeasurementMetadataMap) map<sttp::Guid, boost::shared_ptr<sttp::transport::MeasurementMetadata>>;
 }
@@ -761,7 +742,7 @@ namespace data
 
         public DataColumn this[string columnName] => Column(columnName);
     %}}
-
+ 
     %rename(_Parent) DataRow::Parent;
 
     class DataRow
@@ -1048,7 +1029,7 @@ namespace data
                 }
             }
         }
-        
+
         private static T? CastType<T>(object value) where T : struct
         {
             switch (value)
@@ -1766,14 +1747,11 @@ namespace transport
 
     typedef boost::shared_ptr<SignalIndexCache> SignalIndexCachePtr;
 
-    typedef boost::shared_ptr<DataPublisher> DataPublisherPtr;
-
     // Represents a subscriber connection to a data publisher
+    %nodefaultctor SubscriberConnection;
     class SubscriberConnection
     {
     public:
-        %csmethodmodifiers SubscriberConnection "internal";
-        SubscriberConnection(DataPublisherPtr parent, sttp::IOContext& commandChannelService);
         ~SubscriberConnection();
 
         // Gets subscriber UUID used when subscriber is known and pre-established
@@ -1873,7 +1851,7 @@ namespace transport
         bool SendResponse(uint8_t responseCode, uint8_t commandCode, const std::string& message);
         bool SendResponse(uint8_t responseCode, uint8_t commandCode, const std::vector<uint8_t>& data);
     };
-    
+
     %extend SubscriberConnection {
     %proxycode
     %{
@@ -2077,6 +2055,6 @@ namespace transport
             if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
         }
     %}}
-    
+
     typedef boost::shared_ptr<PublisherInstance> PublisherInstancePtr;
 }}

@@ -448,7 +448,6 @@ SWIGINTERN void SWIG_CSharpException(int code, const char *msg) {
 #include "../cppapi/src/lib/data/DataSet.h"
 #include "../cppapi/src/lib/transport/TransportTypes.h"
 #include "../cppapi/src/lib/transport/SubscriberInstance.h"
-#include "../cppapi/src/lib/transport/DataPublisher.h"
 #include "../cppapi/src/lib/transport/PublisherInstance.h"
 
 
@@ -1760,44 +1759,6 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_delete_datetime_t(void * jarg1) {
   sttp::datetime_t *arg1 = (sttp::datetime_t *) 0 ;
   
   arg1 = (sttp::datetime_t *)jarg1; 
-  {
-    try
-    {
-      delete arg1;
-    }
-    catch (const std::exception& e)
-    {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
-      };
-    }
-  }
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_sttp_delete_io_context_t(void * jarg1) {
-  sttp::IOContext *arg1 = (sttp::IOContext *) 0 ;
-  
-  arg1 = (sttp::IOContext *)jarg1; 
-  {
-    try
-    {
-      delete arg1;
-    }
-    catch (const std::exception& e)
-    {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
-      };
-    }
-  }
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_sttp_delete_datapublisher_t(void * jarg1) {
-  sttp::transport::DataPublisher *arg1 = (sttp::transport::DataPublisher *) 0 ;
-  
-  arg1 = (sttp::transport::DataPublisher *)jarg1; 
   {
     try
     {
@@ -17286,37 +17247,6 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_delete_SignalIndexCache(void * jarg1) {
       };
     }
   }
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_new_SubscriberConnection(void * jarg1, void * jarg2) {
-  void * jresult ;
-  sttp::transport::DataPublisherPtr arg1 ;
-  sttp::IOContext *arg2 = 0 ;
-  sttp::transport::SubscriberConnection *result = 0 ;
-  
-  if (jarg1) arg1 = *(sttp::transport::DataPublisherPtr *)jarg1; 
-  arg2 = (sttp::IOContext *)jarg2;
-  if (!arg2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "sttp::IOContext & type is null", 0);
-    return 0;
-  } 
-  {
-    try
-    {
-      result = (sttp::transport::SubscriberConnection *)new sttp::transport::SubscriberConnection(arg1,*arg2);
-    }
-    catch (const std::exception& e)
-    {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
-      };
-    }
-  }
-  
-  jresult = result ? new boost::shared_ptr<  sttp::transport::SubscriberConnection >(result SWIG_NO_NULL_DELETER_1) : 0;
-  
-  return jresult;
 }
 
 

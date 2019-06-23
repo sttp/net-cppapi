@@ -2,6 +2,8 @@
 using System;
 using System.Diagnostics;
 
+#pragma warning disable CS0649
+
 namespace SpeedTest
 {
     class Measurement
@@ -23,7 +25,7 @@ namespace SpeedTest
         private const int Repeats = 10;
         private const int TestTotal = 100000;
 
-        private static void Main(string[] args)
+        private static void Main()
         {
             double totalProcessingTime = 0.0D;
 

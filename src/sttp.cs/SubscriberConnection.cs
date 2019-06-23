@@ -44,10 +44,6 @@ public class SubscriberConnection : global::System.IDisposable {
     }
   }
 
-  internal SubscriberConnection(datapublisher_t parent, io_context_t commandChannelService) : this(CommonPINVOKE.new_SubscriberConnection(datapublisher_t.getCPtr(parent), io_context_t.getCPtr(commandChannelService)), true) {
-    if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-  }
-
   public System.Guid GetSubscriberID() {
       global::System.IntPtr cPtr = CommonPINVOKE.SubscriberConnection_GetSubscriberID(swigCPtr);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();

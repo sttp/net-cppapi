@@ -780,7 +780,7 @@ public class DataRow : global::System.IDisposable {
                 }
             }
         }
-        
+
         private static T? CastType<T>(object value) where T : struct
         {
             switch (value)
