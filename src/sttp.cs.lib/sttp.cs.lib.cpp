@@ -4368,6 +4368,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_StringCollection_Add(void * jarg1, char 
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -4604,6 +4607,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_StringCollection_setitem(void * jarg1, i
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -4697,6 +4703,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_StringCollection_Insert(void * jarg1, in
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -4820,6 +4829,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_StringCollection_Repeat(char * jarg1, 
     }
   }
   jresult = (void *)result; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -4932,6 +4944,9 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_StringCollection_Contains(void *
     }
   }
   jresult = result; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -4962,6 +4977,9 @@ SWIGEXPORT int SWIGSTDCALL CSharp_sttp_StringCollection_IndexOf(void * jarg1, ch
     }
   }
   jresult = result; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -4992,6 +5010,9 @@ SWIGEXPORT int SWIGSTDCALL CSharp_sttp_StringCollection_LastIndexOf(void * jarg1
     }
   }
   jresult = result; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -5022,6 +5043,9 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_StringCollection_Remove(void * j
     }
   }
   jresult = result; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -8687,6 +8711,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DeviceMetadataMap_getitem(void * jarg1
     }
   }
   jresult = *result ? new std::map< std::string,boost::shared_ptr< sttp::transport::DeviceMetadata > >::mapped_type(*result) : 0; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -8717,6 +8744,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DeviceMetadataMap_setitem(void * jarg1, 
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -8746,6 +8776,9 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_DeviceMetadataMap_ContainsKey(vo
     }
   }
   jresult = result; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -8781,6 +8814,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DeviceMetadataMap_Add(void * jarg1, char
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -8810,6 +8846,9 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_DeviceMetadataMap_Remove(void * 
     }
   }
   jresult = result; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -9330,6 +9369,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataSet_Table(void * jarg1, char * jar
     }
   }
   jresult = *result ? new sttp::data::DataTablePtr(*result) : 0; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -9363,6 +9405,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataSet_CreateTable(void * jarg1, char
     }
   }
   jresult = result ? new sttp::data::DataTablePtr(result) : 0; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -9502,6 +9547,9 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_DataSet_RemoveTable(void * jarg1
     }
   }
   jresult = result; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -9532,6 +9580,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataSet_ReadXml__SWIG_0(void * jarg1, ch
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -9624,6 +9675,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataSet_WriteXml__SWIG_0(void * jarg1, c
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -9653,6 +9710,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataSet_WriteXml__SWIG_1(void * jarg1, c
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -9688,6 +9748,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataSet_WriteXml__SWIG_2(void * jarg1, v
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -9743,6 +9806,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataSet_FromXml__SWIG_0(char * jarg1) 
     }
   }
   jresult = result ? new sttp::data::DataSetPtr(result) : 0; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -9979,6 +10045,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataTable_Column__SWIG_0(void * jarg1,
     }
   }
   jresult = *result ? new sttp::data::DataColumnPtr(*result) : 0; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -10048,6 +10117,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataTable_CreateColumn__SWIG_0(void * 
     }
   }
   jresult = result ? new sttp::data::DataColumnPtr(result) : 0; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -10083,6 +10155,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataTable_CreateColumn__SWIG_1(void * 
     }
   }
   jresult = result ? new sttp::data::DataColumnPtr(result) : 0; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -10405,6 +10480,9 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_DataRow_IsNull__SWIG_1(void * ja
     }
   }
   jresult = result; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -10459,6 +10537,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataRow_SetNullValue__SWIG_1(void * jarg
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -10519,6 +10600,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataRow_ValueAsString__SWIG_1(void * j
     }
   }
   jresult = new sttp::Nullable< std::string >((const sttp::Nullable< std::string > &)result); 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -10585,6 +10669,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataRow_SetStringValue__SWIG_1(void * ja
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -10645,6 +10732,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataRow_ValueAsBoolean__SWIG_1(void * 
     }
   }
   jresult = new sttp::Nullable< bool >((const sttp::Nullable< bool > &)result); 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -10711,6 +10801,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataRow_SetBooleanValue__SWIG_1(void * j
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -10771,6 +10864,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataRow_ValueAsDateTime__SWIG_1(void *
     }
   }
   jresult = new sttp::Nullable< sttp::datetime_t >((const sttp::Nullable< sttp::datetime_t > &)result); 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -10837,6 +10933,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataRow_SetDateTimeValue__SWIG_1(void * 
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -10897,6 +10996,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataRow_ValueAsSingle__SWIG_1(void * j
     }
   }
   jresult = new sttp::Nullable< sttp::float32_t >((const sttp::Nullable< sttp::float32_t > &)result); 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -10963,6 +11065,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataRow_SetSingleValue__SWIG_1(void * ja
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -11023,6 +11128,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataRow_ValueAsDouble__SWIG_1(void * j
     }
   }
   jresult = new sttp::Nullable< sttp::float64_t >((const sttp::Nullable< sttp::float64_t > &)result); 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -11089,6 +11197,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataRow_SetDoubleValue__SWIG_1(void * ja
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -11149,6 +11260,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataRow_ValueAsDecimal__SWIG_1(void * 
     }
   }
   jresult = new sttp::Nullable< sttp::decimal_t >((const sttp::Nullable< sttp::decimal_t > &)result); 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -11215,6 +11329,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataRow_SetDecimalValue__SWIG_1(void * j
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -11275,6 +11392,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataRow_ValueAsGuid__SWIG_1(void * jar
     }
   }
   jresult = new sttp::Nullable< sttp::Guid >((const sttp::Nullable< sttp::Guid > &)result); 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -11341,6 +11461,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataRow_SetGuidValue__SWIG_1(void * jarg
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -11401,6 +11524,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataRow_ValueAsInt8__SWIG_1(void * jar
     }
   }
   jresult = new sttp::Nullable< int8_t >((const sttp::Nullable< int8_t > &)result); 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -11467,6 +11593,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataRow_SetInt8Value__SWIG_1(void * jarg
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -11527,6 +11656,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataRow_ValueAsInt16__SWIG_1(void * ja
     }
   }
   jresult = new sttp::Nullable< int16_t >((const sttp::Nullable< int16_t > &)result); 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -11593,6 +11725,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataRow_SetInt16Value__SWIG_1(void * jar
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -11653,6 +11788,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataRow_ValueAsInt32__SWIG_1(void * ja
     }
   }
   jresult = new sttp::Nullable< int32_t >((const sttp::Nullable< int32_t > &)result); 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -11719,6 +11857,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataRow_SetInt32Value__SWIG_1(void * jar
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -11779,6 +11920,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataRow_ValueAsInt64__SWIG_1(void * ja
     }
   }
   jresult = new sttp::Nullable< int64_t >((const sttp::Nullable< int64_t > &)result); 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -11845,6 +11989,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataRow_SetInt64Value__SWIG_1(void * jar
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -11905,6 +12052,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataRow_ValueAsUInt8__SWIG_1(void * ja
     }
   }
   jresult = new sttp::Nullable< uint8_t >((const sttp::Nullable< uint8_t > &)result); 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -11971,6 +12121,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataRow_SetUInt8Value__SWIG_1(void * jar
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -12031,6 +12184,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataRow_ValueAsUInt16__SWIG_1(void * j
     }
   }
   jresult = new sttp::Nullable< uint16_t >((const sttp::Nullable< uint16_t > &)result); 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -12097,6 +12253,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataRow_SetUInt16Value__SWIG_1(void * ja
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -12157,6 +12316,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataRow_ValueAsUInt32__SWIG_1(void * j
     }
   }
   jresult = new sttp::Nullable< uint32_t >((const sttp::Nullable< uint32_t > &)result); 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -12223,6 +12385,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataRow_SetUInt32Value__SWIG_1(void * ja
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -12283,6 +12448,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_DataRow_ValueAsUInt64__SWIG_1(void * j
     }
   }
   jresult = new sttp::Nullable< uint64_t >((const sttp::Nullable< uint64_t > &)result); 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -12349,6 +12517,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DataRow_SetUInt64Value__SWIG_1(void * ja
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -12602,28 +12773,6 @@ SWIGEXPORT int SWIGSTDCALL CSharp_sttp_DataColumn__Index(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SimpleMeasurement_ID_set(void * jarg1, unsigned long long jarg2) {
-  sttp::transport::SimpleMeasurement *arg1 = (sttp::transport::SimpleMeasurement *) 0 ;
-  uint64_t arg2 ;
-  
-  arg1 = (sttp::transport::SimpleMeasurement *)jarg1; 
-  arg2 = (uint64_t)jarg2; 
-  if (arg1) (arg1)->ID = arg2;
-}
-
-
-SWIGEXPORT unsigned long long SWIGSTDCALL CSharp_sttp_SimpleMeasurement_ID_get(void * jarg1) {
-  unsigned long long jresult ;
-  sttp::transport::SimpleMeasurement *arg1 = (sttp::transport::SimpleMeasurement *) 0 ;
-  uint64_t result;
-  
-  arg1 = (sttp::transport::SimpleMeasurement *)jarg1; 
-  result = (uint64_t) ((arg1)->ID);
-  jresult = result; 
-  return jresult;
-}
-
-
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SimpleMeasurement_SignalID_set(void * jarg1, void * jarg2) {
   sttp::transport::SimpleMeasurement *arg1 = (sttp::transport::SimpleMeasurement *) 0 ;
   sttp::Guid *arg2 = (sttp::Guid *) 0 ;
@@ -12663,50 +12812,6 @@ SWIGEXPORT double SWIGSTDCALL CSharp_sttp_SimpleMeasurement_Value_get(void * jar
   
   arg1 = (sttp::transport::SimpleMeasurement *)jarg1; 
   result = (sttp::float64_t) ((arg1)->Value);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SimpleMeasurement_Adder_set(void * jarg1, double jarg2) {
-  sttp::transport::SimpleMeasurement *arg1 = (sttp::transport::SimpleMeasurement *) 0 ;
-  sttp::float64_t arg2 ;
-  
-  arg1 = (sttp::transport::SimpleMeasurement *)jarg1; 
-  arg2 = (sttp::float64_t)jarg2; 
-  if (arg1) (arg1)->Adder = arg2;
-}
-
-
-SWIGEXPORT double SWIGSTDCALL CSharp_sttp_SimpleMeasurement_Adder_get(void * jarg1) {
-  double jresult ;
-  sttp::transport::SimpleMeasurement *arg1 = (sttp::transport::SimpleMeasurement *) 0 ;
-  sttp::float64_t result;
-  
-  arg1 = (sttp::transport::SimpleMeasurement *)jarg1; 
-  result = (sttp::float64_t) ((arg1)->Adder);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SimpleMeasurement_Multiplier_set(void * jarg1, double jarg2) {
-  sttp::transport::SimpleMeasurement *arg1 = (sttp::transport::SimpleMeasurement *) 0 ;
-  sttp::float64_t arg2 ;
-  
-  arg1 = (sttp::transport::SimpleMeasurement *)jarg1; 
-  arg2 = (sttp::float64_t)jarg2; 
-  if (arg1) (arg1)->Multiplier = arg2;
-}
-
-
-SWIGEXPORT double SWIGSTDCALL CSharp_sttp_SimpleMeasurement_Multiplier_get(void * jarg1) {
-  double jresult ;
-  sttp::transport::SimpleMeasurement *arg1 = (sttp::transport::SimpleMeasurement *) 0 ;
-  sttp::float64_t result;
-  
-  arg1 = (sttp::transport::SimpleMeasurement *)jarg1; 
-  result = (sttp::float64_t) ((arg1)->Multiplier);
   jresult = result; 
   return jresult;
 }
@@ -12868,6 +12973,9 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_sttp_GetEngineeringUnits(char * jarg1) {
     }
   }
   jresult = SWIG_csharp_string_callback((&result)->c_str()); 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -12896,6 +13004,9 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_sttp_GetProtocolType(char * jarg1) {
     }
   }
   jresult = SWIG_csharp_string_callback((&result)->c_str()); 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -12924,6 +13035,9 @@ SWIGEXPORT int SWIGSTDCALL CSharp_sttp_ParseSignalKind(char * jarg1) {
     }
   }
   jresult = (int)result; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -12962,6 +13076,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SignalReference_Acronym_set(void * jarg1
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->Acronym = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -13066,6 +13183,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_new_SignalReference__SWIG_1(char * jar
     }
   }
   jresult = (void *)result; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -13104,6 +13224,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_MeasurementMetadata_DeviceAcronym_set(vo
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->DeviceAcronym = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -13137,6 +13260,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_MeasurementMetadata_ID_set(void * jarg1,
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->ID = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -13198,6 +13324,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_MeasurementMetadata_PointTag_set(void * 
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->PointTag = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -13287,6 +13416,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_MeasurementMetadata_Description_set(void
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->Description = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -13393,6 +13525,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PhasorMetadata_DeviceAcronym_set(void * 
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->DeviceAcronym = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -13426,6 +13561,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PhasorMetadata_Label_set(void * jarg1, c
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->Label = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -13459,6 +13597,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PhasorMetadata_Type_set(void * jarg1, ch
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->Type = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -13492,6 +13633,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PhasorMetadata_Phase_set(void * jarg1, c
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->Phase = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -13758,6 +13902,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DeviceMetadata_Acronym_set(void * jarg1,
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->Acronym = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -13791,6 +13938,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DeviceMetadata_Name_set(void * jarg1, ch
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->Name = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -13880,6 +14030,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DeviceMetadata_ParentAcronym_set(void * 
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->ParentAcronym = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -13913,6 +14066,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DeviceMetadata_ProtocolName_set(void * j
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->ProtocolName = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -13974,6 +14130,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DeviceMetadata_CompanyAcronym_set(void *
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->CompanyAcronym = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -14007,6 +14166,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DeviceMetadata_VendorAcronym_set(void * 
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->VendorAcronym = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -14040,6 +14202,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_DeviceMetadata_VendorDeviceName_set(void
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->VendorDeviceName = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -14258,6 +14423,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_ConfigurationFrame_DeviceAcronym_set(voi
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->DeviceAcronym = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -14533,6 +14701,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriptionInfo_FilterExpression_set(vo
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->FilterExpression = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -14780,6 +14951,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriptionInfo_StartTime_set(void * ja
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->StartTime = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -14807,6 +14981,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriptionInfo_StopTime_set(void * jar
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->StopTime = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -14834,6 +15011,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriptionInfo_ConstraintParameters_se
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->ConstraintParameters = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -14883,6 +15063,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriptionInfo_ExtraConnectionStringPa
   std::string arg2_str(jarg2);
   arg2 = &arg2_str; 
   if (arg1) (arg1)->ExtraConnectionStringParameters = *arg2;
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -14961,6 +15144,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberConnector_SetHostname(void * j
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -15404,6 +15590,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_StatusMessage(voi
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -15433,6 +15622,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_StatusMessageSwig
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -15462,6 +15654,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_ErrorMessage(void
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -15491,6 +15686,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_ErrorMessageSwigE
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -15882,6 +16080,110 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_ConnectionTermina
 }
 
 
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_GetAssemblyInfo(void * jarg1, char** jarg2, char** jarg3, char** jarg4) {
+  sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  std::string *arg2 = 0 ;
+  std::string *arg3 = 0 ;
+  std::string *arg4 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance const > *smartarg1 = 0 ;
+  
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
+  //typemap in
+  std::string tempsource;
+  arg2 = &tempsource; 
+  
+  //typemap in
+  std::string tempversion;
+  arg3 = &tempversion; 
+  
+  //typemap in
+  std::string tempupdatedOn;
+  arg4 = &tempupdatedOn; 
+  
+  {
+    try
+    {
+      ((sttp::transport::SubscriberInstance const *)arg1)->GetAssemblyInfo(*arg2,*arg3,*arg4);
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+  
+  //Typemap argout in c++ file.
+  //This will convert c++ string to c# string
+  *jarg2 = SWIG_csharp_string_callback(arg2->c_str());
+  
+  
+  //Typemap argout in c++ file.
+  //This will convert c++ string to c# string
+  *jarg3 = SWIG_csharp_string_callback(arg3->c_str());
+  
+  
+  //Typemap argout in c++ file.
+  //This will convert c++ string to c# string
+  *jarg4 = SWIG_csharp_string_callback(arg4->c_str());
+  
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_SetAssemblyInfo(void * jarg1, char * jarg2, char * jarg3, char * jarg4) {
+  sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  std::string *arg2 = 0 ;
+  std::string *arg3 = 0 ;
+  std::string *arg4 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
+  
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
+  if (!jarg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
+    return ;
+  }
+  std::string arg2_str(jarg2);
+  arg2 = &arg2_str; 
+  if (!jarg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
+    return ;
+  }
+  std::string arg3_str(jarg3);
+  arg3 = &arg3_str; 
+  if (!jarg4) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
+    return ;
+  }
+  std::string arg4_str(jarg4);
+  arg4 = &arg4_str; 
+  {
+    try
+    {
+      (arg1)->SetAssemblyInfo((std::string const &)*arg2,(std::string const &)*arg3,(std::string const &)*arg4);
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+  
+  //argout typemap for const std::string&
+  
+  
+  //argout typemap for const std::string&
+  
+  
+  //argout typemap for const std::string&
+  
+}
+
+
 SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_new_SubscriberInstanceBase() {
   void * jresult ;
   sttp::transport::SubscriberInstance *result = 0 ;
@@ -15987,6 +16289,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_Initialize__SWIG_
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -16018,6 +16323,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_Initialize__SWIG_
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -16299,6 +16607,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_SetFilterExpressi
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -16354,6 +16665,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_SetMetadataFilter
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -16456,6 +16770,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_EstablishHistoric
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -16883,6 +17203,9 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_TryGetDev
     }
   }
   jresult = result; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -16954,6 +17277,9 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_TryGetCon
     }
   }
   jresult = result; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -18207,6 +18533,9 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberConnection_SendRespons
     }
   }
   jresult = result; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -18273,6 +18602,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_StatusMessage(void * j
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -18302,6 +18634,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_StatusMessageSwigExpli
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -18331,6 +18666,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_ErrorMessage(void * ja
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -18360,6 +18698,9 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_PublisherInstance_ErrorMessageSwigExplic
       };
     }
   }
+  
+  //argout typemap for const std::string&
+  
 }
 
 
@@ -18912,6 +19253,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_PublisherInstance_FilterMetadata(void 
     }
   }
   jresult = new std::vector< sttp::transport::MeasurementMetadataPtr >((const std::vector< sttp::transport::MeasurementMetadataPtr > &)result); 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -19063,6 +19407,9 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_Start__SWIG_2(
     }
   }
   jresult = result; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 
@@ -19098,6 +19445,9 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_PublisherInstance_StartSwigExpli
     }
   }
   jresult = result; 
+  
+  //argout typemap for const std::string&
+  
   return jresult;
 }
 

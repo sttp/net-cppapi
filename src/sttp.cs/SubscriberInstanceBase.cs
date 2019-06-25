@@ -108,6 +108,16 @@ public class SubscriberInstanceBase : global::System.IDisposable {
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
+  public void GetAssemblyInfo(out string source, out string version, out string updatedOn) {
+    CommonPINVOKE.SubscriberInstanceBase_GetAssemblyInfo(swigCPtr, out source, out version, out updatedOn);
+    if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public void SetAssemblyInfo(string source, string version, string updatedOn) {
+    CommonPINVOKE.SubscriberInstanceBase_SetAssemblyInfo(swigCPtr, source, version, updatedOn);
+    if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
+  }
+
   protected SubscriberInstanceBase() : this(CommonPINVOKE.new_SubscriberInstanceBase(), true) {
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     SwigDirectorConnect();

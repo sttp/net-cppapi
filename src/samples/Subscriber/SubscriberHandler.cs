@@ -116,7 +116,7 @@ namespace Subscriber
             //    Measurement measurement = measurements[i];
 
             //    // Get adjusted value
-            //    double value = measurement.AdjustedValue();
+            //    double value = measurement.Value;
 
             //    // Get timestamp
             //    DateTime timestamp = measurement.GetDateTime();
@@ -166,12 +166,12 @@ namespace Subscriber
                 message.AppendLine($"{GetTotalMeasurementsReceived()} measurements received so far...");
                 message.AppendLine(measurements[0].GetDateTime().ToString("yyyy-MM-dd HH:mm:ss.fff"));
                 message.AppendLine($"Signal ID: {measurements[0].GetSignalID()}");
-                message.AppendLine("\tPoint\tValue");
+                message.AppendLine("\tPoint\t\t\tValue");
 
                 for (int i = 0; i < length; i++)
                 {
                     Measurement measurement = measurements[i];
-                    message.AppendLine($"\t{measurement.ID}\t{measurement.Value}");
+                    message.AppendLine($"\t{measurement.GetSignalID()}\t{measurement.Value}");
                 }
 
                 StatusMessage(message.ToString());

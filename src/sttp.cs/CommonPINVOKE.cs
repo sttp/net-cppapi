@@ -1423,12 +1423,6 @@ class CommonPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib.dll", EntryPoint="CSharp_sttp_DataColumn__Index")]
   public static extern int DataColumn__Index(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib.dll", EntryPoint="CSharp_sttp_SimpleMeasurement_ID_set")]
-  public static extern void SimpleMeasurement_ID_set(global::System.Runtime.InteropServices.HandleRef jarg1, ulong jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib.dll", EntryPoint="CSharp_sttp_SimpleMeasurement_ID_get")]
-  public static extern ulong SimpleMeasurement_ID_get(global::System.Runtime.InteropServices.HandleRef jarg1);
-
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib.dll", EntryPoint="CSharp_sttp_SimpleMeasurement_SignalID_set")]
   public static extern void SimpleMeasurement_SignalID_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
@@ -1440,18 +1434,6 @@ class CommonPINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib.dll", EntryPoint="CSharp_sttp_SimpleMeasurement_Value_get")]
   public static extern double SimpleMeasurement_Value_get(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib.dll", EntryPoint="CSharp_sttp_SimpleMeasurement_Adder_set")]
-  public static extern void SimpleMeasurement_Adder_set(global::System.Runtime.InteropServices.HandleRef jarg1, double jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib.dll", EntryPoint="CSharp_sttp_SimpleMeasurement_Adder_get")]
-  public static extern double SimpleMeasurement_Adder_get(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib.dll", EntryPoint="CSharp_sttp_SimpleMeasurement_Multiplier_set")]
-  public static extern void SimpleMeasurement_Multiplier_set(global::System.Runtime.InteropServices.HandleRef jarg1, double jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib.dll", EntryPoint="CSharp_sttp_SimpleMeasurement_Multiplier_get")]
-  public static extern double SimpleMeasurement_Multiplier_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib.dll", EntryPoint="CSharp_sttp_SimpleMeasurement_Timestamp_set")]
   public static extern void SimpleMeasurement_Timestamp_set(global::System.Runtime.InteropServices.HandleRef jarg1, long jarg2);
@@ -2007,6 +1989,12 @@ class CommonPINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib.dll", EntryPoint="CSharp_sttp_SubscriberInstanceBase_ConnectionTerminatedSwigExplicitSubscriberInstanceBase")]
   public static extern void SubscriberInstanceBase_ConnectionTerminatedSwigExplicitSubscriberInstanceBase(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib.dll", EntryPoint="CSharp_sttp_SubscriberInstanceBase_GetAssemblyInfo")]
+  public static extern void SubscriberInstanceBase_GetAssemblyInfo(global::System.Runtime.InteropServices.HandleRef jarg1, out string jarg2, out string jarg3, out string jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib.dll", EntryPoint="CSharp_sttp_SubscriberInstanceBase_SetAssemblyInfo")]
+  public static extern void SubscriberInstanceBase_SetAssemblyInfo(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2, string jarg3, string jarg4);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.cs.lib.dll", EntryPoint="CSharp_sttp_new_SubscriberInstanceBase")]
   public static extern global::System.IntPtr new_SubscriberInstanceBase();

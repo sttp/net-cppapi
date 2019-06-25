@@ -5,6 +5,20 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <Platforms>x64;x86</Platforms>
     <RootNamespace>sttp</RootNamespace>
+    <PackageId>sttp.net.api</PackageId>
+    <Authors>J. Ritchie Carroll</Authors>
+    <Company>Grid Protection Alliance</Company>
+    <Product>STTP</Product>
+    <Description>Streaming Telemetry Transport Protocol .NET API</Description>
+    <Copyright>Copyright © 2019</Copyright>
+    <PackageProjectUrl>https://github.com/sttp/</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/sttp/Specification/master/Sections/Images/sttp-logo.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/sttp/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseUrl>MIT</PackageLicenseUrl>
+    <PackageTags>Streaming Telemetry Transport Protocol Data Measurement Transfer IoT</PackageTags>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">

@@ -44,18 +44,6 @@ internal class SimpleMeasurement : global::System.IDisposable {
     }
   }
 
-  public ulong ID {
-    set {
-      CommonPINVOKE.SimpleMeasurement_ID_set(swigCPtr, value);
-      if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-    } 
-    get {
-      ulong ret = CommonPINVOKE.SimpleMeasurement_ID_get(swigCPtr);
-      if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-      return ret;
-    } 
-  }
-
   public System.Guid SignalID {
       set {
         guid_t tempvalue = Common.ParseGuid(value.ToByteArray(), true);
@@ -82,30 +70,6 @@ internal class SimpleMeasurement : global::System.IDisposable {
     } 
     get {
       double ret = CommonPINVOKE.SimpleMeasurement_Value_get(swigCPtr);
-      if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-      return ret;
-    } 
-  }
-
-  public double Adder {
-    set {
-      CommonPINVOKE.SimpleMeasurement_Adder_set(swigCPtr, value);
-      if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-    } 
-    get {
-      double ret = CommonPINVOKE.SimpleMeasurement_Adder_get(swigCPtr);
-      if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-      return ret;
-    } 
-  }
-
-  public double Multiplier {
-    set {
-      CommonPINVOKE.SimpleMeasurement_Multiplier_set(swigCPtr, value);
-      if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
-    } 
-    get {
-      double ret = CommonPINVOKE.SimpleMeasurement_Multiplier_get(swigCPtr);
       if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     } 

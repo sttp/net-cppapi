@@ -23,7 +23,6 @@
 
 using sttp;
 using System;
-using System.Collections.Generic;
 using System.Timers;
 
 namespace Publisher
@@ -34,18 +33,18 @@ namespace Publisher
         private ulong m_processCount;
         private Timer m_publishTimer;
         private int m_metadataVersion;
-        private readonly List<DeviceMetadata> m_deviceMetadata;
-        private readonly List<MeasurementMetadata> m_measurementMetadata;
-        private readonly List<PhasorMetadata> m_phasorMetadata;
+        private readonly DeviceMetadataCollection m_deviceMetadata;
+        private readonly MeasurementMetadataCollection m_measurementMetadata;
+        private readonly PhasorMetadataCollection m_phasorMetadata;
 
         private static readonly object s_consoleLock = new object();
 
         public PublisherHandler(string name)
         {
             m_name = name;
-            m_deviceMetadata = new List<DeviceMetadata>();
-            m_measurementMetadata = new List<MeasurementMetadata>();
-            m_phasorMetadata = new List<PhasorMetadata>();
+            m_deviceMetadata = new DeviceMetadataCollection();
+            m_measurementMetadata = new MeasurementMetadataCollection();
+            m_phasorMetadata = new PhasorMetadataCollection();
         }
 
         protected override void StatusMessage(string message)
@@ -170,11 +169,7 @@ namespace Publisher
             m_metadataVersion++;
 
             // Pass meta-data to publisher instance for proper conditioning
-            base.DefineMetadata(
-                new DeviceMetadataCollection(m_deviceMetadata),
-                new MeasurementMetadataCollection(m_measurementMetadata),
-                new PhasorMetadataCollection(m_phasorMetadata),
-                m_metadataVersion);
+            base.DefineMetadata(m_deviceMetadata, m_measurementMetadata, m_phasorMetadata, m_metadataVersion);
         }
 
         public override bool Start(ushort port)
@@ -194,7 +189,7 @@ namespace Publisher
             // data type reasonable random values every 33 milliseconds
             m_publishTimer = new Timer(33)
             {
-                AutoReset = true,
+                AutoReset = true
             };
 
             m_publishTimer.Elapsed += (sender, e) =>
@@ -209,10 +204,7 @@ namespace Publisher
                 for (int i = 0; i < count; i++)
                 {
                     MeasurementMetadata metadata = m_measurementMetadata[i];
-                    Measurement measurement = new Measurement();
-
-                    measurement.SetSignalID(metadata.SignalID);
-                    measurement.Timestamp = timestamp;
+                    Measurement measurement = new Measurement(metadata.SignalID, timestamp);
 
                     double randFraction = rand.NextDouble();
                     double sign = randFraction > 0.5 ? 1.0 : -1.0;

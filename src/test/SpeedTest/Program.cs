@@ -67,7 +67,6 @@ namespace SpeedTest
                     sttp.Measurement measurement = new sttp.Measurement();
 
                     measurement.SetSignalID(Guid.NewGuid());
-                    measurement.ID = (ulong)j;
                     measurement.Timestamp = startTime.Ticks;
                     measurement.Value = (1 + 1) * (j + 1);
 
