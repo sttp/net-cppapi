@@ -8,9 +8,10 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace sttp {
+namespace sttp
+{
 
-public class PublisherInstance : global::System.IDisposable {
+    public class PublisherInstance : global::System.IDisposable {
   private global::System.Runtime.InteropServices.HandleRef swigCPtr;
   private bool swigCMemOwnBase;
 
@@ -354,7 +355,7 @@ public class PublisherInstance : global::System.IDisposable {
         }
 
         [System.Runtime.InteropServices.DllImport("sttp.cs.lib.dll", EntryPoint="CSharp_sttp_PublisherInstance_PublishMeasurements")]
-        private static extern void InvokePublishMeasurements(System.Runtime.InteropServices.HandleRef publisherInstancePtr, [System.Runtime.InteropServices.In, System.Runtime.InteropServices.Out] Measurement[] measurements, int length);
+        private static extern void InvokePublishMeasurements(System.Runtime.InteropServices.HandleRef publisherInstancePtr, [System.Runtime.InteropServices.In] Measurement[] measurements, int length);
 
         public void PublishMeasurements(Measurement[] measurements)
         {

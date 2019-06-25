@@ -31,6 +31,7 @@ namespace Subscriber
     {
         private readonly string m_name;
         private ulong m_processCount;
+
         private static readonly object s_consoleLock = new object();
 
         public SubscriberHandler(string name) => m_name = name;
