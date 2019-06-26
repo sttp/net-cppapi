@@ -1,2 +1,2 @@
-# dotnetcoreapi
-.NET Core API for STTP
+# net-cppapi
+Wrapped .NET Target APIs for STTP
