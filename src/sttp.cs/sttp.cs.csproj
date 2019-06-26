@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <TargetFrameworks>netcoreapp2.2;netcoreapp2.1;netcoreapp2.0;netstandard2.0;net48;net472;net471;net47;net462;net461;net46;net452;net451;net45</TargetFrameworks>
     <Platforms>x64;x86</Platforms>
     <RootNamespace>sttp</RootNamespace>
     <PackageId>sttp.net.api</PackageId>
@@ -20,6 +19,16 @@
     <PackageTags>Streaming Telemetry Transport Protocol Data Measurement Transfer IoT</PackageTags>
     <LangVersion>7.3</LangVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="sttp.cs.lib.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_PackageFiles Include="sttp.cs.lib.dll">
+      <BuildAction>None</BuildAction>
+    </_PackageFiles>
+  </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -42,5 +51,16 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <OutputPath>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\</OutputPath>
   </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <CallTarget Targets="UpdateDependencies" />
+  </Target>
+
+  <Target Name="UpdateDependencies">
+    <ItemGroup>
+      <FilesToCopy Include="$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\sttp.cs.lib.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" />
+  </Target>
 
 </Project>
