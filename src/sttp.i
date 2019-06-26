@@ -99,6 +99,7 @@
         {
             fixed (byte* data = measurement.SignalID)
             {
+                byte* swap = stackalloc byte[8];
                 byte* copy = stackalloc byte[8];
 
                 for (int i = 0; i < 8; i++)
@@ -107,22 +108,22 @@
                 // The following uint32 and two uint16 values are little-endian encoded in Microsoft implementations,
                 // boost follows RFC encoding rules and encodes the bytes as big-endian. For proper Guid interpretation
                 // by .NET applications the following bytes must be swapped before deserialization:
-                data[3] = copy[0];
-                data[2] = copy[1];
-                data[1] = copy[2];
-                data[0] = copy[3];
+                swap[0] = copy[3];
+                swap[1] = copy[2];
+                swap[2] = copy[1];
+                swap[3] = copy[0];
 
-                data[4] = copy[5];
-                data[5] = copy[4];
+                swap[4] = copy[5];
+                swap[5] = copy[4];
 
-                data[6] = copy[7];
-                data[7] = copy[6];
+                swap[6] = copy[7];
+                swap[7] = copy[6];
 
                 return new System.Guid
                 (
-                    /* a */ *(uint*)data,           // First 4 bytes of GUID
-                    /* b */ *(ushort*)(data + 4),   // Next 2 bytes of GUID
-                    /* c */ *(ushort*)(data + 6),   // Next 2 bytes of GUID
+                    /* a */ *(uint*)swap,           // First 4 bytes of GUID
+                    /* b */ *(ushort*)(swap + 4),   // Next 2 bytes of GUID
+                    /* c */ *(ushort*)(swap + 6),   // Next 2 bytes of GUID
                     /* d */ data[8],                // Remaining bytes
                     /* e */ data[9],
                     /* f */ data[10],
@@ -180,7 +181,8 @@
             System.DateTime buildDate = System.IO.File.GetLastWriteTime(assembly.Location);
 
             GetAssemblyInfo(out string source, out string version, out string updatedOn);
-            SetAssemblyInfo($"{assemblyInfo.Name} wrapping {source}", $"{assemblyInfo.Version.Major}.{assemblyInfo.Version.Minor}.{assemblyInfo.Version.Build}/{version}", buildDate.ToString("yyyy-MM-dd HH:mm:ss"));
+            string wrapperAssemblyInfo = $", wrapping {source} version {version} updated on {updatedOn}";
+            SetAssemblyInfo(assemblyInfo.Name, $"{assemblyInfo.Version.Major}.{assemblyInfo.Version.Minor}.{assemblyInfo.Version.Build}", $"{buildDate:yyyy-MM-dd HH:mm:ss}{wrapperAssemblyInfo}");
         }
 
         internal override unsafe void ReceivedNewMeasurements(SimpleMeasurement simpleMeasurementArray, int length)

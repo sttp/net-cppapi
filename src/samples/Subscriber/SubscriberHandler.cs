@@ -166,7 +166,7 @@ namespace Subscriber
                 message.AppendLine($"{GetTotalMeasurementsReceived()} measurements received so far...");
                 message.AppendLine(measurements[0].GetDateTime().ToString("yyyy-MM-dd HH:mm:ss.fff"));
                 message.AppendLine($"Signal ID: {measurements[0].GetSignalID()}");
-                message.AppendLine("\tPoint\t\t\tValue");
+                message.AppendLine("\tPoint\t\t\t\t\tValue");
 
                 for (int i = 0; i < length; i++)
                 {
