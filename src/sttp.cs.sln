@@ -25,6 +25,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "swig", "swig", "{6E173A0A-270F-4B17-A536-DCFD0FB4E6A8}"
 	ProjectSection(SolutionItems) = preProject
 		create-csharp-wrapper.bat = create-csharp-wrapper.bat
+		README.md = README.md
 		sttp.i = sttp.i
 	EndProjectSection
 EndProject
