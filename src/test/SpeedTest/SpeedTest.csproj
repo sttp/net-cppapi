@@ -35,7 +35,7 @@
   </PropertyGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="COPY $(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\sttp.cs.lib.dll $(TargetDir)" />
+    <Exec Command="XCOPY /C /Y /I $(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\sttp.cs.lib.dll $(TargetDir)&#xD;&#xA;XCOPY /C /Y /I $(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\sttp.cs.lib.pdb $(TargetDir)" />
   </Target>
 
 </Project>

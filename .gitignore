@@ -7,9 +7,6 @@
 src/[Bb]oost/
 src/[Bb]oost
 
-# Include compiled CPPAPI libraries in repository to simplify user builds
-![Bb]uild/[Oo]utput/*/[Rr]elease/lib/sttp.cpp.lib
-
 # User-specific files
 *.suo
 *.user
@@ -335,3 +332,6 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+# Include compiled CPPAPI libraries in repository to simplify user builds
+![Bb]uild/[Oo]utput/**/lib/sttp.cs.lib.dll
