@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\sttp.cs\sttp.cs.csproj" />
+    <ProjectReference Include="..\..\lib\sttp.net\sttp.net.csproj" />
   </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
@@ -34,8 +34,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\sttp.cs.lib.dll" Visible="false">
-      <Link>sttp.cs.lib.dll</Link>
+    <None Include="$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\sttp.net.lib.dll" Visible="false">
+      <Link>sttp.net.lib.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

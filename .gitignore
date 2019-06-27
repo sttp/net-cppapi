@@ -334,7 +334,4 @@ ASALocalRun/
 .mfractor/
 
 # Include compiled CPPAPI libraries in repository to simplify user builds
-![Bb]uild/[Oo]utput/**/lib/sttp.cs.lib.dll
-/src/lib/sttp.cs.lib.dll
-/src/sttp.cs/sttp.cs.lib.dll
-/lib
+![Bb]uild/[Oo]utput/**/lib/sttp.net.lib.dll

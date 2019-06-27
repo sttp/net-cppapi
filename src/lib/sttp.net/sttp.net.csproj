@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp2.2;netcoreapp2.1;netcoreapp2.0;netstandard2.0;net48;net472;net471;net47;net462;net461;net46;net452;net451;net45</TargetFrameworks>
+    <Platforms>x64;x86</Platforms>
+    <RootNamespace>sttp</RootNamespace>
+    <PackageId>sttp.net</PackageId>
+    <Authors>Grid Protection Alliance</Authors>
+    <Company>Grid Protection Alliance</Company>
+    <Product>STTP</Product>
+    <Description>Streaming Telemetry Transport Protocol API for .NET</Description>
+    <Copyright>Copyright © 2019</Copyright>
+    <PackageProjectUrl>https://github.com/sttp/</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/sttp/Specification/master/Sections/Images/sttp-logo.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/sttp/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>Streaming Telemetry Transport Protocol Data Measurement Transfer IoT</PackageTags>
+    <LangVersion>7.3</LangVersion>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutputPath>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutputPath>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutputPath>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutputPath>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="sttp.net.targets" PackagePath="build" />
+
+    <!-- Platform x86/x64 Specific Native Assemblies -->
+    <Content Include="$(SolutionDir)..\build\output\x86\$(Configuration)\lib\sttp.net.lib.dll" PackagePath="runtimes/win-x86/native" Visible="false" />
+    <Content Include="$(SolutionDir)..\build\output\x64\$(Configuration)\lib\sttp.net.lib.dll" PackagePath="runtimes/win-x64/native" Visible="false" />
+
+    <None Include="$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\sttp.net.lib.dll" Visible="false">
+      <Link>sttp.net.lib.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
