@@ -4,8 +4,8 @@
     <TargetFrameworks>netcoreapp2.2;netcoreapp2.1;netcoreapp2.0;netstandard2.0;net48;net472;net471;net47;net462;net461;net46;net452;net451;net45</TargetFrameworks>
     <Platforms>x64;x86</Platforms>
     <RootNamespace>sttp</RootNamespace>
-    <PackageId>sttp.net.api</PackageId>
-    <Authors>J. Ritchie Carroll</Authors>
+    <PackageId>sttp.net</PackageId>
+    <Authors>Grid Protection Alliance</Authors>
     <Company>Grid Protection Alliance</Company>
     <Product>STTP</Product>
     <Description>Streaming Telemetry Transport Protocol .NET API</Description>
@@ -15,20 +15,11 @@
     <RepositoryUrl>https://github.com/sttp/</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageLicenseUrl>MIT</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>Streaming Telemetry Transport Protocol Data Measurement Transfer IoT</PackageTags>
     <LangVersion>7.3</LangVersion>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="sttp.cs.lib.dll" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_PackageFiles Include="sttp.cs.lib.dll">
-      <BuildAction>None</BuildAction>
-    </_PackageFiles>
-  </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -52,15 +43,15 @@
     <OutputPath>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\</OutputPath>
   </PropertyGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <CallTarget Targets="UpdateDependencies" />
-  </Target>
+  <ItemGroup>
+    <Content Include="sttp.net.targets" PackagePath="build" />
+    <Content Include="$(SolutionDir)..\build\output\x86\$(Configuration)\lib\sttp.cs.lib.dll" PackagePath="runtimes/win-x86/native" Visible="false" />
+    <Content Include="$(SolutionDir)..\build\output\x64\$(Configuration)\lib\sttp.cs.lib.dll" PackagePath="runtimes/win-x64/native" Visible="false" />
 
-  <Target Name="UpdateDependencies">
-    <ItemGroup>
-      <FilesToCopy Include="$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\sttp.cs.lib.*" />
-    </ItemGroup>
-    <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" />
-  </Target>
+    <None Include="$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\sttp.cs.lib.dll" Visible="false">
+      <Link>sttp.cs.lib.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
 </Project>

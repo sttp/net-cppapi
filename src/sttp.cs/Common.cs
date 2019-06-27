@@ -8,7 +8,8 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace sttp {
+namespace sttp
+{
 
 
     // Measurement structure uses custom marshaling as an optimization

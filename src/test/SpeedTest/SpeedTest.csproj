@@ -32,16 +32,12 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <OutputPath>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\app\</OutputPath>
   </PropertyGroup>
-  
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <CallTarget Targets="UpdateDependencies" />
-  </Target>
-  
-  <Target Name="UpdateDependencies">
-    <ItemGroup>
-      <FilesToCopy Include="$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\sttp.cs.lib.*" />
-    </ItemGroup>
-    <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" />
-  </Target>
+
+  <ItemGroup>
+    <None Include="$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\sttp.cs.lib.dll" Visible="false">
+      <Link>sttp.cs.lib.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
 </Project>
