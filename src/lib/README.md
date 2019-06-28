@@ -2,15 +2,15 @@
 
 The `sttp-libraries` solution is used to compile C++ code, including the STTP C++ library `sttp.cpp`, the C++ STTP wrapper library for .NET `sttp.net.lib` and the multi-framework target .NET library `sttp.net` which also builds the NuGet package.
 
-Note that compiled libraries resulting from the `sttp.net.lib` project, e.g., `sttp.net.lib.dll`, are pre-compiled and included in the Git repository [output folder](../../build/output/x64/Release/lib) so users only wanting to compile the samples can do so without needing to compile the STTP C++ libraries which take considerably more setup and compile time.
+Note that compiled libraries resulting from the `sttp.net.lib` project, e.g., `sttp.net.lib.dll`, are pre-compiled and included in the Git repository [output folder](../../build/output/x64/Release/lib) so users only wanting to compile the .NET samples can do so without needing to compile the STTP C++ libraries which take considerably more setup and compile time.
 
 #### Recompiling Wrapper Code
 
-To properly compile `cppapi` library, [see build steps](https://github.com/sttp/cppapi/blob/master/src/README.txt).
+To properly compile the `cppapi` library, [see build steps](https://github.com/sttp/cppapi/blob/master/src/README.txt).
 
-Note that for compiling on Windows, boost folder needs to be relative to cppapi submodule, i.e., in a path parallel to `src/cppapi`, e.g.:
+Note that there is one difference for compiling the `sttp.cpp` SWIG target on Windows, the boost folder needs to be relative to `cppapi` submodule, i.e., in the `src/lib/` folder, e.g.:
 
-`mklink /D C:\projects\sttp\net-cppapi\src\boost C:\boost_1_66_0`
+`mklink /D C:\projects\sttp\net-cppapi\src\lib\boost C:\boost_1_66_0`
 
 
 #### Rebuilding SWIG Wrappers
