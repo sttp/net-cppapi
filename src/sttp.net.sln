@@ -4,28 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sttp.net", "lib\sttp.net\sttp.net.csproj", "{6FF7B13E-E896-46C7-80D6-38ECA980AEEA}"
-	ProjectSection(ProjectDependencies) = postProject
-		{5F62CC62-DB34-4FCE-9B64-EB3A985B302C} = {5F62CC62-DB34-4FCE-9B64-EB3A985B302C}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sttp.net.lib", "lib\sttp.net.lib\sttp.net.lib.vcxproj", "{5F62CC62-DB34-4FCE-9B64-EB3A985B302C}"
-	ProjectSection(ProjectDependencies) = postProject
-		{759721EF-40AE-4763-B225-6CD2710219F8} = {759721EF-40AE-4763-B225-6CD2710219F8}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sttp.cpp", "lib\cppapi\src\lib\sttp.cpp.vcxproj", "{759721EF-40AE-4763-B225-6CD2710219F8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{4D39845C-0194-4B38-A809-B704E7E3E294}"
 	ProjectSection(SolutionItems) = preProject
 		..\LICENSE = ..\LICENSE
 		..\README.md = ..\README.md
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "swig", "swig", "{6E173A0A-270F-4B17-A536-DCFD0FB4E6A8}"
-	ProjectSection(SolutionItems) = preProject
-		lib\create-csharp-wrapper.bat = lib\create-csharp-wrapper.bat
-		lib\README.md = lib\README.md
-		lib\sttp.i = lib\sttp.i
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{BF396782-BBCA-48F9-97BB-B34DE3A27B1F}"
@@ -44,8 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedPublisher", "sample
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{EE985C01-C291-40C6-A0F6-33C9C49077B2}"
 	ProjectSection(SolutionItems) = preProject
-		lib\build-debug.bat = lib\build-debug.bat
-		lib\build-release.bat = lib\build-release.bat
+		build-debug.bat = build-debug.bat
+		build-release.bat = build-release.bat
 	EndProjectSection
 EndProject
 Global
@@ -64,18 +47,6 @@ Global
 		{6FF7B13E-E896-46C7-80D6-38ECA980AEEA}.Release|x64.Build.0 = Release|x64
 		{6FF7B13E-E896-46C7-80D6-38ECA980AEEA}.Release|x86.ActiveCfg = Release|x86
 		{6FF7B13E-E896-46C7-80D6-38ECA980AEEA}.Release|x86.Build.0 = Release|x86
-		{5F62CC62-DB34-4FCE-9B64-EB3A985B302C}.Debug|x64.ActiveCfg = Debug|x64
-		{5F62CC62-DB34-4FCE-9B64-EB3A985B302C}.Debug|x64.Build.0 = Debug|x64
-		{5F62CC62-DB34-4FCE-9B64-EB3A985B302C}.Debug|x86.ActiveCfg = Debug|Win32
-		{5F62CC62-DB34-4FCE-9B64-EB3A985B302C}.Debug|x86.Build.0 = Debug|Win32
-		{5F62CC62-DB34-4FCE-9B64-EB3A985B302C}.Release|x64.ActiveCfg = Release|x64
-		{5F62CC62-DB34-4FCE-9B64-EB3A985B302C}.Release|x86.ActiveCfg = Release|Win32
-		{759721EF-40AE-4763-B225-6CD2710219F8}.Debug|x64.ActiveCfg = Debug-SWIG|x64
-		{759721EF-40AE-4763-B225-6CD2710219F8}.Debug|x64.Build.0 = Debug-SWIG|x64
-		{759721EF-40AE-4763-B225-6CD2710219F8}.Debug|x86.ActiveCfg = Debug-SWIG|Win32
-		{759721EF-40AE-4763-B225-6CD2710219F8}.Debug|x86.Build.0 = Debug-SWIG|Win32
-		{759721EF-40AE-4763-B225-6CD2710219F8}.Release|x64.ActiveCfg = Release-SWIG|x64
-		{759721EF-40AE-4763-B225-6CD2710219F8}.Release|x86.ActiveCfg = Release-SWIG|Win32
 		{5F3771CA-87A8-4D0F-A267-80FF46767867}.Debug|x64.ActiveCfg = Debug|x64
 		{5F3771CA-87A8-4D0F-A267-80FF46767867}.Debug|x64.Build.0 = Debug|x64
 		{5F3771CA-87A8-4D0F-A267-80FF46767867}.Debug|x86.ActiveCfg = Debug|x86
@@ -114,8 +85,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6FF7B13E-E896-46C7-80D6-38ECA980AEEA} = {BF396782-BBCA-48F9-97BB-B34DE3A27B1F}
-		{5F62CC62-DB34-4FCE-9B64-EB3A985B302C} = {BF396782-BBCA-48F9-97BB-B34DE3A27B1F}
-		{759721EF-40AE-4763-B225-6CD2710219F8} = {BF396782-BBCA-48F9-97BB-B34DE3A27B1F}
 		{5F3771CA-87A8-4D0F-A267-80FF46767867} = {B08F0FDF-B248-4325-83FE-96E1AE75F08E}
 		{6DC2B06D-5CAD-4BD0-B0F6-6804E39F0CEB} = {B16245A3-AF8C-4FDF-802A-AC5BAE5BA70F}
 		{146E6EE3-ECB8-443D-9FEC-8876CF3BA0C7} = {B16245A3-AF8C-4FDF-802A-AC5BAE5BA70F}

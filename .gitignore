@@ -4,8 +4,8 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # Ignore local boost folder or symbolic link
-src/[Bb]oost/
-src/[Bb]oost
+src/lib/[Bb]oost/
+src/lib/[Bb]oost
 
 # User-specific files
 *.suo

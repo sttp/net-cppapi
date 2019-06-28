@@ -21,6 +21,7 @@
 //
 //******************************************************************************************************
 
+// SWIG Interface File: Used to build .NET Wrapper Code in sttp.net and sttp.net.lib projects
 %module(directors="1") Common
 %include "stdint.i" 
 %include "std_string.i"
