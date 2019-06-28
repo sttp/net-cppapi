@@ -2,7 +2,7 @@
 
 The `sttp-libraries` solution is used to compile C++ code, including the STTP C++ library `sttp.cpp`, the C++ STTP wrapper library for .NET `sttp.net.lib` and the multi-framework target .NET library `sttp.net` which also builds the NuGet package.
 
-Note that compiled libraries resulting from the `sttp.net.lib` project, e.g., `sttp.net.lib.dll`, are pre-compiled and included in the Git repository [output folder](../../build/ouput) so users only wanting to compile the samples can do so without needing to compile the STTP C++ libraries which take considerably more setup and compile time.
+Note that compiled libraries resulting from the `sttp.net.lib` project, e.g., `sttp.net.lib.dll`, are pre-compiled and included in the Git repository [output folder](../../build/output/x64/Release/lib) so users only wanting to compile the samples can do so without needing to compile the STTP C++ libraries which take considerably more setup and compile time.
 
 #### Recompiling Wrapper Code
 
