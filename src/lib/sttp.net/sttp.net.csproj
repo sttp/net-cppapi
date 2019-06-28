@@ -16,41 +16,45 @@
     <RepositoryType>git</RepositoryType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageTags>Streaming Telemetry Transport Protocol Data Measurement Transfer IoT</PackageTags>
+    <PackageTags>STTP;Streaming;Telemetry;Transport;Protocol;Measurement;Transfer;IoT;Phasor</PackageTags>
     <LangVersion>7.3</LangVersion>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <OutputPath>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\</OutputPath>
+    <OutputPath>$(ProjectDir)..\..\..\build\output\$(Platform)\$(Configuration)\lib\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <OutputPath>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\</OutputPath>
+    <OutputPath>$(ProjectDir)..\..\..\build\output\$(Platform)\$(Configuration)\lib\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <OutputPath>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\</OutputPath>
+    <OutputPath>$(ProjectDir)..\..\..\build\output\$(Platform)\$(Configuration)\lib\</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <OutputPath>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\</OutputPath>
+    <OutputPath>$(ProjectDir)..\..\..\build\output\$(Platform)\$(Configuration)\lib\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Include="sttp.net.targets" PackagePath="build" />
 
-    <!-- Platform x86/x64 Specific Native Assemblies -->
-    <Content Include="$(SolutionDir)..\build\output\x86\$(Configuration)\lib\sttp.net.lib.dll" PackagePath="runtimes/win-x86/native" Visible="false" />
-    <Content Include="$(SolutionDir)..\build\output\x64\$(Configuration)\lib\sttp.net.lib.dll" PackagePath="runtimes/win-x64/native" Visible="false" />
+    <!-- Include Platform (x86/x64) Specific Native Assemblies in NuGet Package -->
+    <Content Include="$(ProjectDir)..\..\..\build\output\x86\$(Configuration)\lib\sttp.net.lib.dll" PackagePath="runtimes/win-x86/native" Visible="false" />
+    <Content Include="$(ProjectDir)..\..\..\build\output\x64\$(Configuration)\lib\sttp.net.lib.dll" PackagePath="runtimes/win-x64/native" Visible="false" />
 
-    <None Include="$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\sttp.net.lib.dll" Visible="false">
+    <None Include="$(ProjectDir)..\..\..\build\output\$(Platform)\$(Configuration)\lib\sttp.net.lib.dll" Visible="false">
       <Link>sttp.net.lib.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
