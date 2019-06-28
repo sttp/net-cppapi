@@ -11,7 +11,7 @@
     <Description>Streaming Telemetry Transport Protocol API for .NET</Description>
     <Copyright>Copyright © 2019</Copyright>
     <PackageProjectUrl>https://github.com/sttp/</PackageProjectUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/sttp/Specification/master/Sections/Images/sttp-logo.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/sttp/cppapi/master/src/sttp.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/sttp/</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

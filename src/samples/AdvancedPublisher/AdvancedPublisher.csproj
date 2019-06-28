@@ -2,8 +2,9 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>netcoreapp2.2;netcoreapp2.1;netcoreapp2.0;netstandard2.0;net48;net472;net471;net47;net462;net461;net46;net452;net451;net45</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.2</TargetFrameworks>
     <Platforms>x64;x86</Platforms>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,28 +13,32 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <OutputPath>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\app\</OutputPath>
+    <OutputPath>$(SolutionDir)..\build\output\$(Platform)\$(Configuration)\app\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <OutputPath>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\app\</OutputPath>
+    <OutputPath>$(SolutionDir)..\build\output\$(Platform)\$(Configuration)\app\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <OutputPath>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\app\</OutputPath>
+    <OutputPath>$(SolutionDir)..\build\output\$(Platform)\$(Configuration)\app\</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <OutputPath>$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\app\</OutputPath>
+    <OutputPath>$(SolutionDir)..\build\output\$(Platform)\$(Configuration)\app\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="$(SolutionDir)..\build\output\$(PlatformTarget)\$(Configuration)\lib\sttp.net.lib.dll" Visible="false">
+    <None Include="$(SolutionDir)..\build\output\$(Platform)\$(Configuration)\lib\sttp.net.lib.dll" Visible="false">
       <Link>sttp.net.lib.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
