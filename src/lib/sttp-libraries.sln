@@ -26,6 +26,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{BF396782-BBC
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{6D65031A-CE5C-463E-9343-F71095527452}"
+	ProjectSection(SolutionItems) = preProject
+		build-libraries.bat = build-libraries.bat
+		ChangeLog.md = ChangeLog.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
