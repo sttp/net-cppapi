@@ -16300,7 +16300,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_sttp_SignalIndexCache_GetSignalIndex(void * ja
 }
 
 
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SignalIndexCache_Count(void * jarg1) {
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SignalIndexCache__Count(void * jarg1) {
   unsigned int jresult ;
   sttp::transport::SignalIndexCache *arg1 = (sttp::transport::SignalIndexCache *) 0 ;
   boost::shared_ptr< sttp::transport::SignalIndexCache const > *smartarg1 = 0 ;

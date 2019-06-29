@@ -1999,8 +1999,8 @@ class CommonPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SignalIndexCache_GetSignalIndex")]
   public static extern int SignalIndexCache_GetSignalIndex(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SignalIndexCache_Count")]
-  public static extern uint SignalIndexCache_Count(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SignalIndexCache__Count")]
+  public static extern uint SignalIndexCache__Count(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SignalIndexCache_GetSignalIDs")]
   public static extern bool SignalIndexCache_GetSignalIDs(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);

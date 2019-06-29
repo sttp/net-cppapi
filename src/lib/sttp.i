@@ -1553,6 +1553,8 @@ namespace transport
         public bool ConnectionRefused => GetConnectionRefused();
     %}}
 
+    %rename(_Count) SignalIndexCache::Count;
+
     // Maps 16-bit runtime IDs to 128-bit globally unique IDs.
     // Additionally provides reverse lookup and an extra mapping
     // to human-readable measurement keys.
@@ -1577,6 +1579,7 @@ namespace transport
         int32_t GetSignalIndex(const sttp::Guid& signalID) const;
 
         // Gets the mapped signal count
+        %csmethodmodifiers Count "private";
         uint32_t Count() const;
 
         // Populates given list with a copy of signal IDs
@@ -1586,6 +1589,8 @@ namespace transport
     %extend SignalIndexCache {
     %proxycode
     %{
+        public uint Count => _Count();
+
         public System.Guid[] GetSignalIDs()
         {
             using (GuidCollection guids = new GuidCollection())

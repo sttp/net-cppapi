@@ -81,8 +81,8 @@ public class SignalIndexCache : global::System.IDisposable {
     }
   }
 
-  public uint Count() {
-    uint ret = CommonPINVOKE.SignalIndexCache_Count(swigCPtr);
+  private uint _Count() {
+    uint ret = CommonPINVOKE.SignalIndexCache__Count(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
@@ -92,6 +92,8 @@ public class SignalIndexCache : global::System.IDisposable {
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
+
+        public uint Count => _Count();
 
         public System.Guid[] GetSignalIDs()
         {
