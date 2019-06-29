@@ -45,6 +45,7 @@
 
   <PropertyGroup>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

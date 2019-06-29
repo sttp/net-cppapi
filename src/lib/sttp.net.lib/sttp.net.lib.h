@@ -22,6 +22,7 @@ public:
     virtual void DataStartTime(sttp::datetime_t startTime);
     virtual void ReceivedMetadata(std::vector< uint8_t > const &payload);
     virtual void ParsedMetadata();
+    virtual void SubscriptionUpdated(sttp::transport::SignalIndexCachePtr const &signalIndexCache);
     virtual void ReceivedNewMeasurements(sttp::transport::SimpleMeasurement const *measurements, int32_t length);
     virtual void ConfigurationChanged();
     virtual void HistoricalReadComplete();
@@ -36,12 +37,13 @@ public:
     typedef void (SWIGSTDCALL* SWIG_Callback4_t)(void *);
     typedef void (SWIGSTDCALL* SWIG_Callback5_t)(void *);
     typedef void (SWIGSTDCALL* SWIG_Callback6_t)();
-    typedef void (SWIGSTDCALL* SWIG_Callback7_t)(void *, int);
-    typedef void (SWIGSTDCALL* SWIG_Callback8_t)();
+    typedef void (SWIGSTDCALL* SWIG_Callback7_t)(void *);
+    typedef void (SWIGSTDCALL* SWIG_Callback8_t)(void *, int);
     typedef void (SWIGSTDCALL* SWIG_Callback9_t)();
     typedef void (SWIGSTDCALL* SWIG_Callback10_t)();
     typedef void (SWIGSTDCALL* SWIG_Callback11_t)();
-    void swig_connect_director(SWIG_Callback0_t callbackSetupSubscriberConnector, SWIG_Callback1_t callbackCreateSubscriptionInfo, SWIG_Callback2_t callbackStatusMessage, SWIG_Callback3_t callbackErrorMessage, SWIG_Callback4_t callbackDataStartTime, SWIG_Callback5_t callbackReceivedMetadata, SWIG_Callback6_t callbackParsedMetadata, SWIG_Callback7_t callbackReceivedNewMeasurements, SWIG_Callback8_t callbackConfigurationChanged, SWIG_Callback9_t callbackHistoricalReadComplete, SWIG_Callback10_t callbackConnectionEstablished, SWIG_Callback11_t callbackConnectionTerminated);
+    typedef void (SWIGSTDCALL* SWIG_Callback12_t)();
+    void swig_connect_director(SWIG_Callback0_t callbackSetupSubscriberConnector, SWIG_Callback1_t callbackCreateSubscriptionInfo, SWIG_Callback2_t callbackStatusMessage, SWIG_Callback3_t callbackErrorMessage, SWIG_Callback4_t callbackDataStartTime, SWIG_Callback5_t callbackReceivedMetadata, SWIG_Callback6_t callbackParsedMetadata, SWIG_Callback7_t callbackSubscriptionUpdated, SWIG_Callback8_t callbackReceivedNewMeasurements, SWIG_Callback9_t callbackConfigurationChanged, SWIG_Callback10_t callbackHistoricalReadComplete, SWIG_Callback11_t callbackConnectionEstablished, SWIG_Callback12_t callbackConnectionTerminated);
 
 private:
     SWIG_Callback0_t swig_callbackSetupSubscriberConnector;
@@ -51,11 +53,12 @@ private:
     SWIG_Callback4_t swig_callbackDataStartTime;
     SWIG_Callback5_t swig_callbackReceivedMetadata;
     SWIG_Callback6_t swig_callbackParsedMetadata;
-    SWIG_Callback7_t swig_callbackReceivedNewMeasurements;
-    SWIG_Callback8_t swig_callbackConfigurationChanged;
-    SWIG_Callback9_t swig_callbackHistoricalReadComplete;
-    SWIG_Callback10_t swig_callbackConnectionEstablished;
-    SWIG_Callback11_t swig_callbackConnectionTerminated;
+    SWIG_Callback7_t swig_callbackSubscriptionUpdated;
+    SWIG_Callback8_t swig_callbackReceivedNewMeasurements;
+    SWIG_Callback9_t swig_callbackConfigurationChanged;
+    SWIG_Callback10_t swig_callbackHistoricalReadComplete;
+    SWIG_Callback11_t swig_callbackConnectionEstablished;
+    SWIG_Callback12_t swig_callbackConnectionTerminated;
     void swig_init_callbacks();
 };
 

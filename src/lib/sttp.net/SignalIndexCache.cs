@@ -87,6 +87,21 @@ public class SignalIndexCache : global::System.IDisposable {
     return ret;
   }
 
+  public bool GetSignalIDs(GuidCollection signalIDs) {
+    bool ret = CommonPINVOKE.SignalIndexCache_GetSignalIDs(swigCPtr, GuidCollection.getCPtr(signalIDs));
+    if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+        public System.Guid[] GetSignalIDs()
+        {
+            using (GuidCollection guids = new GuidCollection())
+            {
+                GetSignalIDs(guids);
+                return System.Linq.Enumerable.ToArray(guids);
+            }
+        }
+    
   public SignalIndexCache() : this(CommonPINVOKE.new_SignalIndexCache(), true) {
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }

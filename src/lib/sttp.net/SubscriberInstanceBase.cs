@@ -83,28 +83,33 @@ public class SubscriberInstanceBase : global::System.IDisposable {
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
+  public virtual void SubscriptionUpdated(SignalIndexCache signalIndexCache) {
+    if (SwigDerivedClassHasMethod("SubscriptionUpdated", swigMethodTypes7)) CommonPINVOKE.SubscriberInstanceBase_SubscriptionUpdatedSwigExplicitSubscriberInstanceBase(swigCPtr, SignalIndexCache.getCPtr(signalIndexCache)); else CommonPINVOKE.SubscriberInstanceBase_SubscriptionUpdated(swigCPtr, SignalIndexCache.getCPtr(signalIndexCache));
+    if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
+  }
+
   internal virtual void ReceivedNewMeasurements(SimpleMeasurement measurements, int length) {
-    if (SwigDerivedClassHasMethod("ReceivedNewMeasurements", swigMethodTypes7)) CommonPINVOKE.SubscriberInstanceBase_ReceivedNewMeasurementsSwigExplicitSubscriberInstanceBase(swigCPtr, SimpleMeasurement.getCPtr(measurements), length); else CommonPINVOKE.SubscriberInstanceBase_ReceivedNewMeasurements(swigCPtr, SimpleMeasurement.getCPtr(measurements), length);
+    if (SwigDerivedClassHasMethod("ReceivedNewMeasurements", swigMethodTypes8)) CommonPINVOKE.SubscriberInstanceBase_ReceivedNewMeasurementsSwigExplicitSubscriberInstanceBase(swigCPtr, SimpleMeasurement.getCPtr(measurements), length); else CommonPINVOKE.SubscriberInstanceBase_ReceivedNewMeasurements(swigCPtr, SimpleMeasurement.getCPtr(measurements), length);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   protected virtual void ConfigurationChanged() {
-    if (SwigDerivedClassHasMethod("ConfigurationChanged", swigMethodTypes8)) CommonPINVOKE.SubscriberInstanceBase_ConfigurationChangedSwigExplicitSubscriberInstanceBase(swigCPtr); else CommonPINVOKE.SubscriberInstanceBase_ConfigurationChanged(swigCPtr);
+    if (SwigDerivedClassHasMethod("ConfigurationChanged", swigMethodTypes9)) CommonPINVOKE.SubscriberInstanceBase_ConfigurationChangedSwigExplicitSubscriberInstanceBase(swigCPtr); else CommonPINVOKE.SubscriberInstanceBase_ConfigurationChanged(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   protected virtual void HistoricalReadComplete() {
-    if (SwigDerivedClassHasMethod("HistoricalReadComplete", swigMethodTypes9)) CommonPINVOKE.SubscriberInstanceBase_HistoricalReadCompleteSwigExplicitSubscriberInstanceBase(swigCPtr); else CommonPINVOKE.SubscriberInstanceBase_HistoricalReadComplete(swigCPtr);
+    if (SwigDerivedClassHasMethod("HistoricalReadComplete", swigMethodTypes10)) CommonPINVOKE.SubscriberInstanceBase_HistoricalReadCompleteSwigExplicitSubscriberInstanceBase(swigCPtr); else CommonPINVOKE.SubscriberInstanceBase_HistoricalReadComplete(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   protected virtual void ConnectionEstablished() {
-    if (SwigDerivedClassHasMethod("ConnectionEstablished", swigMethodTypes10)) CommonPINVOKE.SubscriberInstanceBase_ConnectionEstablishedSwigExplicitSubscriberInstanceBase(swigCPtr); else CommonPINVOKE.SubscriberInstanceBase_ConnectionEstablished(swigCPtr);
+    if (SwigDerivedClassHasMethod("ConnectionEstablished", swigMethodTypes11)) CommonPINVOKE.SubscriberInstanceBase_ConnectionEstablishedSwigExplicitSubscriberInstanceBase(swigCPtr); else CommonPINVOKE.SubscriberInstanceBase_ConnectionEstablished(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
   protected virtual void ConnectionTerminated() {
-    if (SwigDerivedClassHasMethod("ConnectionTerminated", swigMethodTypes11)) CommonPINVOKE.SubscriberInstanceBase_ConnectionTerminatedSwigExplicitSubscriberInstanceBase(swigCPtr); else CommonPINVOKE.SubscriberInstanceBase_ConnectionTerminated(swigCPtr);
+    if (SwigDerivedClassHasMethod("ConnectionTerminated", swigMethodTypes12)) CommonPINVOKE.SubscriberInstanceBase_ConnectionTerminatedSwigExplicitSubscriberInstanceBase(swigCPtr); else CommonPINVOKE.SubscriberInstanceBase_ConnectionTerminated(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }
 
@@ -285,13 +290,13 @@ public class SubscriberInstanceBase : global::System.IDisposable {
     return ret;
   }
 
-  public bool IsConnected() {
+  private bool IsConnected() {
     bool ret = CommonPINVOKE.SubscriberInstanceBase_IsConnected(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
-  public bool IsSubscribed() {
+  private bool IsSubscribed() {
     bool ret = CommonPINVOKE.SubscriberInstanceBase_IsSubscribed(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
@@ -432,6 +437,10 @@ public class SubscriberInstanceBase : global::System.IDisposable {
           get => IsSignalIndexCacheCompressed();
           set => SetSignalIndexCacheCompressed(value);
         }
+
+        public bool Connected => IsConnected();
+
+        public bool Subscribed => IsSubscribed();
     
   private void SwigDirectorConnect() {
     if (SwigDerivedClassHasMethod("SetupSubscriberConnector", swigMethodTypes0))
@@ -448,17 +457,19 @@ public class SubscriberInstanceBase : global::System.IDisposable {
       swigDelegate5 = new SwigDelegateSubscriberInstanceBase_5(SwigDirectorMethodReceivedMetadata);
     if (SwigDerivedClassHasMethod("ParsedMetadata", swigMethodTypes6))
       swigDelegate6 = new SwigDelegateSubscriberInstanceBase_6(SwigDirectorMethodParsedMetadata);
-    if (SwigDerivedClassHasMethod("ReceivedNewMeasurements", swigMethodTypes7))
-      swigDelegate7 = new SwigDelegateSubscriberInstanceBase_7(SwigDirectorMethodReceivedNewMeasurements);
-    if (SwigDerivedClassHasMethod("ConfigurationChanged", swigMethodTypes8))
-      swigDelegate8 = new SwigDelegateSubscriberInstanceBase_8(SwigDirectorMethodConfigurationChanged);
-    if (SwigDerivedClassHasMethod("HistoricalReadComplete", swigMethodTypes9))
-      swigDelegate9 = new SwigDelegateSubscriberInstanceBase_9(SwigDirectorMethodHistoricalReadComplete);
-    if (SwigDerivedClassHasMethod("ConnectionEstablished", swigMethodTypes10))
-      swigDelegate10 = new SwigDelegateSubscriberInstanceBase_10(SwigDirectorMethodConnectionEstablished);
-    if (SwigDerivedClassHasMethod("ConnectionTerminated", swigMethodTypes11))
-      swigDelegate11 = new SwigDelegateSubscriberInstanceBase_11(SwigDirectorMethodConnectionTerminated);
-    CommonPINVOKE.SubscriberInstanceBase_director_connect(swigCPtr, swigDelegate0, swigDelegate1, swigDelegate2, swigDelegate3, swigDelegate4, swigDelegate5, swigDelegate6, swigDelegate7, swigDelegate8, swigDelegate9, swigDelegate10, swigDelegate11);
+    if (SwigDerivedClassHasMethod("SubscriptionUpdated", swigMethodTypes7))
+      swigDelegate7 = new SwigDelegateSubscriberInstanceBase_7(SwigDirectorMethodSubscriptionUpdated);
+    if (SwigDerivedClassHasMethod("ReceivedNewMeasurements", swigMethodTypes8))
+      swigDelegate8 = new SwigDelegateSubscriberInstanceBase_8(SwigDirectorMethodReceivedNewMeasurements);
+    if (SwigDerivedClassHasMethod("ConfigurationChanged", swigMethodTypes9))
+      swigDelegate9 = new SwigDelegateSubscriberInstanceBase_9(SwigDirectorMethodConfigurationChanged);
+    if (SwigDerivedClassHasMethod("HistoricalReadComplete", swigMethodTypes10))
+      swigDelegate10 = new SwigDelegateSubscriberInstanceBase_10(SwigDirectorMethodHistoricalReadComplete);
+    if (SwigDerivedClassHasMethod("ConnectionEstablished", swigMethodTypes11))
+      swigDelegate11 = new SwigDelegateSubscriberInstanceBase_11(SwigDirectorMethodConnectionEstablished);
+    if (SwigDerivedClassHasMethod("ConnectionTerminated", swigMethodTypes12))
+      swigDelegate12 = new SwigDelegateSubscriberInstanceBase_12(SwigDirectorMethodConnectionTerminated);
+    CommonPINVOKE.SubscriberInstanceBase_director_connect(swigCPtr, swigDelegate0, swigDelegate1, swigDelegate2, swigDelegate3, swigDelegate4, swigDelegate5, swigDelegate6, swigDelegate7, swigDelegate8, swigDelegate9, swigDelegate10, swigDelegate11, swigDelegate12);
   }
 
   private bool SwigDerivedClassHasMethod(string methodName, global::System.Type[] methodTypes) {
@@ -497,6 +508,10 @@ public class SubscriberInstanceBase : global::System.IDisposable {
     ParsedMetadata();
   }
 
+  private void SwigDirectorMethodSubscriptionUpdated(global::System.IntPtr signalIndexCache) {
+    SubscriptionUpdated((signalIndexCache == global::System.IntPtr.Zero) ? null : new SignalIndexCache(signalIndexCache, true));
+  }
+
   private void SwigDirectorMethodReceivedNewMeasurements(global::System.IntPtr measurements, int length) {
     ReceivedNewMeasurements((measurements == global::System.IntPtr.Zero) ? null : new SimpleMeasurement(measurements, false), length);
   }
@@ -524,11 +539,12 @@ public class SubscriberInstanceBase : global::System.IDisposable {
   public delegate void SwigDelegateSubscriberInstanceBase_4(global::System.IntPtr startTime);
   public delegate void SwigDelegateSubscriberInstanceBase_5(global::System.IntPtr payload);
   public delegate void SwigDelegateSubscriberInstanceBase_6();
-  public delegate void SwigDelegateSubscriberInstanceBase_7(global::System.IntPtr measurements, int length);
-  public delegate void SwigDelegateSubscriberInstanceBase_8();
+  public delegate void SwigDelegateSubscriberInstanceBase_7(global::System.IntPtr signalIndexCache);
+  public delegate void SwigDelegateSubscriberInstanceBase_8(global::System.IntPtr measurements, int length);
   public delegate void SwigDelegateSubscriberInstanceBase_9();
   public delegate void SwigDelegateSubscriberInstanceBase_10();
   public delegate void SwigDelegateSubscriberInstanceBase_11();
+  public delegate void SwigDelegateSubscriberInstanceBase_12();
 
   private SwigDelegateSubscriberInstanceBase_0 swigDelegate0;
   private SwigDelegateSubscriberInstanceBase_1 swigDelegate1;
@@ -542,6 +558,7 @@ public class SubscriberInstanceBase : global::System.IDisposable {
   private SwigDelegateSubscriberInstanceBase_9 swigDelegate9;
   private SwigDelegateSubscriberInstanceBase_10 swigDelegate10;
   private SwigDelegateSubscriberInstanceBase_11 swigDelegate11;
+  private SwigDelegateSubscriberInstanceBase_12 swigDelegate12;
 
   private static global::System.Type[] swigMethodTypes0 = new global::System.Type[] { typeof(SubscriberConnector) };
   private static global::System.Type[] swigMethodTypes1 = new global::System.Type[] {  };
@@ -550,11 +567,12 @@ public class SubscriberInstanceBase : global::System.IDisposable {
   private static global::System.Type[] swigMethodTypes4 = new global::System.Type[] { typeof(System.DateTime) };
   private static global::System.Type[] swigMethodTypes5 = new global::System.Type[] { typeof(ByteBuffer) };
   private static global::System.Type[] swigMethodTypes6 = new global::System.Type[] {  };
-  private static global::System.Type[] swigMethodTypes7 = new global::System.Type[] { typeof(SimpleMeasurement), typeof(int) };
-  private static global::System.Type[] swigMethodTypes8 = new global::System.Type[] {  };
+  private static global::System.Type[] swigMethodTypes7 = new global::System.Type[] { typeof(SignalIndexCache) };
+  private static global::System.Type[] swigMethodTypes8 = new global::System.Type[] { typeof(SimpleMeasurement), typeof(int) };
   private static global::System.Type[] swigMethodTypes9 = new global::System.Type[] {  };
   private static global::System.Type[] swigMethodTypes10 = new global::System.Type[] {  };
   private static global::System.Type[] swigMethodTypes11 = new global::System.Type[] {  };
+  private static global::System.Type[] swigMethodTypes12 = new global::System.Type[] {  };
   public static readonly string SubscribeAllExpression = CommonPINVOKE.SubscriberInstanceBase_SubscribeAllExpression_get();
   public static readonly string SubscribeAllNoStatsExpression = CommonPINVOKE.SubscriberInstanceBase_SubscribeAllNoStatsExpression_get();
   public static readonly string FilterMetadataStatsExpression = CommonPINVOKE.SubscriberInstanceBase_FilterMetadataStatsExpression_get();
