@@ -5,14 +5,18 @@
 
 #### Change Log
 
+1.0.3 - 2019-07-01
+
+    Updated to latest `cppapi` which included data subscriber fixes for auto-reconnect logic and data publisher fixes for null metadata.
+
 1.0.2 - 2019-06-29
-	
-	Changed SignalIndexCache.Count() method to be exposed in .NET as a property
+    
+    Changed SignalIndexCache.Count() method to be exposed in .NET as a property
 
 1.0.1 - 2019-06-28
 
-	Added SubscriptionUpdated virtual method for Subscriber access to signal index cache updates.
+    Added SubscriptionUpdated virtual method for Subscriber access to signal index cache updates.
 
 1.0.0 - 2019-06-27
 
-	Initial release
+    Initial release
