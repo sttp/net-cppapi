@@ -688,6 +688,7 @@ namespace std
 
     %template(ByteBuffer) vector<unsigned char>;
     %template(StringCollection) vector<string>;
+    %template(GuidCollection) vector<sttp::Guid>;
     %template(DataTableCollection) vector<boost::shared_ptr<sttp::data::DataTable>>;
     %template(MeasurementMetadataCollection) vector<boost::shared_ptr<sttp::transport::MeasurementMetadata>>;
     %template(PhasorMetadataCollection) vector<boost::shared_ptr<sttp::transport::PhasorMetadata>>;
@@ -1552,6 +1553,56 @@ namespace transport
         public bool ConnectionRefused => GetConnectionRefused();
     %}}
 
+    %rename(_Count) SignalIndexCache::Count;
+
+    // Maps 16-bit runtime IDs to 128-bit globally unique IDs.
+    // Additionally provides reverse lookup and an extra mapping
+    // to human-readable measurement keys.
+    class SignalIndexCache
+    {
+    public:
+        // Determines whether an element with the given runtime ID exists in the signal index cache.
+        bool Contains(int32_t signalIndex) const;
+
+        // Gets the globally unique signal ID associated with the given 16-bit runtime ID.
+        sttp::Guid GetSignalID(int32_t signalIndex) const;
+
+        // Gets the first half of the human-readable measurement
+        // key associated with the given 16-bit runtime ID.
+        const std::string& GetSource(int32_t signalIndex) const;
+
+        // Gets the second half of the human-readable measurement
+        // key associated with the given 16-bit runtime ID.
+        uint64_t GetID(int32_t signalIndex) const;
+
+        // Gets the 16-bit runtime ID associated with the given globally unique signal ID.
+        int32_t GetSignalIndex(const sttp::Guid& signalID) const;
+
+        // Gets the mapped signal count
+        %csmethodmodifiers Count "private";
+        uint32_t Count() const;
+
+        // Populates given list with a copy of signal IDs
+        bool GetSignalIDs(std::vector<sttp::Guid>& signalIDs) const;
+    };
+
+    %extend SignalIndexCache {
+    %proxycode
+    %{
+        public uint Count => _Count();
+
+        public System.Guid[] GetSignalIDs()
+        {
+            using (GuidCollection guids = new GuidCollection())
+            {
+                GetSignalIDs(guids);
+                return System.Linq.Enumerable.ToArray(guids);
+            }
+        }
+    %} }
+
+    typedef boost::shared_ptr<SignalIndexCache> SignalIndexCachePtr;
+
     %feature("director") SubscriberInstance;
     class SubscriberInstance
     {
@@ -1576,6 +1627,9 @@ namespace transport
 
         %csmethodmodifiers ParsedMetadata "protected virtual";
         virtual void ParsedMetadata();
+
+        %csmethodmodifiers ParsedMetadata "protected virtual";
+        virtual void SubscriptionUpdated(const SignalIndexCachePtr& signalIndexCache);
 
         %csmethodmodifiers ReceivedNewMeasurements "internal virtual";
         virtual void ReceivedNewMeasurements(const SimpleMeasurement* measurements, int32_t length);
@@ -1728,7 +1782,11 @@ namespace transport
         uint64_t GetTotalCommandChannelBytesReceived() const;
         uint64_t GetTotalDataChannelBytesReceived() const;
         uint64_t GetTotalMeasurementsReceived() const;
+
+        %csmethodmodifiers IsConnected "private";
         bool IsConnected() const;
+
+        %csmethodmodifiers IsSubscribed "private";
         bool IsSubscribed() const;
 
         // Safely get list of device acronyms (accessed from metadata after successful auto-parse),
@@ -1830,6 +1888,10 @@ namespace transport
           get => IsSignalIndexCacheCompressed();
           set => SetSignalIndexCacheCompressed(value);
         }
+
+        public bool Connected => IsConnected();
+
+        public bool Subscribed => IsSubscribed();
     %}}
 
     typedef boost::shared_ptr<SubscriberInstance> SubscriberInstancePtr;
@@ -1842,35 +1904,6 @@ namespace transport
         // Transport Layer Security.
         TLS
     };
-
-    // Maps 16-bit runtime IDs to 128-bit globally unique IDs.
-    // Additionally provides reverse lookup and an extra mapping
-    // to human-readable measurement keys.
-    class SignalIndexCache
-    {
-    public:
-        // Determines whether an element with the given runtime ID exists in the signal index cache.
-        bool Contains(int32_t signalIndex) const;
-
-        // Gets the globally unique signal ID associated with the given 16-bit runtime ID.
-        sttp::Guid GetSignalID(int32_t signalIndex) const;
-
-        // Gets the first half of the human-readable measurement
-        // key associated with the given 16-bit runtime ID.
-        const std::string& GetSource(int32_t signalIndex) const;
-
-        // Gets the second half of the human-readable measurement
-        // key associated with the given 16-bit runtime ID.
-        uint64_t GetID(int32_t signalIndex) const;
-
-        // Gets the 16-bit runtime ID associated with the given globally unique signal ID.
-        int32_t GetSignalIndex(const sttp::Guid& signalID) const;
-
-        // Gets the mapped signal count
-        uint32_t Count() const;
-    };
-
-    typedef boost::shared_ptr<SignalIndexCache> SignalIndexCachePtr;
 
     // Represents a subscriber connection to a data publisher
     %nodefaultctor SubscriberConnection;

@@ -713,6 +713,97 @@ SWIGINTERN bool std_vector_Sl_std_string_Sg__Remove(std::vector< std::string > *
         }
         return false;
       }
+SWIGINTERN std::vector< sttp::Guid > *new_std_vector_Sl_sttp_Guid_Sg___SWIG_2(int capacity){
+        std::vector< sttp::Guid >* pv = 0;
+        if (capacity >= 0) {
+          pv = new std::vector< sttp::Guid >();
+          pv->reserve(capacity);
+       } else {
+          throw std::out_of_range("capacity");
+       }
+       return pv;
+      }
+SWIGINTERN sttp::Guid std_vector_Sl_sttp_Guid_Sg__getitemcopy(std::vector< sttp::Guid > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          return (*self)[index];
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN std::vector< sttp::Guid >::value_type const &std_vector_Sl_sttp_Guid_Sg__getitem(std::vector< sttp::Guid > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          return (*self)[index];
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_sttp_Guid_Sg__setitem(std::vector< sttp::Guid > *self,int index,sttp::Guid const &val){
+        if (index>=0 && index<(int)self->size())
+          (*self)[index] = val;
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_sttp_Guid_Sg__AddRange(std::vector< sttp::Guid > *self,std::vector< sttp::Guid > const &values){
+        self->insert(self->end(), values.begin(), values.end());
+      }
+SWIGINTERN std::vector< sttp::Guid > *std_vector_Sl_sttp_Guid_Sg__GetRange(std::vector< sttp::Guid > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        return new std::vector< sttp::Guid >(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN void std_vector_Sl_sttp_Guid_Sg__Insert(std::vector< sttp::Guid > *self,int index,sttp::Guid const &x){
+        if (index>=0 && index<(int)self->size()+1)
+          self->insert(self->begin()+index, x);
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_sttp_Guid_Sg__InsertRange(std::vector< sttp::Guid > *self,int index,std::vector< sttp::Guid > const &values){
+        if (index>=0 && index<(int)self->size()+1)
+          self->insert(self->begin()+index, values.begin(), values.end());
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_sttp_Guid_Sg__RemoveAt(std::vector< sttp::Guid > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          self->erase(self->begin() + index);
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_sttp_Guid_Sg__RemoveRange(std::vector< sttp::Guid > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        self->erase(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN std::vector< sttp::Guid > *std_vector_Sl_sttp_Guid_Sg__Repeat(sttp::Guid const &value,int count){
+        if (count < 0)
+          throw std::out_of_range("count");
+        return new std::vector< sttp::Guid >(count, value);
+      }
+SWIGINTERN void std_vector_Sl_sttp_Guid_Sg__Reverse__SWIG_0(std::vector< sttp::Guid > *self){
+        std::reverse(self->begin(), self->end());
+      }
+SWIGINTERN void std_vector_Sl_sttp_Guid_Sg__Reverse__SWIG_1(std::vector< sttp::Guid > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        std::reverse(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN void std_vector_Sl_sttp_Guid_Sg__SetRange(std::vector< sttp::Guid > *self,int index,std::vector< sttp::Guid > const &values){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (index+values.size() > self->size())
+          throw std::out_of_range("index");
+        std::copy(values.begin(), values.end(), self->begin()+index);
+      }
 SWIGINTERN std::vector< boost::shared_ptr< sttp::data::DataTable > > *new_std_vector_Sl_boost_shared_ptr_Sl_sttp_data_DataTable_Sg__Sg___SWIG_2(int capacity){
         std::vector< boost::shared_ptr< sttp::data::DataTable > >* pv = 0;
         if (capacity >= 0) {
@@ -1445,6 +1536,18 @@ void SwigDirector_SubscriberInstanceBase::ParsedMetadata() {
   }
 }
 
+void SwigDirector_SubscriberInstanceBase::SubscriptionUpdated(sttp::transport::SignalIndexCachePtr const &signalIndexCache) {
+  void * jsignalIndexCache = 0 ;
+  
+  if (!swig_callbackSubscriptionUpdated) {
+    sttp::transport::SubscriberInstance::SubscriptionUpdated(signalIndexCache);
+    return;
+  } else {
+    jsignalIndexCache = signalIndexCache ? new boost::shared_ptr<  sttp::transport::SignalIndexCache >(signalIndexCache) : 0; 
+    swig_callbackSubscriptionUpdated(jsignalIndexCache);
+  }
+}
+
 void SwigDirector_SubscriberInstanceBase::ReceivedNewMeasurements(sttp::transport::SimpleMeasurement const *measurements, int32_t length) {
   void * jmeasurements = 0 ;
   int jlength  ;
@@ -1500,7 +1603,7 @@ SwigDirector_SubscriberInstanceBase::~SwigDirector_SubscriberInstanceBase() {
 }
 
 
-void SwigDirector_SubscriberInstanceBase::swig_connect_director(SWIG_Callback0_t callbackSetupSubscriberConnector, SWIG_Callback1_t callbackCreateSubscriptionInfo, SWIG_Callback2_t callbackStatusMessage, SWIG_Callback3_t callbackErrorMessage, SWIG_Callback4_t callbackDataStartTime, SWIG_Callback5_t callbackReceivedMetadata, SWIG_Callback6_t callbackParsedMetadata, SWIG_Callback7_t callbackReceivedNewMeasurements, SWIG_Callback8_t callbackConfigurationChanged, SWIG_Callback9_t callbackHistoricalReadComplete, SWIG_Callback10_t callbackConnectionEstablished, SWIG_Callback11_t callbackConnectionTerminated) {
+void SwigDirector_SubscriberInstanceBase::swig_connect_director(SWIG_Callback0_t callbackSetupSubscriberConnector, SWIG_Callback1_t callbackCreateSubscriptionInfo, SWIG_Callback2_t callbackStatusMessage, SWIG_Callback3_t callbackErrorMessage, SWIG_Callback4_t callbackDataStartTime, SWIG_Callback5_t callbackReceivedMetadata, SWIG_Callback6_t callbackParsedMetadata, SWIG_Callback7_t callbackSubscriptionUpdated, SWIG_Callback8_t callbackReceivedNewMeasurements, SWIG_Callback9_t callbackConfigurationChanged, SWIG_Callback10_t callbackHistoricalReadComplete, SWIG_Callback11_t callbackConnectionEstablished, SWIG_Callback12_t callbackConnectionTerminated) {
   swig_callbackSetupSubscriberConnector = callbackSetupSubscriberConnector;
   swig_callbackCreateSubscriptionInfo = callbackCreateSubscriptionInfo;
   swig_callbackStatusMessage = callbackStatusMessage;
@@ -1508,6 +1611,7 @@ void SwigDirector_SubscriberInstanceBase::swig_connect_director(SWIG_Callback0_t
   swig_callbackDataStartTime = callbackDataStartTime;
   swig_callbackReceivedMetadata = callbackReceivedMetadata;
   swig_callbackParsedMetadata = callbackParsedMetadata;
+  swig_callbackSubscriptionUpdated = callbackSubscriptionUpdated;
   swig_callbackReceivedNewMeasurements = callbackReceivedNewMeasurements;
   swig_callbackConfigurationChanged = callbackConfigurationChanged;
   swig_callbackHistoricalReadComplete = callbackHistoricalReadComplete;
@@ -1523,6 +1627,7 @@ void SwigDirector_SubscriberInstanceBase::swig_init_callbacks() {
   swig_callbackDataStartTime = 0;
   swig_callbackReceivedMetadata = 0;
   swig_callbackParsedMetadata = 0;
+  swig_callbackSubscriptionUpdated = 0;
   swig_callbackReceivedNewMeasurements = 0;
   swig_callbackConfigurationChanged = 0;
   swig_callbackHistoricalReadComplete = 0;
@@ -5054,6 +5159,601 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_delete_StringCollection(void * jarg1) {
   std::vector< std::string > *arg1 = (std::vector< std::string > *) 0 ;
   
   arg1 = (std::vector< std::string > *)jarg1; 
+  {
+    try
+    {
+      delete arg1;
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_GuidCollection_Clear(void * jarg1) {
+  std::vector< sttp::Guid > *arg1 = (std::vector< sttp::Guid > *) 0 ;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1; 
+  {
+    try
+    {
+      (arg1)->clear();
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_GuidCollection_Add(void * jarg1, void * jarg2) {
+  std::vector< sttp::Guid > *arg1 = (std::vector< sttp::Guid > *) 0 ;
+  sttp::Guid *arg2 = 0 ;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1; 
+  arg2 = (sttp::Guid *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "sttp::Guid const & type is null", 0);
+    return ;
+  } 
+  {
+    try
+    {
+      (arg1)->push_back((sttp::Guid const &)*arg2);
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_sttp_GuidCollection_size(void * jarg1) {
+  unsigned long jresult ;
+  std::vector< sttp::Guid > *arg1 = (std::vector< sttp::Guid > *) 0 ;
+  std::vector< sttp::Guid >::size_type result;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1; 
+  {
+    try
+    {
+      result = ((std::vector< sttp::Guid > const *)arg1)->size();
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
+      };
+    }
+  }
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_sttp_GuidCollection_capacity(void * jarg1) {
+  unsigned long jresult ;
+  std::vector< sttp::Guid > *arg1 = (std::vector< sttp::Guid > *) 0 ;
+  std::vector< sttp::Guid >::size_type result;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1; 
+  {
+    try
+    {
+      result = ((std::vector< sttp::Guid > const *)arg1)->capacity();
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
+      };
+    }
+  }
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_GuidCollection_reserve(void * jarg1, unsigned long jarg2) {
+  std::vector< sttp::Guid > *arg1 = (std::vector< sttp::Guid > *) 0 ;
+  std::vector< sttp::Guid >::size_type arg2 ;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1; 
+  arg2 = (std::vector< sttp::Guid >::size_type)jarg2; 
+  {
+    try
+    {
+      (arg1)->reserve(arg2);
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_new_GuidCollection__SWIG_0() {
+  void * jresult ;
+  std::vector< sttp::Guid > *result = 0 ;
+  
+  {
+    try
+    {
+      result = (std::vector< sttp::Guid > *)new std::vector< sttp::Guid >();
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
+      };
+    }
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_new_GuidCollection__SWIG_1(void * jarg1) {
+  void * jresult ;
+  std::vector< sttp::Guid > *arg1 = 0 ;
+  std::vector< sttp::Guid > *result = 0 ;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< sttp::Guid > const & type is null", 0);
+    return 0;
+  } 
+  {
+    try
+    {
+      result = (std::vector< sttp::Guid > *)new std::vector< sttp::Guid >((std::vector< sttp::Guid > const &)*arg1);
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
+      };
+    }
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_new_GuidCollection__SWIG_2(int jarg1) {
+  void * jresult ;
+  int arg1 ;
+  std::vector< sttp::Guid > *result = 0 ;
+  
+  arg1 = (int)jarg1; 
+  {
+    try
+    {
+      try {
+        result = (std::vector< sttp::Guid > *)new_std_vector_Sl_sttp_Guid_Sg___SWIG_2(arg1);
+      } catch(std::out_of_range &_e) {
+        SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+        return 0;
+      }
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
+      };
+    }
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_GuidCollection_getitemcopy(void * jarg1, int jarg2) {
+  void * jresult ;
+  std::vector< sttp::Guid > *arg1 = (std::vector< sttp::Guid > *) 0 ;
+  int arg2 ;
+  SwigValueWrapper< sttp::Guid > result;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1; 
+  arg2 = (int)jarg2; 
+  {
+    try
+    {
+      try {
+        result = std_vector_Sl_sttp_Guid_Sg__getitemcopy(arg1,arg2);
+      } catch(std::out_of_range &_e) {
+        SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+        return 0;
+      }
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
+      };
+    }
+  }
+  jresult = new sttp::Guid((const sttp::Guid &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_GuidCollection_getitem(void * jarg1, int jarg2) {
+  void * jresult ;
+  std::vector< sttp::Guid > *arg1 = (std::vector< sttp::Guid > *) 0 ;
+  int arg2 ;
+  std::vector< sttp::Guid >::value_type *result = 0 ;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1; 
+  arg2 = (int)jarg2; 
+  {
+    try
+    {
+      try {
+        result = (std::vector< sttp::Guid >::value_type *) &std_vector_Sl_sttp_Guid_Sg__getitem(arg1,arg2);
+      } catch(std::out_of_range &_e) {
+        SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+        return 0;
+      }
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
+      };
+    }
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_GuidCollection_setitem(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< sttp::Guid > *arg1 = (std::vector< sttp::Guid > *) 0 ;
+  int arg2 ;
+  sttp::Guid *arg3 = 0 ;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (sttp::Guid *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "sttp::Guid const & type is null", 0);
+    return ;
+  } 
+  {
+    try
+    {
+      try {
+        std_vector_Sl_sttp_Guid_Sg__setitem(arg1,arg2,(sttp::Guid const &)*arg3);
+      } catch(std::out_of_range &_e) {
+        SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+        return ;
+      }
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_GuidCollection_AddRange(void * jarg1, void * jarg2) {
+  std::vector< sttp::Guid > *arg1 = (std::vector< sttp::Guid > *) 0 ;
+  std::vector< sttp::Guid > *arg2 = 0 ;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1; 
+  arg2 = (std::vector< sttp::Guid > *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< sttp::Guid > const & type is null", 0);
+    return ;
+  } 
+  {
+    try
+    {
+      std_vector_Sl_sttp_Guid_Sg__AddRange(arg1,(std::vector< sttp::Guid > const &)*arg2);
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_GuidCollection_GetRange(void * jarg1, int jarg2, int jarg3) {
+  void * jresult ;
+  std::vector< sttp::Guid > *arg1 = (std::vector< sttp::Guid > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::vector< sttp::Guid > *result = 0 ;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  {
+    try
+    {
+      try {
+        result = (std::vector< sttp::Guid > *)std_vector_Sl_sttp_Guid_Sg__GetRange(arg1,arg2,arg3);
+      } catch(std::out_of_range &_e) {
+        SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+        return 0;
+      } catch(std::invalid_argument &_e) {
+        SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+        return 0;
+      }
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
+      };
+    }
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_GuidCollection_Insert(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< sttp::Guid > *arg1 = (std::vector< sttp::Guid > *) 0 ;
+  int arg2 ;
+  sttp::Guid *arg3 = 0 ;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (sttp::Guid *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "sttp::Guid const & type is null", 0);
+    return ;
+  } 
+  {
+    try
+    {
+      try {
+        std_vector_Sl_sttp_Guid_Sg__Insert(arg1,arg2,(sttp::Guid const &)*arg3);
+      } catch(std::out_of_range &_e) {
+        SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+        return ;
+      }
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_GuidCollection_InsertRange(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< sttp::Guid > *arg1 = (std::vector< sttp::Guid > *) 0 ;
+  int arg2 ;
+  std::vector< sttp::Guid > *arg3 = 0 ;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (std::vector< sttp::Guid > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< sttp::Guid > const & type is null", 0);
+    return ;
+  } 
+  {
+    try
+    {
+      try {
+        std_vector_Sl_sttp_Guid_Sg__InsertRange(arg1,arg2,(std::vector< sttp::Guid > const &)*arg3);
+      } catch(std::out_of_range &_e) {
+        SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+        return ;
+      }
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_GuidCollection_RemoveAt(void * jarg1, int jarg2) {
+  std::vector< sttp::Guid > *arg1 = (std::vector< sttp::Guid > *) 0 ;
+  int arg2 ;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1; 
+  arg2 = (int)jarg2; 
+  {
+    try
+    {
+      try {
+        std_vector_Sl_sttp_Guid_Sg__RemoveAt(arg1,arg2);
+      } catch(std::out_of_range &_e) {
+        SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+        return ;
+      }
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_GuidCollection_RemoveRange(void * jarg1, int jarg2, int jarg3) {
+  std::vector< sttp::Guid > *arg1 = (std::vector< sttp::Guid > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  {
+    try
+    {
+      try {
+        std_vector_Sl_sttp_Guid_Sg__RemoveRange(arg1,arg2,arg3);
+      } catch(std::out_of_range &_e) {
+        SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+        return ;
+      } catch(std::invalid_argument &_e) {
+        SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+        return ;
+      }
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_GuidCollection_Repeat(void * jarg1, int jarg2) {
+  void * jresult ;
+  sttp::Guid *arg1 = 0 ;
+  int arg2 ;
+  std::vector< sttp::Guid > *result = 0 ;
+  
+  arg1 = (sttp::Guid *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "sttp::Guid const & type is null", 0);
+    return 0;
+  } 
+  arg2 = (int)jarg2; 
+  {
+    try
+    {
+      try {
+        result = (std::vector< sttp::Guid > *)std_vector_Sl_sttp_Guid_Sg__Repeat((sttp::Guid const &)*arg1,arg2);
+      } catch(std::out_of_range &_e) {
+        SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+        return 0;
+      }
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
+      };
+    }
+  }
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_GuidCollection_Reverse__SWIG_0(void * jarg1) {
+  std::vector< sttp::Guid > *arg1 = (std::vector< sttp::Guid > *) 0 ;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1; 
+  {
+    try
+    {
+      std_vector_Sl_sttp_Guid_Sg__Reverse__SWIG_0(arg1);
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_GuidCollection_Reverse__SWIG_1(void * jarg1, int jarg2, int jarg3) {
+  std::vector< sttp::Guid > *arg1 = (std::vector< sttp::Guid > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  {
+    try
+    {
+      try {
+        std_vector_Sl_sttp_Guid_Sg__Reverse__SWIG_1(arg1,arg2,arg3);
+      } catch(std::out_of_range &_e) {
+        SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+        return ;
+      } catch(std::invalid_argument &_e) {
+        SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+        return ;
+      }
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_GuidCollection_SetRange(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< sttp::Guid > *arg1 = (std::vector< sttp::Guid > *) 0 ;
+  int arg2 ;
+  std::vector< sttp::Guid > *arg3 = 0 ;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (std::vector< sttp::Guid > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< sttp::Guid > const & type is null", 0);
+    return ;
+  } 
+  {
+    try
+    {
+      try {
+        std_vector_Sl_sttp_Guid_Sg__SetRange(arg1,arg2,(std::vector< sttp::Guid > const &)*arg3);
+      } catch(std::out_of_range &_e) {
+        SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+        return ;
+      }
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_delete_GuidCollection(void * jarg1) {
+  std::vector< sttp::Guid > *arg1 = (std::vector< sttp::Guid > *) 0 ;
+  
+  arg1 = (std::vector< sttp::Guid > *)jarg1; 
   {
     try
     {
@@ -15456,6 +16156,253 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_delete_SubscriberConnector(void * jarg1)
 }
 
 
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SignalIndexCache_Contains(void * jarg1, int jarg2) {
+  unsigned int jresult ;
+  sttp::transport::SignalIndexCache *arg1 = (sttp::transport::SignalIndexCache *) 0 ;
+  int32_t arg2 ;
+  boost::shared_ptr< sttp::transport::SignalIndexCache const > *smartarg1 = 0 ;
+  bool result;
+  
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SignalIndexCache > *)jarg1;
+  arg1 = (sttp::transport::SignalIndexCache *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = (int32_t)jarg2; 
+  {
+    try
+    {
+      result = (bool)((sttp::transport::SignalIndexCache const *)arg1)->Contains(arg2);
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
+      };
+    }
+  }
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_SignalIndexCache_GetSignalID(void * jarg1, int jarg2) {
+  void * jresult ;
+  sttp::transport::SignalIndexCache *arg1 = (sttp::transport::SignalIndexCache *) 0 ;
+  int32_t arg2 ;
+  boost::shared_ptr< sttp::transport::SignalIndexCache const > *smartarg1 = 0 ;
+  SwigValueWrapper< sttp::Guid > result;
+  
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SignalIndexCache > *)jarg1;
+  arg1 = (sttp::transport::SignalIndexCache *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = (int32_t)jarg2; 
+  {
+    try
+    {
+      result = ((sttp::transport::SignalIndexCache const *)arg1)->GetSignalID(arg2);
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
+      };
+    }
+  }
+  jresult = new sttp::Guid((const sttp::Guid &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_sttp_SignalIndexCache_GetSource(void * jarg1, int jarg2) {
+  char * jresult ;
+  sttp::transport::SignalIndexCache *arg1 = (sttp::transport::SignalIndexCache *) 0 ;
+  int32_t arg2 ;
+  boost::shared_ptr< sttp::transport::SignalIndexCache const > *smartarg1 = 0 ;
+  std::string *result = 0 ;
+  
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SignalIndexCache > *)jarg1;
+  arg1 = (sttp::transport::SignalIndexCache *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = (int32_t)jarg2; 
+  {
+    try
+    {
+      result = (std::string *) &((sttp::transport::SignalIndexCache const *)arg1)->GetSource(arg2);
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
+      };
+    }
+  }
+  jresult = SWIG_csharp_string_callback(result->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned long long SWIGSTDCALL CSharp_sttp_SignalIndexCache_GetID(void * jarg1, int jarg2) {
+  unsigned long long jresult ;
+  sttp::transport::SignalIndexCache *arg1 = (sttp::transport::SignalIndexCache *) 0 ;
+  int32_t arg2 ;
+  boost::shared_ptr< sttp::transport::SignalIndexCache const > *smartarg1 = 0 ;
+  uint64_t result;
+  
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SignalIndexCache > *)jarg1;
+  arg1 = (sttp::transport::SignalIndexCache *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = (int32_t)jarg2; 
+  {
+    try
+    {
+      result = (uint64_t)((sttp::transport::SignalIndexCache const *)arg1)->GetID(arg2);
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
+      };
+    }
+  }
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_sttp_SignalIndexCache_GetSignalIndex(void * jarg1, void * jarg2) {
+  int jresult ;
+  sttp::transport::SignalIndexCache *arg1 = (sttp::transport::SignalIndexCache *) 0 ;
+  sttp::Guid *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::SignalIndexCache const > *smartarg1 = 0 ;
+  int32_t result;
+  
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SignalIndexCache > *)jarg1;
+  arg1 = (sttp::transport::SignalIndexCache *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = (sttp::Guid *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "sttp::Guid const & type is null", 0);
+    return 0;
+  } 
+  {
+    try
+    {
+      result = (int32_t)((sttp::transport::SignalIndexCache const *)arg1)->GetSignalIndex((sttp::Guid const &)*arg2);
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
+      };
+    }
+  }
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SignalIndexCache__Count(void * jarg1) {
+  unsigned int jresult ;
+  sttp::transport::SignalIndexCache *arg1 = (sttp::transport::SignalIndexCache *) 0 ;
+  boost::shared_ptr< sttp::transport::SignalIndexCache const > *smartarg1 = 0 ;
+  uint32_t result;
+  
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SignalIndexCache > *)jarg1;
+  arg1 = (sttp::transport::SignalIndexCache *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try
+    {
+      result = (uint32_t)((sttp::transport::SignalIndexCache const *)arg1)->Count();
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
+      };
+    }
+  }
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SignalIndexCache_GetSignalIDs(void * jarg1, void * jarg2) {
+  unsigned int jresult ;
+  sttp::transport::SignalIndexCache *arg1 = (sttp::transport::SignalIndexCache *) 0 ;
+  std::vector< sttp::Guid > *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::SignalIndexCache const > *smartarg1 = 0 ;
+  bool result;
+  
+  
+  smartarg1 = (boost::shared_ptr< const sttp::transport::SignalIndexCache > *)jarg1;
+  arg1 = (sttp::transport::SignalIndexCache *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = (std::vector< sttp::Guid > *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< sttp::Guid > & type is null", 0);
+    return 0;
+  } 
+  {
+    try
+    {
+      result = (bool)((sttp::transport::SignalIndexCache const *)arg1)->GetSignalIDs(*arg2);
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
+      };
+    }
+  }
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_new_SignalIndexCache() {
+  void * jresult ;
+  sttp::transport::SignalIndexCache *result = 0 ;
+  
+  {
+    try
+    {
+      result = (sttp::transport::SignalIndexCache *)new sttp::transport::SignalIndexCache();
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
+      };
+    }
+  }
+  
+  jresult = result ? new boost::shared_ptr<  sttp::transport::SignalIndexCache >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_delete_SignalIndexCache(void * jarg1) {
+  sttp::transport::SignalIndexCache *arg1 = (sttp::transport::SignalIndexCache *) 0 ;
+  boost::shared_ptr< sttp::transport::SignalIndexCache > *smartarg1 = 0 ;
+  
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SignalIndexCache > *)jarg1;
+  arg1 = (sttp::transport::SignalIndexCache *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try
+    {
+      (void)arg1; delete smartarg1;
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+}
+
+
 SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_SetupSubscriberConnector(void * jarg1, void * jarg2) {
   sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
   sttp::transport::SubscriberConnector *arg2 = 0 ;
@@ -15841,6 +16788,56 @@ SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_ParsedMetadataSwi
     try
     {
       (arg1)->sttp::transport::SubscriberInstance::ParsedMetadata();
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_SubscriptionUpdated(void * jarg1, void * jarg2) {
+  sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  sttp::transport::SignalIndexCachePtr *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
+  sttp::transport::SignalIndexCachePtr tempnull2 ;
+  
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = jarg2 ? (sttp::transport::SignalIndexCachePtr *)jarg2 : &tempnull2; 
+  {
+    try
+    {
+      (arg1)->SubscriptionUpdated((sttp::transport::SignalIndexCachePtr const &)*arg2);
+    }
+    catch (const std::exception& e)
+    {
+      {
+        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_SubscriptionUpdatedSwigExplicitSubscriberInstanceBase(void * jarg1, void * jarg2) {
+  sttp::transport::SubscriberInstance *arg1 = (sttp::transport::SubscriberInstance *) 0 ;
+  sttp::transport::SignalIndexCachePtr *arg2 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberInstance > *smartarg1 = 0 ;
+  sttp::transport::SignalIndexCachePtr tempnull2 ;
+  
+  
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberInstance > *)jarg1;
+  arg1 = (sttp::transport::SubscriberInstance *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = jarg2 ? (sttp::transport::SignalIndexCachePtr *)jarg2 : &tempnull2; 
+  {
+    try
+    {
+      (arg1)->sttp::transport::SubscriberInstance::SubscriptionUpdated((sttp::transport::SignalIndexCachePtr const &)*arg2);
     }
     catch (const std::exception& e)
     {
@@ -17352,227 +18349,12 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_TryGetMea
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_director_connect(void *objarg, SwigDirector_SubscriberInstanceBase::SWIG_Callback0_t callback0, SwigDirector_SubscriberInstanceBase::SWIG_Callback1_t callback1, SwigDirector_SubscriberInstanceBase::SWIG_Callback2_t callback2, SwigDirector_SubscriberInstanceBase::SWIG_Callback3_t callback3, SwigDirector_SubscriberInstanceBase::SWIG_Callback4_t callback4, SwigDirector_SubscriberInstanceBase::SWIG_Callback5_t callback5, SwigDirector_SubscriberInstanceBase::SWIG_Callback6_t callback6, SwigDirector_SubscriberInstanceBase::SWIG_Callback7_t callback7, SwigDirector_SubscriberInstanceBase::SWIG_Callback8_t callback8, SwigDirector_SubscriberInstanceBase::SWIG_Callback9_t callback9, SwigDirector_SubscriberInstanceBase::SWIG_Callback10_t callback10, SwigDirector_SubscriberInstanceBase::SWIG_Callback11_t callback11) {
+SWIGEXPORT void SWIGSTDCALL CSharp_sttp_SubscriberInstanceBase_director_connect(void *objarg, SwigDirector_SubscriberInstanceBase::SWIG_Callback0_t callback0, SwigDirector_SubscriberInstanceBase::SWIG_Callback1_t callback1, SwigDirector_SubscriberInstanceBase::SWIG_Callback2_t callback2, SwigDirector_SubscriberInstanceBase::SWIG_Callback3_t callback3, SwigDirector_SubscriberInstanceBase::SWIG_Callback4_t callback4, SwigDirector_SubscriberInstanceBase::SWIG_Callback5_t callback5, SwigDirector_SubscriberInstanceBase::SWIG_Callback6_t callback6, SwigDirector_SubscriberInstanceBase::SWIG_Callback7_t callback7, SwigDirector_SubscriberInstanceBase::SWIG_Callback8_t callback8, SwigDirector_SubscriberInstanceBase::SWIG_Callback9_t callback9, SwigDirector_SubscriberInstanceBase::SWIG_Callback10_t callback10, SwigDirector_SubscriberInstanceBase::SWIG_Callback11_t callback11, SwigDirector_SubscriberInstanceBase::SWIG_Callback12_t callback12) {
   boost::shared_ptr< sttp::transport::SubscriberInstance > *obj = (boost::shared_ptr< sttp::transport::SubscriberInstance > *)objarg;
   // Keep a local instance of the smart pointer around while we are using the raw pointer
   // Avoids using smart pointer specific API.
   SwigDirector_SubscriberInstanceBase *director = static_cast<SwigDirector_SubscriberInstanceBase *>(obj->operator->());
-  director->swig_connect_director(callback0, callback1, callback2, callback3, callback4, callback5, callback6, callback7, callback8, callback9, callback10, callback11);
-}
-
-
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SignalIndexCache_Contains(void * jarg1, int jarg2) {
-  unsigned int jresult ;
-  sttp::transport::SignalIndexCache *arg1 = (sttp::transport::SignalIndexCache *) 0 ;
-  int32_t arg2 ;
-  boost::shared_ptr< sttp::transport::SignalIndexCache const > *smartarg1 = 0 ;
-  bool result;
-  
-  
-  smartarg1 = (boost::shared_ptr< const sttp::transport::SignalIndexCache > *)jarg1;
-  arg1 = (sttp::transport::SignalIndexCache *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (int32_t)jarg2; 
-  {
-    try
-    {
-      result = (bool)((sttp::transport::SignalIndexCache const *)arg1)->Contains(arg2);
-    }
-    catch (const std::exception& e)
-    {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
-      };
-    }
-  }
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_SignalIndexCache_GetSignalID(void * jarg1, int jarg2) {
-  void * jresult ;
-  sttp::transport::SignalIndexCache *arg1 = (sttp::transport::SignalIndexCache *) 0 ;
-  int32_t arg2 ;
-  boost::shared_ptr< sttp::transport::SignalIndexCache const > *smartarg1 = 0 ;
-  SwigValueWrapper< sttp::Guid > result;
-  
-  
-  smartarg1 = (boost::shared_ptr< const sttp::transport::SignalIndexCache > *)jarg1;
-  arg1 = (sttp::transport::SignalIndexCache *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (int32_t)jarg2; 
-  {
-    try
-    {
-      result = ((sttp::transport::SignalIndexCache const *)arg1)->GetSignalID(arg2);
-    }
-    catch (const std::exception& e)
-    {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
-      };
-    }
-  }
-  jresult = new sttp::Guid((const sttp::Guid &)result); 
-  return jresult;
-}
-
-
-SWIGEXPORT char * SWIGSTDCALL CSharp_sttp_SignalIndexCache_GetSource(void * jarg1, int jarg2) {
-  char * jresult ;
-  sttp::transport::SignalIndexCache *arg1 = (sttp::transport::SignalIndexCache *) 0 ;
-  int32_t arg2 ;
-  boost::shared_ptr< sttp::transport::SignalIndexCache const > *smartarg1 = 0 ;
-  std::string *result = 0 ;
-  
-  
-  smartarg1 = (boost::shared_ptr< const sttp::transport::SignalIndexCache > *)jarg1;
-  arg1 = (sttp::transport::SignalIndexCache *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (int32_t)jarg2; 
-  {
-    try
-    {
-      result = (std::string *) &((sttp::transport::SignalIndexCache const *)arg1)->GetSource(arg2);
-    }
-    catch (const std::exception& e)
-    {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
-      };
-    }
-  }
-  jresult = SWIG_csharp_string_callback(result->c_str()); 
-  return jresult;
-}
-
-
-SWIGEXPORT unsigned long long SWIGSTDCALL CSharp_sttp_SignalIndexCache_GetID(void * jarg1, int jarg2) {
-  unsigned long long jresult ;
-  sttp::transport::SignalIndexCache *arg1 = (sttp::transport::SignalIndexCache *) 0 ;
-  int32_t arg2 ;
-  boost::shared_ptr< sttp::transport::SignalIndexCache const > *smartarg1 = 0 ;
-  uint64_t result;
-  
-  
-  smartarg1 = (boost::shared_ptr< const sttp::transport::SignalIndexCache > *)jarg1;
-  arg1 = (sttp::transport::SignalIndexCache *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (int32_t)jarg2; 
-  {
-    try
-    {
-      result = (uint64_t)((sttp::transport::SignalIndexCache const *)arg1)->GetID(arg2);
-    }
-    catch (const std::exception& e)
-    {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
-      };
-    }
-  }
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_sttp_SignalIndexCache_GetSignalIndex(void * jarg1, void * jarg2) {
-  int jresult ;
-  sttp::transport::SignalIndexCache *arg1 = (sttp::transport::SignalIndexCache *) 0 ;
-  sttp::Guid *arg2 = 0 ;
-  boost::shared_ptr< sttp::transport::SignalIndexCache const > *smartarg1 = 0 ;
-  int32_t result;
-  
-  
-  smartarg1 = (boost::shared_ptr< const sttp::transport::SignalIndexCache > *)jarg1;
-  arg1 = (sttp::transport::SignalIndexCache *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (sttp::Guid *)jarg2;
-  if (!arg2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "sttp::Guid const & type is null", 0);
-    return 0;
-  } 
-  {
-    try
-    {
-      result = (int32_t)((sttp::transport::SignalIndexCache const *)arg1)->GetSignalIndex((sttp::Guid const &)*arg2);
-    }
-    catch (const std::exception& e)
-    {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
-      };
-    }
-  }
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_sttp_SignalIndexCache_Count(void * jarg1) {
-  unsigned int jresult ;
-  sttp::transport::SignalIndexCache *arg1 = (sttp::transport::SignalIndexCache *) 0 ;
-  boost::shared_ptr< sttp::transport::SignalIndexCache const > *smartarg1 = 0 ;
-  uint32_t result;
-  
-  
-  smartarg1 = (boost::shared_ptr< const sttp::transport::SignalIndexCache > *)jarg1;
-  arg1 = (sttp::transport::SignalIndexCache *)(smartarg1 ? smartarg1->get() : 0); 
-  {
-    try
-    {
-      result = (uint32_t)((sttp::transport::SignalIndexCache const *)arg1)->Count();
-    }
-    catch (const std::exception& e)
-    {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
-      };
-    }
-  }
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_new_SignalIndexCache() {
-  void * jresult ;
-  sttp::transport::SignalIndexCache *result = 0 ;
-  
-  {
-    try
-    {
-      result = (sttp::transport::SignalIndexCache *)new sttp::transport::SignalIndexCache();
-    }
-    catch (const std::exception& e)
-    {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
-      };
-    }
-  }
-  
-  jresult = result ? new boost::shared_ptr<  sttp::transport::SignalIndexCache >(result SWIG_NO_NULL_DELETER_1) : 0;
-  
-  return jresult;
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_sttp_delete_SignalIndexCache(void * jarg1) {
-  sttp::transport::SignalIndexCache *arg1 = (sttp::transport::SignalIndexCache *) 0 ;
-  boost::shared_ptr< sttp::transport::SignalIndexCache > *smartarg1 = 0 ;
-  
-  
-  smartarg1 = (boost::shared_ptr<  sttp::transport::SignalIndexCache > *)jarg1;
-  arg1 = (sttp::transport::SignalIndexCache *)(smartarg1 ? smartarg1->get() : 0); 
-  {
-    try
-    {
-      (void)arg1; delete smartarg1;
-    }
-    catch (const std::exception& e)
-    {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
-      };
-    }
-  }
+  director->swig_connect_director(callback0, callback1, callback2, callback3, callback4, callback5, callback6, callback7, callback8, callback9, callback10, callback11, callback12);
 }
 
 

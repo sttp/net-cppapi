@@ -81,12 +81,29 @@ public class SignalIndexCache : global::System.IDisposable {
     }
   }
 
-  public uint Count() {
-    uint ret = CommonPINVOKE.SignalIndexCache_Count(swigCPtr);
+  private uint _Count() {
+    uint ret = CommonPINVOKE.SignalIndexCache__Count(swigCPtr);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
+  public bool GetSignalIDs(GuidCollection signalIDs) {
+    bool ret = CommonPINVOKE.SignalIndexCache_GetSignalIDs(swigCPtr, GuidCollection.getCPtr(signalIDs));
+    if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+        public uint Count => _Count();
+
+        public System.Guid[] GetSignalIDs()
+        {
+            using (GuidCollection guids = new GuidCollection())
+            {
+                GetSignalIDs(guids);
+                return System.Linq.Enumerable.ToArray(guids);
+            }
+        }
+    
   public SignalIndexCache() : this(CommonPINVOKE.new_SignalIndexCache(), true) {
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
   }

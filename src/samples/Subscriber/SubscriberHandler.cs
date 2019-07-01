@@ -48,12 +48,6 @@ namespace Subscriber
             // example demonstrates the use of some other useful parameters
             // when setting up remotely synchronized subscriptions.
 
-            //info.RemotelySynchronized = true;
-            //info.ExtraConnectionStringParameters = "framesPerSecond=30;timeResolution=10000;downsamplingMethod=Closest";
-            //info.LagTime = 3.0;
-            //info.LeadTime = 1.0;
-            //info.UseLocalClockAsRealTime = false;
-
             // Other example properties (see SubscriptionInfo class in DataSubscriber.h for all properties)
             //info.Throttled = false;
             //info.IncludeTime = true;
@@ -92,19 +86,24 @@ namespace Subscriber
 
         protected override void DataStartTime(DateTime startTime)
         {
-            // TODO: This reports timestamp of very first received measurement (if useful)
-            //Console.WriteLine($"Received first measurement at timestamp {startTime:yyyy-MM-dd HH:mm:ss.fff}");
+            // This reports timestamp of very first received measurement (if useful)
+            StatusMessage($"Received first measurement at timestamp {startTime:yyyy-MM-dd HH:mm:ss.fff}");
         }
 
         protected override void ReceivedMetadata(ByteBuffer payload)
         {
-            Console.WriteLine($"Received {payload.Count} bytes of metadata, parsing...");
+            StatusMessage($"Received {payload.Count} bytes of metadata, parsing...");
             base.ReceivedMetadata(payload);
         }
 
         protected override void ParsedMetadata()
         {
             StatusMessage("Metadata successfully parsed.");
+        }
+
+        public override void SubscriptionUpdated(SignalIndexCache signalIndexCache)
+        {
+            StatusMessage($"Publisher provided {signalIndexCache.Count()} measurements in response to subscription.");
         }
 
         public override unsafe void ReceivedNewMeasurements(Measurement* measurements, int length)

@@ -604,6 +604,72 @@ class CommonPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_delete_StringCollection")]
   public static extern void delete_StringCollection(global::System.Runtime.InteropServices.HandleRef jarg1);
 
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_GuidCollection_Clear")]
+  public static extern void GuidCollection_Clear(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_GuidCollection_Add")]
+  public static extern void GuidCollection_Add(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_GuidCollection_size")]
+  public static extern uint GuidCollection_size(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_GuidCollection_capacity")]
+  public static extern uint GuidCollection_capacity(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_GuidCollection_reserve")]
+  public static extern void GuidCollection_reserve(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_new_GuidCollection__SWIG_0")]
+  public static extern global::System.IntPtr new_GuidCollection__SWIG_0();
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_new_GuidCollection__SWIG_1")]
+  public static extern global::System.IntPtr new_GuidCollection__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_new_GuidCollection__SWIG_2")]
+  public static extern global::System.IntPtr new_GuidCollection__SWIG_2(int jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_GuidCollection_getitemcopy")]
+  public static extern global::System.IntPtr GuidCollection_getitemcopy(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_GuidCollection_getitem")]
+  public static extern global::System.IntPtr GuidCollection_getitem(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_GuidCollection_setitem")]
+  public static extern void GuidCollection_setitem(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_GuidCollection_AddRange")]
+  public static extern void GuidCollection_AddRange(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_GuidCollection_GetRange")]
+  public static extern global::System.IntPtr GuidCollection_GetRange(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, int jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_GuidCollection_Insert")]
+  public static extern void GuidCollection_Insert(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_GuidCollection_InsertRange")]
+  public static extern void GuidCollection_InsertRange(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_GuidCollection_RemoveAt")]
+  public static extern void GuidCollection_RemoveAt(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_GuidCollection_RemoveRange")]
+  public static extern void GuidCollection_RemoveRange(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, int jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_GuidCollection_Repeat")]
+  public static extern global::System.IntPtr GuidCollection_Repeat(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_GuidCollection_Reverse__SWIG_0")]
+  public static extern void GuidCollection_Reverse__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_GuidCollection_Reverse__SWIG_1")]
+  public static extern void GuidCollection_Reverse__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, int jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_GuidCollection_SetRange")]
+  public static extern void GuidCollection_SetRange(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_delete_GuidCollection")]
+  public static extern void delete_GuidCollection(global::System.Runtime.InteropServices.HandleRef jarg1);
+
   [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_DataTableCollection_Clear")]
   public static extern void DataTableCollection_Clear(global::System.Runtime.InteropServices.HandleRef jarg1);
 
@@ -1918,6 +1984,33 @@ class CommonPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_delete_SubscriberConnector")]
   public static extern void delete_SubscriberConnector(global::System.Runtime.InteropServices.HandleRef jarg1);
 
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SignalIndexCache_Contains")]
+  public static extern bool SignalIndexCache_Contains(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SignalIndexCache_GetSignalID")]
+  public static extern global::System.IntPtr SignalIndexCache_GetSignalID(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SignalIndexCache_GetSource")]
+  public static extern string SignalIndexCache_GetSource(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SignalIndexCache_GetID")]
+  public static extern ulong SignalIndexCache_GetID(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SignalIndexCache_GetSignalIndex")]
+  public static extern int SignalIndexCache_GetSignalIndex(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SignalIndexCache__Count")]
+  public static extern uint SignalIndexCache__Count(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SignalIndexCache_GetSignalIDs")]
+  public static extern bool SignalIndexCache_GetSignalIDs(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_new_SignalIndexCache")]
+  public static extern global::System.IntPtr new_SignalIndexCache();
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_delete_SignalIndexCache")]
+  public static extern void delete_SignalIndexCache(global::System.Runtime.InteropServices.HandleRef jarg1);
+
   [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SubscriberInstanceBase_SetupSubscriberConnector")]
   public static extern void SubscriberInstanceBase_SetupSubscriberConnector(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
@@ -1959,6 +2052,12 @@ class CommonPINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SubscriberInstanceBase_ParsedMetadataSwigExplicitSubscriberInstanceBase")]
   public static extern void SubscriberInstanceBase_ParsedMetadataSwigExplicitSubscriberInstanceBase(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SubscriberInstanceBase_SubscriptionUpdated")]
+  public static extern void SubscriberInstanceBase_SubscriptionUpdated(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SubscriberInstanceBase_SubscriptionUpdatedSwigExplicitSubscriberInstanceBase")]
+  public static extern void SubscriberInstanceBase_SubscriptionUpdatedSwigExplicitSubscriberInstanceBase(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SubscriberInstanceBase_ReceivedNewMeasurements")]
   public static extern void SubscriberInstanceBase_ReceivedNewMeasurements(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, int jarg3);
@@ -2129,31 +2228,7 @@ class CommonPINVOKE {
   public static extern bool SubscriberInstanceBase_TryGetMeasurementMetdataFromConfigurationFrame(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SubscriberInstanceBase_director_connect")]
-  public static extern void SubscriberInstanceBase_director_connect(global::System.Runtime.InteropServices.HandleRef jarg1, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_0 delegate0, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_1 delegate1, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_2 delegate2, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_3 delegate3, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_4 delegate4, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_5 delegate5, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_6 delegate6, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_7 delegate7, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_8 delegate8, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_9 delegate9, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_10 delegate10, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_11 delegate11);
-
-  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SignalIndexCache_Contains")]
-  public static extern bool SignalIndexCache_Contains(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SignalIndexCache_GetSignalID")]
-  public static extern global::System.IntPtr SignalIndexCache_GetSignalID(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SignalIndexCache_GetSource")]
-  public static extern string SignalIndexCache_GetSource(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SignalIndexCache_GetID")]
-  public static extern ulong SignalIndexCache_GetID(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SignalIndexCache_GetSignalIndex")]
-  public static extern int SignalIndexCache_GetSignalIndex(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_SignalIndexCache_Count")]
-  public static extern uint SignalIndexCache_Count(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_new_SignalIndexCache")]
-  public static extern global::System.IntPtr new_SignalIndexCache();
-
-  [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_delete_SignalIndexCache")]
-  public static extern void delete_SignalIndexCache(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern void SubscriberInstanceBase_director_connect(global::System.Runtime.InteropServices.HandleRef jarg1, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_0 delegate0, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_1 delegate1, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_2 delegate2, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_3 delegate3, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_4 delegate4, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_5 delegate5, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_6 delegate6, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_7 delegate7, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_8 delegate8, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_9 delegate9, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_10 delegate10, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_11 delegate11, SubscriberInstanceBase.SwigDelegateSubscriberInstanceBase_12 delegate12);
 
   [global::System.Runtime.InteropServices.DllImport("sttp.net.lib.dll", EntryPoint="CSharp_sttp_delete_SubscriberConnection")]
   public static extern void delete_SubscriberConnection(global::System.Runtime.InteropServices.HandleRef jarg1);
