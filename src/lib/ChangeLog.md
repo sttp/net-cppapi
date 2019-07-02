@@ -5,6 +5,10 @@
 
 #### Change Log
 
+1.0.4 - 2019-07-02
+
+    Updated to latest `cppapi` which included data subscriber updates for improved shutdown operation while auto-reconnect is in progress.
+
 1.0.3 - 2019-07-01
 
     Updated to latest `cppapi` which included data subscriber fixes for auto-reconnect logic and data publisher fixes for null metadata.
