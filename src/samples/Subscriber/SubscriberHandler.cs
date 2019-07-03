@@ -103,7 +103,7 @@ namespace Subscriber
 
         public override void SubscriptionUpdated(SignalIndexCache signalIndexCache)
         {
-            StatusMessage($"Publisher provided {signalIndexCache.Count()} measurements in response to subscription.");
+            StatusMessage($"Publisher provided {signalIndexCache.Count} measurements in response to subscription.");
         }
 
         public override unsafe void ReceivedNewMeasurements(Measurement* measurements, int length)

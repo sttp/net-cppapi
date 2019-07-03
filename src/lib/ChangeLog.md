@@ -5,13 +5,17 @@
 
 #### Change Log
 
+1.0.5 - 2019-07-03
+
+    Updated to cppapi v1.0.10 which included fixes for race conditions around startup, shutdown, reconnect and shared reference dispatch operations.
+
 1.0.4 - 2019-07-02
 
-    Updated to latest `cppapi` which included data subscriber updates for improved shutdown operation while auto-reconnect is in progress.
+    Updated to latest cppapi which included data subscriber updates for improved shutdown operation while auto-reconnect is in progress.
 
 1.0.3 - 2019-07-01
 
-    Updated to latest `cppapi` which included data subscriber fixes for auto-reconnect logic and data publisher fixes for null metadata.
+    Updated to latest cppapi which included data subscriber fixes for auto-reconnect logic and data publisher fixes for null metadata.
 
 1.0.2 - 2019-06-29
     
