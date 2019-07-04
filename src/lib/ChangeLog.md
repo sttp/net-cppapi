@@ -5,6 +5,10 @@
 
 #### Change Log
 
+1.0.6 - 2019-07-04
+
+    Updated to cppapi v1.0.11 which fixed subscriber instance reconnect after disconnect and added extra null check for cases when publisher provides no metadata.
+
 1.0.5 - 2019-07-03
 
     Updated to cppapi v1.0.10 which included fixes for race conditions around startup, shutdown, reconnect and shared reference dispatch operations.
