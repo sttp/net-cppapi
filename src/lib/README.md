@@ -6,7 +6,7 @@ Note that compiled libraries resulting from the `sttp.net.lib` project, e.g., `s
 
 #### Recompiling Wrapper Code
 
-To properly compile the `cppapi` library, [see build steps](https://github.com/sttp/cppapi/blob/master/src/README.txt).
+To properly compile the `cppapi` library, [see build steps](https://github.com/sttp/cppapi/blob/master/src).
 
 Note that there is one difference for compiling the `sttp.cpp` SWIG target on Windows, the boost folder needs to be relative to `cppapi` submodule, i.e., in the `src/lib/` folder, e.g.:
 
