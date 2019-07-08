@@ -15,4 +15,4 @@ Note that there is one difference for compiling the `sttp.cpp` SWIG target on Wi
 
 #### Rebuilding SWIG Wrappers
 
-Rebuild wrapper code in the `sttp.net.lib` and `sttp.net` projects from the SWIG source file [`sttp.i`](sttp.i) can be accomplished by executing the [create-csharp-wrapper](create-csharp-wrapper.bat) script. This requires [SWIG](http://www.swig.org/) already be available in path. At writing, this code was compiled with SWIG version 4.0.
+Rebuilding wrapper code in the `sttp.net.lib` and `sttp.net` projects from the SWIG source file [`sttp.i`](sttp.i) can be accomplished by executing the [create-csharp-wrapper](create-csharp-wrapper.bat) script. This requires [SWIG](http://www.swig.org/) already be available in path. At writing, this code was compiled with SWIG version 4.0.
