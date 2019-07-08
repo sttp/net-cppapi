@@ -5,6 +5,10 @@
 
 #### Change Log
 
+1.0.7 - 2019-07-08
+
+    Updated to cppapi v1.0.12 which improved shutdown speed when auto-reconnect is active.
+
 1.0.6 - 2019-07-04
 
     Updated to cppapi v1.0.11 which fixed subscriber instance reconnect after disconnect and added extra null check for cases when publisher provides no metadata.
