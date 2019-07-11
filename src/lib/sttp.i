@@ -1989,7 +1989,7 @@ namespace transport
         const std::string& GetSubscriptionInfo() const;
 
         // Gets signal index cache for subscriber representing run-time mappings for subscribed points
-        const SignalIndexCachePtr& GetSignalIndexCache() const;
+        const SignalIndexCachePtr& GetSignalIndexCache();
 
         // Statistical functions
         uint64_t GetTotalCommandChannelBytesSent() const;

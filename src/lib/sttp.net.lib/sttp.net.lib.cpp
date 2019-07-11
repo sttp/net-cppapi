@@ -18955,16 +18955,16 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_sttp_SubscriberConnection_GetSubscriptionIn
 SWIGEXPORT void * SWIGSTDCALL CSharp_sttp_SubscriberConnection_GetSignalIndexCache(void * jarg1) {
   void * jresult ;
   sttp::transport::SubscriberConnection *arg1 = (sttp::transport::SubscriberConnection *) 0 ;
-  boost::shared_ptr< sttp::transport::SubscriberConnection const > *smartarg1 = 0 ;
+  boost::shared_ptr< sttp::transport::SubscriberConnection > *smartarg1 = 0 ;
   sttp::transport::SignalIndexCachePtr *result = 0 ;
   
   
-  smartarg1 = (boost::shared_ptr< const sttp::transport::SubscriberConnection > *)jarg1;
+  smartarg1 = (boost::shared_ptr<  sttp::transport::SubscriberConnection > *)jarg1;
   arg1 = (sttp::transport::SubscriberConnection *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try
     {
-      result = (sttp::transport::SignalIndexCachePtr *) &((sttp::transport::SubscriberConnection const *)arg1)->GetSignalIndexCache();
+      result = (sttp::transport::SignalIndexCachePtr *) &(arg1)->GetSignalIndexCache();
     }
     catch (const std::exception& e)
     {
