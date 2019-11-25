@@ -4,6 +4,10 @@
 
 #### Change Log
 
+1.0.9 - 2019-11-25
+
+	Updated to cppapi v1.0.18 which increased allowed command payload size and updated to latest Antlr4 C++ runtime.
+
 1.0.8 - 2019-07-11
 
     Updated to cppapi v1.0.14 which improved lock handling of signal index cache, reconnect timing for data subscribers and data publisher port-in-use exception reporting from v1.0.13.
