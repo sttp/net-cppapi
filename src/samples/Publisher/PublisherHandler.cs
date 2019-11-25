@@ -23,6 +23,7 @@
 
 using sttp;
 using System;
+using System.Runtime.CompilerServices;
 using System.Timers;
 
 namespace Publisher
@@ -196,7 +197,7 @@ namespace Publisher
             {
                 // If metadata can change, the following integer should not be static:
                 uint count = (uint)m_measurementMetadata.Count;
-                long timestamp = DateTime.UtcNow.Ticks;
+                long timestamp = RoundToSubsecondDistribution(DateTime.UtcNow.Ticks, 30);
                 Measurement[] measurements = new Measurement[count];
                 Random rand = new Random();
 
@@ -255,6 +256,33 @@ namespace Publisher
         {
             base.Stop();
             m_publishTimer?.Stop();
+        }
+
+        // Returns the nearest sub-second distribution timestamp for given ticks.
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static long RoundToSubsecondDistribution(long ticks, int samplesPerSecond)
+        {
+            const long TicksPerSecond = 10000000L;
+
+            long baseTicks, ticksBeyondSecond, frameIndex, destinationTicks;
+
+            // Baseline timestamp to the top of the second
+            baseTicks = ticks - ticks % TicksPerSecond;
+
+            // Remove the seconds from ticks
+            ticksBeyondSecond = ticks - baseTicks;
+
+            // Calculate a frame index between 0 and m_framesPerSecond - 1,
+            // corresponding to ticks rounded to the nearest frame
+            frameIndex = (long)Math.Round(ticksBeyondSecond / (TicksPerSecond / (double)samplesPerSecond));
+
+            // Calculate the timestamp of the nearest frame
+            destinationTicks = frameIndex * TicksPerSecond / samplesPerSecond;
+
+            // Recover the seconds that were removed
+            destinationTicks += baseTicks;
+
+            return destinationTicks;
         }
     }
 }
