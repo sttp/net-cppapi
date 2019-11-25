@@ -7,6 +7,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <Link>sttp.net.lib.dll</Link>
     </Content>
+    <Content Include="$(MSBuildThisFileDirectory)\..\runtimes\linux-x64\native\sttp.net.lib.so" Visible="false">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Link>sttp.net.lib.so</Link>
+    </Content>
   </ItemGroup>
 
   <ItemGroup Condition=" '$(PlatformTarget)' == 'x86' OR '$(Prefer32Bit)' == 'true' ">
