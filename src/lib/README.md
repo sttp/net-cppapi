@@ -45,8 +45,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <PublishReadyToRun>True</PublishReadyToRun>
     <PublishReadyToRunShowWarnings>True</PublishReadyToRunShowWarnings>
     <PublishTrimmed>True</PublishTrimmed>
-	<IncludeAllContentForSelfExtract>True</IncludeAllContentForSelfExtract>
-	<IncludeNativeLibrariesInSingleFile>True</IncludeNativeLibrariesInSingleFile>
+    <IncludeAllContentForSelfExtract>True</IncludeAllContentForSelfExtract>
+    <IncludeNativeLibrariesInSingleFile>True</IncludeNativeLibrariesInSingleFile>
   </PropertyGroup>
 </Project>
 ```
