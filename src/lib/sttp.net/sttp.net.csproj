@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net5.0</TargetFramework>
+		<TargetFrameworks>net5.0;netstandard2.1;netstandard2.0</TargetFrameworks>
 		<Platforms>x64;x86</Platforms>
 		<RootNamespace>sttp</RootNamespace>
 		<PackageId>sttp.net</PackageId>
