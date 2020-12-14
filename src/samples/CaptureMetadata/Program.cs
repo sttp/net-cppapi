@@ -21,7 +21,6 @@
 //
 //******************************************************************************************************
 
-using sttp;
 using System;
 
 namespace CaptureMetadata
@@ -30,26 +29,29 @@ namespace CaptureMetadata
     {
         static void Main(string[] args)
         {
+            const string DefaultFilename = "Metadata.xml";
+
             // Ensure that the necessary
             // command line arguments are given.
             if (args.Length == 0)
             {
                 Console.WriteLine("Usage:");
-                Console.WriteLine("    CaptureMetadata HOSTNAME PORT");
+                Console.WriteLine("    CaptureMetadata HOSTNAME PORT [FILENAME]");
                 return;
             }
 
             // Get hostname and port.
             string hostname = args[0];
             ushort port = ushort.Parse(args[1]);
+            string filename = args.Length > 2 ? args[2] : DefaultFilename;
 
             // Initialize the subscriber.
-            SubscriberHandler subscriber = new SubscriberHandler("CaptureMetadata");
+            SubscriberHandler subscriber = new SubscriberHandler(filename);
             subscriber.Initialize(hostname, port);
             subscriber.ConnectAsync();
 
-            // Wait until the user presses enter before quitting.
-            Console.ReadLine();
+            // Wait until the user presses a key before quitting.
+            Console.ReadKey();
 
             // Shutdown subscriber instance.
             subscriber.Disconnect();

@@ -51,7 +51,6 @@ namespace Publisher
         protected override void StatusMessage(string message)
         {
             // TODO: Make sure these messages get logged to an appropriate location
-            // For now, the base class just displays to console:
 
             // Calls can come from multiple threads, so we impose a simple lock before write to console
             lock (s_consoleLock)
@@ -61,23 +60,20 @@ namespace Publisher
         protected override void ErrorMessage(string message)
         {
             // TODO: Make sure these messages get logged to an appropriate location
-            // For now, the base class just displays to console:
 
             // Calls can come from multiple threads, so we impose a simple lock before write to console
             lock (s_consoleLock)
                 Console.Error.WriteLine($"[{m_name}] {message}\n");
         }
 
-        protected override void ClientConnected(SubscriberConnection connection)
-        {
+        protected override void ClientConnected(SubscriberConnection connection) => 
             StatusMessage($"Client \"{connection.GetConnectionID()}\" with subscriber ID {connection.GetSubscriberID()} connected...\n\n");
-        }
 
-        protected override void ClientDisconnected(SubscriberConnection connection)
-        {
+        protected override void ClientDisconnected(SubscriberConnection connection) => 
             StatusMessage($"Client \"{connection.GetConnectionID()}\" with subscriber ID {connection.GetSubscriberID()} disconnected...\n\n");
-        }
 
+        // In this example we use predefined structures to setup synchrophasor style metadata. This is only for setup simplification of
+        // the initial target uses cases that interact with IEEE C37.118. Technically the publisher can create its own metadata sets.
         private void DefineMetadata()
         {
             // This sample just generates random Guid measurement and device identifiers - for a production system,
@@ -178,8 +174,6 @@ namespace Publisher
             if (!base.Start(port))
                 return false;
 
-            const ulong interval = 1000;
-
             int maxConnections = MaximumAllowedConnections;
             StatusMessage($"\nListening on port: {GetPort()}, max connections = {(maxConnections == -1 ? "unlimited" : maxConnections.ToString())}...\n");
 
@@ -188,63 +182,8 @@ namespace Publisher
 
             // Setup data publication timer - for this publishing sample we send
             // data type reasonable random values every 33 milliseconds
-            m_publishTimer = new Timer(33)
-            {
-                AutoReset = true
-            };
-
-            m_publishTimer.Elapsed += (sender, e) =>
-            {
-                // If metadata can change, the following integer should not be static:
-                uint count = (uint)m_measurementMetadata.Count;
-                long timestamp = RoundToSubsecondDistribution(DateTime.UtcNow.Ticks, 30);
-                Measurement[] measurements = new Measurement[count];
-                Random rand = new Random();
-
-                // Create new measurement values for publication
-                for (int i = 0; i < count; i++)
-                {
-                    MeasurementMetadata metadata = m_measurementMetadata[i];
-                    Measurement measurement = new Measurement(metadata.SignalID, timestamp);
-
-                    double randFraction = rand.NextDouble();
-                    double sign = randFraction > 0.5 ? 1.0 : -1.0;
-                    double value;
-
-                    switch (metadata.Reference.Kind)
-                    {
-                        case SignalKind.Frequency:
-                            value = 60.0 + sign * randFraction * 0.1;
-                            break;
-                        case SignalKind.DfDt:
-                            value = sign * randFraction * 2;
-                            break;
-                        case SignalKind.Magnitude:
-                            value = 500 + sign * randFraction * 50;
-                            break;
-                        case SignalKind.Angle:
-                            value = sign * randFraction * 180;
-                            break;
-                        default:
-                            value = sign * randFraction * uint.MaxValue;
-                            break;
-                    }
-
-                    measurement.Value = value;
-
-                    measurements[i] = measurement;
-                }
-
-                // Publish measurements
-                PublishMeasurements(measurements);
-
-                // Display a processing message every few seconds
-                bool showMessage = m_processCount + count >= (m_processCount / interval + 1) * interval && GetTotalMeasurementsSent() > 0;
-                m_processCount += count;
-
-                if (showMessage)
-                    StatusMessage($"{GetTotalMeasurementsSent()} measurements published so far...\n");
-            };
+            m_publishTimer = new Timer(33) { AutoReset = true };
+            m_publishTimer.Elapsed += (sender, e) => PublishRandomValues();
 
             // Start data publication
             m_publishTimer.Start();
@@ -258,26 +197,66 @@ namespace Publisher
             m_publishTimer?.Stop();
         }
 
+        private void PublishRandomValues()
+        {
+            const ulong Interval = 1000;
+
+            // If metadata can change, the following integer should not be static:
+            int count = m_measurementMetadata.Count;
+            long timestamp = RoundToSubsecondDistribution(DateTime.UtcNow.Ticks, 30);
+            Measurement[] measurements = new Measurement[count];
+            Random rand = new Random();
+
+            // Create new measurement values for publication
+            for (int i = 0; i < count; i++)
+            {
+                MeasurementMetadata metadata = m_measurementMetadata[i];
+                Measurement measurement = new Measurement(metadata.SignalID, timestamp);
+
+                double randFraction = rand.NextDouble();
+                double sign = randFraction > 0.5D ? 1.0D : -1.0D;
+
+                measurement.Value = metadata.Reference.Kind switch
+                {
+                    SignalKind.Frequency => 60.0D + sign * randFraction * 0.1D,
+                    SignalKind.DfDt      => sign * randFraction * 2.0D,
+                    SignalKind.Magnitude => 500.0D + sign * randFraction * 50.0D,
+                    SignalKind.Angle     => sign * randFraction * 180.0D,
+                                       _ => sign * randFraction * uint.MaxValue
+                };
+
+                measurements[i] = measurement;
+            }
+
+            // Publish measurements
+            PublishMeasurements(measurements);
+
+            // Display a processing message every few seconds
+            bool showMessage = m_processCount + (ulong)count >= (m_processCount / Interval + 1) * Interval && GetTotalMeasurementsSent() > 0;
+            m_processCount += (ulong)count;
+
+            if (showMessage)
+                StatusMessage($"{GetTotalMeasurementsSent()} measurements published so far...\n");
+        }
+
         // Returns the nearest sub-second distribution timestamp for given ticks.
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static long RoundToSubsecondDistribution(long ticks, int samplesPerSecond)
         {
-            const long TicksPerSecond = 10000000L;
-
-            long baseTicks, ticksBeyondSecond, frameIndex, destinationTicks;
+            const long TicksPerSecond = TimeSpan.TicksPerSecond;
 
             // Baseline timestamp to the top of the second
-            baseTicks = ticks - ticks % TicksPerSecond;
+            long baseTicks = ticks - ticks % TicksPerSecond;
 
             // Remove the seconds from ticks
-            ticksBeyondSecond = ticks - baseTicks;
+            long ticksBeyondSecond = ticks - baseTicks;
 
             // Calculate a frame index between 0 and m_framesPerSecond - 1,
             // corresponding to ticks rounded to the nearest frame
-            frameIndex = (long)Math.Round(ticksBeyondSecond / (TicksPerSecond / (double)samplesPerSecond));
+            long frameIndex = (long)Math.Round(ticksBeyondSecond / (TicksPerSecond / (double)samplesPerSecond));
 
             // Calculate the timestamp of the nearest frame
-            destinationTicks = frameIndex * TicksPerSecond / samplesPerSecond;
+            long destinationTicks = frameIndex * TicksPerSecond / samplesPerSecond;
 
             // Recover the seconds that were removed
             destinationTicks += baseTicks;

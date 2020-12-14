@@ -9,8 +9,6 @@ namespace Publisher
 
         static void Main(string[] args)
         {
-            ushort port;
-
             // Ensure that the necessary
             // command line arguments are given.
             if (args.Length == 0)
@@ -21,7 +19,7 @@ namespace Publisher
             }
 
             // Get port.
-            port = ushort.Parse(args[0]);
+            ushort port = ushort.Parse(args[0]);
 
             // Initialize the publishers.
             for (int i = 0; i < TotalInstances; i++)

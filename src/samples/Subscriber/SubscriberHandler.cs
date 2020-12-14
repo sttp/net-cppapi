@@ -36,38 +36,30 @@ namespace Subscriber
 
         public SubscriberHandler(string name) => m_name = name;
 
-        protected override SubscriptionInfo CreateSubscriptionInfo()
-        {
-            SubscriptionInfo info = base.CreateSubscriptionInfo();
+        // TODO: Modify subscription info properties as desired...
+        //protected override SubscriptionInfo CreateSubscriptionInfo()
+        //{
+        //    SubscriptionInfo info = base.CreateSubscriptionInfo();
+        //
+        //    // Other example properties (see SubscriptionInfo class in DataSubscriber.h for all properties)
+        //    //info.Throttled = false;
+        //    //info.IncludeTime = true;
+        //    //info.UseMillisecondResolution = true;
+        //
+        //    return info;
+        //}
 
-            // TODO: Modify subscription info properties as desired...
-
-            // To set up a remotely synchronized subscription, set this flag
-            // to true and add the framesPerSecond parameter to the
-            // ExtraConnectionStringParameters. Additionally, the following
-            // example demonstrates the use of some other useful parameters
-            // when setting up remotely synchronized subscriptions.
-
-            // Other example properties (see SubscriptionInfo class in DataSubscriber.h for all properties)
-            //info.Throttled = false;
-            //info.IncludeTime = true;
-            //info.UseMillisecondResolution = true;
-
-            return info;
-        }
-
-        protected override void SetupSubscriberConnector(SubscriberConnector connector)
-        {
-            base.SetupSubscriberConnector(connector);
-
-            // TODO: Modify connector properties as desired...
-            //connector.SetMaxRetries(-1);
-        }
+        // TODO: Modify connector properties as desired...
+        //protected override void SetupSubscriberConnector(SubscriberConnector connector)
+        //{
+        //    base.SetupSubscriberConnector(connector);
+        //
+        //    //connector.SetMaxRetries(-1);
+        //}
 
         protected override void StatusMessage(string message)
         {
             // TODO: Make sure these messages get logged to an appropriate location
-            // For now, the base class just displays to console:
 
             // Calls can come from multiple threads, so we impose a simple lock before write to console
             lock (s_consoleLock)
@@ -77,18 +69,15 @@ namespace Subscriber
         protected override void ErrorMessage(string message)
         {
             // TODO: Make sure these messages get logged to an appropriate location
-            // For now, the base class just displays to console:
 
             // Calls can come from multiple threads, so we impose a simple lock before write to console
             lock (s_consoleLock)
                 Console.Error.WriteLine($"[{m_name}] {message}\n");
         }
 
-        protected override void DataStartTime(DateTime startTime)
-        {
-            // This reports timestamp of very first received measurement (if useful)
+        // This reports timestamp of very first received measurement (if useful)
+        protected override void DataStartTime(DateTime startTime) => 
             StatusMessage($"Received first measurement at timestamp {startTime:yyyy-MM-dd HH:mm:ss.fff}");
-        }
 
         protected override void ReceivedMetadata(ByteBuffer payload)
         {
@@ -96,15 +85,11 @@ namespace Subscriber
             base.ReceivedMetadata(payload);
         }
 
-        protected override void ParsedMetadata()
-        {
+        protected override void ParsedMetadata() => 
             StatusMessage("Metadata successfully parsed.");
-        }
 
-        public override void SubscriptionUpdated(SignalIndexCache signalIndexCache)
-        {
+        public override void SubscriptionUpdated(SignalIndexCache signalIndexCache) => 
             StatusMessage($"Publisher provided {signalIndexCache.Count} measurements in response to subscription.");
-        }
 
         public override unsafe void ReceivedNewMeasurements(Measurement* measurements, int length)
         {
@@ -177,24 +162,16 @@ namespace Subscriber
             }
         }
 
-        protected override void ConfigurationChanged()
-        {
+        protected override void ConfigurationChanged() => 
             StatusMessage("Configuration change detected. Metadata refresh requested.");
-        }
 
-        protected override void HistoricalReadComplete()
-        {
+        protected override void HistoricalReadComplete() => 
             StatusMessage("Historical data read complete.");
-        }
 
-        protected override void ConnectionEstablished()
-        {
+        protected override void ConnectionEstablished() => 
             StatusMessage("Connection established.");
-        }
 
-        protected override void ConnectionTerminated()
-        {
+        protected override void ConnectionTerminated() => 
             StatusMessage("Connection terminated.");
-        }
     }
 }

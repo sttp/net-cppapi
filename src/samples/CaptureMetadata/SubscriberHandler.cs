@@ -21,110 +21,55 @@
 //
 //******************************************************************************************************
 
-using sttp;
 using System;
 using System.IO;
 using System.IO.Compression;
 using System.Xml;
+using sttp;
 
 namespace CaptureMetadata
 {
     public class SubscriberHandler : SubscriberInstance
     {
-        private readonly string m_name;
+        private readonly string m_filename;
 
-        private static readonly object s_consoleLock = new object();
-
-        public SubscriberHandler(string name) => m_name = name;
-
-        protected override void StatusMessage(string message)
+        public SubscriberHandler(string filename)
         {
-            // Calls can come from multiple threads, so we impose a simple lock before write to console
-            lock (s_consoleLock)
-                Console.WriteLine($"[{m_name}] {message}\n");
-        }
-
-        protected override void ErrorMessage(string message)
-        {
-            // Calls can come from multiple threads, so we impose a simple lock before write to console
-            lock (s_consoleLock)
-                Console.Error.WriteLine($"[{m_name}] {message}\n");
+            m_filename = filename;
+            FilterExpression = Guid.Empty.ToString(); // Subscribe to nothing
         }
 
         protected override void ReceivedMetadata(ByteBuffer payload)
         {
-            StatusMessage($"Received {payload.Count} bytes of metadata, parsing...");
-            
-            //base.ReceivedMetadata(payload);
-
             byte[] payloadBytes = payload.ToArray();
+
+            StatusMessage($"Received {payloadBytes.Length:N0} bytes of metadata, parsing...");
 
             if (MetadataCompressed)
                 payloadBytes = Decompress(payloadBytes);
 
-            XmlReader reader = XmlReader.Create(new MemoryStream(payloadBytes));
+            XmlDocument doc = new XmlDocument();
+            doc.Load(new MemoryStream(payloadBytes));
+            doc.Save(m_filename);
 
-            System.Data.DataSet dataset = new System.Data.DataSet();
-            dataset.ReadXml(reader);
+            StatusMessage("Save complete. Press any key to exit.");
 
-            dataset.WriteXml("Metadata.xml");
-
-            StatusMessage($"Parsed .NET data set with {dataset.Tables.Count:N0} tables from received XML metadata payload.");
+            // We don't provide metadata to base class - we are not subscribing to data and do not need native config structures
+            //base.ReceivedMetadata(payload);
         }
+
+        protected override void ConnectionEstablished() => StatusMessage("Connection established.");
+
+        protected override void ConnectionTerminated() => StatusMessage("Connection terminated.");
 
         private static byte[] Decompress(byte[] gzip)
         {
-            using (GZipStream stream = new GZipStream(new MemoryStream(gzip), CompressionMode.Decompress))
-            {
-                const int BufferSize = 4096;
-                byte[] buffer = new byte[BufferSize];
+            using GZipStream stream = new GZipStream(new MemoryStream(gzip), CompressionMode.Decompress, false);
+            using MemoryStream memory = new MemoryStream();
 
-                using (MemoryStream memory = new MemoryStream())
-                {
-                    int count;
+            stream.CopyTo(memory);
 
-                    do
-                    {
-                        count = stream.Read(buffer, 0, BufferSize);
-
-                        if (count > 0)
-                            memory.Write(buffer, 0, count);
-                    }
-                    while (count > 0);
-
-                    return memory.ToArray();
-                }
-            }
-        }
-
-        protected override void ParsedMetadata()
-        {
-            StatusMessage("Metadata successfully parsed.");
-        }
-
-        public override void SubscriptionUpdated(SignalIndexCache signalIndexCache)
-        {
-            StatusMessage($"Publisher provided {signalIndexCache.Count} measurements in response to subscription.");
-        }
-
-        protected override void ConfigurationChanged()
-        {
-            StatusMessage("Configuration change detected. Metadata refresh requested.");
-        }
-
-        protected override void HistoricalReadComplete()
-        {
-            StatusMessage("Historical data read complete.");
-        }
-
-        protected override void ConnectionEstablished()
-        {
-            StatusMessage("Connection established.");
-        }
-
-        protected override void ConnectionTerminated()
-        {
-            StatusMessage("Connection terminated.");
+            return memory.ToArray();
         }
     }
 }

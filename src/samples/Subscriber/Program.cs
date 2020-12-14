@@ -33,10 +33,6 @@ namespace Subscriber
 
         static void Main(string[] args)
         {
-            string hostname;
-            ushort port;
-            bool usePortOffset = false;
-
             // Ensure that the necessary
             // command line arguments are given.
             if (args.Length == 0)
@@ -47,11 +43,9 @@ namespace Subscriber
             }
 
             // Get hostname and port.
-            hostname = args[0];
-            port = ushort.Parse(args[1]);
-
-            if (args.Length > 2)
-                usePortOffset = bool.Parse(args[2]);
+            string hostname = args[0];
+            ushort port = ushort.Parse(args[1]);
+            bool usePortOffset = args.Length > 2 && bool.TryParse(args[2], out bool value) && value;
 
             // Initialize the subscribers.
             for (int i = 0; i < TotalInstances; i++)
