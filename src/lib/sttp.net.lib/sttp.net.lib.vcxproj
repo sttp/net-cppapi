@@ -100,9 +100,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_WIN32_WINNT=0x0601;WIN32;_DEBUG;STTPCSLIB_EXPORTS;_WINDOWS;_USRDLL;BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE;_SILENCE_FPOS_SEEKPOS_DEPRECATION_WARNING;SWIG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WIN32_WINNT=0x0601;_HAS_AUTO_PTR_ETC;WIN32;_DEBUG;STTPCSLIB_EXPORTS;_WINDOWS;_USRDLL;BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE;_SILENCE_FPOS_SEEKPOS_DEPRECATION_WARNING;SWIG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)\boost;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -116,9 +117,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_WIN32_WINNT=0x0601;_DEBUG;STTPCSLIB_EXPORTS;_WINDOWS;_USRDLL;BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE;_SILENCE_FPOS_SEEKPOS_DEPRECATION_WARNING;SWIG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WIN32_WINNT=0x0601;_HAS_AUTO_PTR_ETC;_DEBUG;STTPCSLIB_EXPORTS;_WINDOWS;_USRDLL;BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE;_SILENCE_FPOS_SEEKPOS_DEPRECATION_WARNING;SWIG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)\boost;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -134,9 +136,10 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_WIN32_WINNT=0x0601;WIN32;NDEBUG;STTPCSLIB_EXPORTS;_WINDOWS;_USRDLL;BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE;_SILENCE_FPOS_SEEKPOS_DEPRECATION_WARNING;SWIG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WIN32_WINNT=0x0601;_HAS_AUTO_PTR_ETC;WIN32;NDEBUG;STTPCSLIB_EXPORTS;_WINDOWS;_USRDLL;BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE;_SILENCE_FPOS_SEEKPOS_DEPRECATION_WARNING;SWIG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)\boost;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -154,9 +157,10 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_WIN32_WINNT=0x0601;NDEBUG;STTPCSLIB_EXPORTS;_WINDOWS;_USRDLL;BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE;_SILENCE_FPOS_SEEKPOS_DEPRECATION_WARNING;SWIG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WIN32_WINNT=0x0601;_HAS_AUTO_PTR_ETC;NDEBUG;STTPCSLIB_EXPORTS;_WINDOWS;_USRDLL;BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE;_SILENCE_FPOS_SEEKPOS_DEPRECATION_WARNING;SWIG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)\boost;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

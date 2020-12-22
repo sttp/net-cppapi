@@ -10,7 +10,7 @@
 		<Product>STTP</Product>
 		<PackageDescription>Streaming Telemetry Transport Protocol API for .NET</PackageDescription>
 		<Description>Streaming Telemetry Transport Protocol API for .NET</Description>
-		<Copyright>Copyright © 2019</Copyright>
+		<Copyright>Copyright © 2020</Copyright>
 		<PackageProjectUrl>https://github.com/sttp/</PackageProjectUrl>
 		<PackageIcon>sttp.png</PackageIcon>
 		<RepositoryUrl>https://github.com/sttp/</RepositoryUrl>
@@ -46,9 +46,9 @@
 
 	<PropertyGroup>
 		<PlatformTarget>AnyCPU</PlatformTarget>
-		<Version>1.0.9</Version>
-		<AssemblyVersion>1.0.9.0</AssemblyVersion>
-		<FileVersion>1.0.9.0</FileVersion>
+		<Version>1.0.10</Version>
+		<AssemblyVersion>1.0.10.0</AssemblyVersion>
+		<FileVersion>1.0.10.0</FileVersion>
 	</PropertyGroup>
 
 	<ItemGroup>

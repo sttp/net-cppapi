@@ -4,6 +4,10 @@
 
 #### Change Log
 
+1.0.10 - 2020-12-22
+
+    Updated to cppapi v1.0.20 - see [release notes](https://github.com/sttp/cppapi/releases/tag/v1.0.20)
+
 1.0.9 - 2019-11-25
 
 	Updated to cppapi v1.0.18 which increased allowed command payload size and updated to latest Antlr4 C++ runtime.
