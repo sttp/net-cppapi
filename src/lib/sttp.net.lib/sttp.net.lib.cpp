@@ -481,6 +481,8 @@ SWIGINTERN void SWIG_CSharpException(int code, const char *msg) {
         return connection->GetIPAddress().to_string();
     }
 
+
+    // Parse decimal_t from string
     sttp::decimal_t ParseDecimal(const std::string& value)
     {
         sttp::decimal_t decVal;

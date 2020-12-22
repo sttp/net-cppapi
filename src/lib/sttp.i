@@ -311,7 +311,12 @@ namespace sttp
     {
         return connection->GetIPAddress().to_string();
     }
+%}
 
+%csmethodmodifiers ParseDecimal "internal";
+%inline
+%{
+    // Parse decimal_t from string
     sttp::decimal_t ParseDecimal(const std::string& value)
     {
         sttp::decimal_t decVal;
@@ -354,9 +359,6 @@ namespace sttp
 
     // The boost decimal type has a very complex internal representation, although slower,
     // it's safer convert the value to and from a string:
-
-    // Parse sttp::decimal_t from string
-    %csmethodmodifiers ParseDecimal "internal";
 
     %csmethodmodifiers ToString "internal";
     std::string ToString(const sttp::decimal_t& value);

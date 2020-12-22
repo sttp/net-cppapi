@@ -175,7 +175,7 @@ public class Common {
     return ret;
   }
 
-  public static decimal_t ParseDecimal(string value) {
+  internal static decimal_t ParseDecimal(string value) {
     decimal_t ret = new decimal_t(CommonPINVOKE.ParseDecimal(value), true);
     if (CommonPINVOKE.SWIGPendingException.Pending) throw CommonPINVOKE.SWIGPendingException.Retrieve();
     return ret;
