@@ -211,7 +211,7 @@ public class%}
 namespace sttp
 {
     // Mark C++ library specific class pointer wrappers as internal
-    %typemap(csclassmodifiers) decimal_t, decimal_t*, decimal_t&, decimal_t[], decimal_t (CLASS::*) "internal class"
+    %typemap(csclassmodifiers) sttp::decimal_t, sttp::decimal_t*, sttp::decimal_t&, sttp::decimal_t[], sttp::decimal_t (CLASS::*) "internal class"
     %typemap(csclassmodifiers) datetime_t, datetime_t*, datetime_t&, datetime_t[], datetime_t (CLASS::*) "internal class"
     %typemap(csclassmodifiers) Guid, Guid*, Guid&, Guid[], Guid (CLASS::*) "internal class"
 
@@ -311,6 +311,13 @@ namespace sttp
     {
         return connection->GetIPAddress().to_string();
     }
+
+    sttp::decimal_t ParseDecimal(const std::string& value)
+    {
+        sttp::decimal_t decVal;
+        sttp::TryParseDecimal(value, decVal);
+        return decVal;
+    }
 %}
 
 namespace sttp
@@ -334,7 +341,7 @@ namespace sttp
     %template(NullableDateTime) Nullable<datetime_t>;
     %template(NullableFloat32) Nullable<float32_t>;
     %template(NullableFloat64) Nullable<float64_t>;
-    %template(NullableDecimal) Nullable<decimal_t>;
+    %template(NullableDecimal) Nullable<sttp::decimal_t>;
     %template(NullableGuid) Nullable<Guid>;
     %template(NullableInt8) Nullable<int8_t>;
     %template(NullableInt16) Nullable<int16_t>;
@@ -348,43 +355,42 @@ namespace sttp
     // The boost decimal type has a very complex internal representation, although slower,
     // it's safer convert the value to and from a string:
 
-    // Parse decimal_t from string
+    // Parse sttp::decimal_t from string
     %csmethodmodifiers ParseDecimal "internal";
-    decimal_t ParseDecimal(const std::string& value);
 
     %csmethodmodifiers ToString "internal";
-    std::string ToString(const decimal_t& value);
+    std::string ToString(const sttp::decimal_t& value);
 
-    // Map decimal_t (boost::multiprecision::cpp_dec_float_100) to System.Decimal
-    %typemap(cstype) decimal_t, const decimal_t& "decimal"
+    // Map sttp::decimal_t (boost::multiprecision::cpp_dec_float_100) to System.Decimal
+    %typemap(cstype) sttp::decimal_t, const sttp::decimal_t& "decimal"
     %typemap(csin, 
         pre="    $csclassname temp$csinput = $module.ParseDecimal($csinput.ToString());"
     )
-    decimal_t "$csclassname.getCPtr(temp$csinput)"
+    sttp::decimal_t "$csclassname.getCPtr(temp$csinput)"
     %typemap(csin, 
         pre="    $csclassname temp$csinput = $module.ParseDecimal($csinput.ToString());"
     )
-    const decimal_t& "$csclassname.getCPtr(temp$csinput)"
+    const sttp::decimal_t& "$csclassname.getCPtr(temp$csinput)"
 
-    %typemap(cstype) decimal_t& "out decimal"
+    %typemap(cstype) sttp::decimal_t& "out decimal"
     %typemap(csin, 
         pre="    using ($csclassname temp$csinput = new $csclassname()) {", 
         post="      $csinput = System.Convert.ToDecimal($module.ToString(temp$csinput));",
         terminator="    }",
         cshin="out $csinput"
     )
-    decimal_t& "$csclassname.getCPtr(temp$csinput)"
+    sttp::decimal_t& "$csclassname.getCPtr(temp$csinput)"
 
-    %typemap(cstype, out="decimal") decimal_t* "ref decimal"
+    %typemap(cstype, out="decimal") sttp::decimal_t* "ref decimal"
     %typemap(csin,
         pre="    using ($csclassname temp$csinput = $module.ParseDecimal($csinput.ToString())) {",
         post="      $csinput = System.Convert.ToDecimal($module.ToString(temp$csinput));",
         terminator="    }",
         cshin="ref $csinput"
     )
-    decimal_t* "$csclassname.getCPtr(temp$csinput)"
+    sttp::decimal_t* "$csclassname.getCPtr(temp$csinput)"
 
-    %typemap(csvarin, excode=SWIGEXCODE3) decimal_t*, decimal_t&, decimal_t
+    %typemap(csvarin, excode=SWIGEXCODE3) sttp::decimal_t*, sttp::decimal_t&, sttp::decimal_t
     %{
       set {
         $csclassname temp$csinput = $module.ParseDecimal($csinput.ToString());
@@ -392,7 +398,7 @@ namespace sttp
       }
     %}
 
-    %typemap(csvarout, excode=SWIGEXCODE3) decimal_t*, decimal_t&, decimal_t
+    %typemap(csvarout, excode=SWIGEXCODE3) sttp::decimal_t*, sttp::decimal_t&, sttp::decimal_t
     %{
       get {
         global::System.IntPtr cPtr = $imcall;$excode
@@ -402,8 +408,8 @@ namespace sttp
       }
     %}
 
-    %typemap(cstype) decimal_t, const decimal_t "decimal"
-    %typemap(csout, excode=SWIGEXCODE2) decimal_t, const decimal_t, const decimal_t&
+    %typemap(cstype) sttp::decimal_t, const sttp::decimal_t "decimal"
+    %typemap(csout, excode=SWIGEXCODE2) sttp::decimal_t, const sttp::decimal_t, const sttp::decimal_t&
     {
       global::System.IntPtr cPtr = $imcall;$excode
       using ($csclassname tempDate = (cPtr == global::System.IntPtr.Zero) ? null : new $csclassname(cPtr, $owner)) {
@@ -569,15 +575,15 @@ namespace sttp
     }
   }
 
-    // Map sttp::Nullable<decimal_t> to decimal
-    %typemap(cstype) const sttp::Nullable<decimal_t>& "decimal?"
+    // Map sttp::Nullable<sttp::decimal_t> to decimal
+    %typemap(cstype) const sttp::Nullable<sttp::decimal_t>& "decimal?"
     %typemap(csin, 
         pre="    $csclassname temp$csinput = $csinput.HasValue ? new $csclassname($module.ParseDecimal($csinput.Value.ToString())) : null;"
     )
-    const sttp::Nullable<decimal_t>& "$csclassname.getCPtr(temp$csinput)"
+    const sttp::Nullable<sttp::decimal_t>& "$csclassname.getCPtr(temp$csinput)"
 
-    %typemap(cstype) sttp::Nullable<decimal_t> "decimal?"
-    %typemap(csout, excode=SWIGEXCODE) sttp::Nullable<decimal_t> {
+    %typemap(cstype) sttp::Nullable<sttp::decimal_t> "decimal?"
+    %typemap(csout, excode=SWIGEXCODE) sttp::Nullable<sttp::decimal_t> {
     global::System.IntPtr cPtr = $imcall;$excode
     using ($csclassname tempDecimal = (cPtr == global::System.IntPtr.Zero) ? null : new $csclassname(cPtr, $owner)) {
       if (tempDecimal?.HasValue() ?? false) return System.Convert.ToDecimal($module.ToString(tempDecimal.GetValueOrDefault()));
