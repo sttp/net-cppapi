@@ -29,5 +29,5 @@ gcc -D SWIG -c -fPIC sttp.net.lib.cpp -o obj/Release/sttp.net.lib.o
 gcc -shared obj/Release/sttp.net.lib.o bin/Release/Libraries/libsttp.a -o bin/Release/sttp.net.lib.so
 
 # Copy resulting compiled "sttp.net.lib.so" files to target folders:
-cp bin/Debug/sttp.net.lib.* ../../../build/output/x64/Debug/lib
+cp bin/Debug/sttp.net.lib.so ../../../build/output/x64/Debug/lib
 cp bin/Release/sttp.net.lib.so ../../../build/output/x64/Release/lib

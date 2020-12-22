@@ -10,7 +10,11 @@ To properly compile the `cppapi` library, [see build steps](https://github.com/s
 
 Note that there is one difference for compiling the `sttp.cpp` SWIG target on Windows, the boost folder needs to be relative to `cppapi` submodule, i.e., in the `src/lib/` folder, e.g.:
 
-`mklink /D C:\projects\sttp\net-cppapi\src\lib\boost C:\boost_1_66_0`
+`mklink /D C:\projects\sttp\net-cppapi\src\lib\boost C:\boost_1_75_0`
+
+When compiling from the command prompt with [`build-libraries.bat`](build-libraries.bat), the boost folder is relative to `cppapi` solution, not the `sttp-libraries` solution, e.g.:
+
+`mklink /D C:\projects\sttp\net-cppapi\src\lib\cppapi\src\boost C:\boost_1_75_0`
 
 
 #### Rebuilding SWIG Wrappers
