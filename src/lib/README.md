@@ -25,9 +25,9 @@ Rebuilding wrapper code in the `sttp.net.lib` and `sttp.net` projects from the S
 
 In order to get a Visual Studio folder-based publish profile to properly compile, it may be necessary to modify the STTP project reference in the `.csproj` file as follows:
 ```xml
-	<PackageReference Include="sttp.net" Version="1.0.9">
-	  <ExcludeAssets>native</ExcludeAssets>
-	</PackageReference>
+    <PackageReference Include="sttp.net" Version="1.0.9">
+      <ExcludeAssets>native</ExcludeAssets>
+    </PackageReference>
 ```
 
 Here is an example publish profile that creates a single executable that references `sttp.net.dll` and its native library:

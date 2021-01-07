@@ -10,7 +10,7 @@
 		<Product>STTP</Product>
 		<PackageDescription>Streaming Telemetry Transport Protocol API for .NET</PackageDescription>
 		<Description>Streaming Telemetry Transport Protocol API for .NET</Description>
-		<Copyright>Copyright © 2020</Copyright>
+		<Copyright>Copyright © 2021</Copyright>
 		<PackageProjectUrl>https://github.com/sttp/</PackageProjectUrl>
 		<PackageIcon>sttp.png</PackageIcon>
 		<RepositoryUrl>https://github.com/sttp/</RepositoryUrl>
