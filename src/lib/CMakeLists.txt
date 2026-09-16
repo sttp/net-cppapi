@@ -21,215 +21,68 @@
 #
 #******************************************************************************************************
 
-cmake_minimum_required (VERSION 3.9)
-project (sttp.net.lib VERSION 1.0.9 DESCRIPTION ".NET STTP C++ API Wrapper Library")
+cmake_minimum_required (VERSION 3.13)
+project (sttp.net.lib VERSION 1.1.3 DESCRIPTION ".NET STTP C++ API Wrapper Library" LANGUAGES CXX)
 
-set (CMAKE_RUNTIME_OUTPUT_DIRECTORY Output)
-set (CMAKE_ARCHIVE_OUTPUT_DIRECTORY Libraries)
-set (CMAKE_LIBRARY_OUTPUT_DIRECTORY Libraries)
+# Keep direct single-configuration builds aligned with the package output layout.
+if (NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
+    set (CMAKE_BUILD_TYPE Release CACHE STRING "Build configuration" FORCE)
+endif ()
 
-set (STTP_SOURCE_FILES
-    "cppapi/src/lib/CommonTypes.cpp"
-    "cppapi/src/lib/Convert.cpp"
-    "cppapi/src/lib/EndianConverter.cpp"
-    "cppapi/src/lib/pugixml.cpp"
-    "cppapi/src/lib/data/DataColumn.cpp"
-    "cppapi/src/lib/data/DataRow.cpp"
-    "cppapi/src/lib/data/DataSet.cpp"
-    "cppapi/src/lib/data/DataTable.cpp"
-    "cppapi/src/lib/filterexpressions/ExpressionTree.cpp"
-    "cppapi/src/lib/filterexpressions/FilterExpressionParser.cpp"
-    "cppapi/src/lib/filterexpressions/FilterExpressionSyntaxBaseListener.cpp"
-    "cppapi/src/lib/filterexpressions/FilterExpressionSyntaxLexer.cpp"
-    "cppapi/src/lib/filterexpressions/FilterExpressionSyntaxListener.cpp"
-    "cppapi/src/lib/filterexpressions/FilterExpressionSyntaxParser.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/ANTLRErrorListener.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/ANTLRErrorStrategy.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/ANTLRFileStream.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/ANTLRInputStream.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/BailErrorStrategy.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/BaseErrorListener.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/BufferedTokenStream.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/CharStream.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/CommonToken.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/CommonTokenFactory.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/CommonTokenStream.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/ConsoleErrorListener.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/DefaultErrorStrategy.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/DiagnosticErrorListener.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/Exceptions.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/FailedPredicateException.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/InputMismatchException.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/IntStream.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/InterpreterRuleContext.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/Lexer.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/LexerInterpreter.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/LexerNoViableAltException.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/ListTokenSource.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/NoViableAltException.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/Parser.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/ParserInterpreter.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/ParserRuleContext.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/ProxyErrorListener.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/RecognitionException.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/Recognizer.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/RuleContext.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/RuleContextWithAltNum.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/RuntimeMetaData.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/Token.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/TokenSource.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/TokenStream.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/TokenStreamRewriter.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/UnbufferedCharStream.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/UnbufferedTokenStream.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/Vocabulary.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/WritableToken.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/ATN.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/ATNConfig.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/ATNConfigSet.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/ATNDeserializationOptions.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/ATNDeserializer.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/ATNSerializer.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/ATNSimulator.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/ATNState.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/AbstractPredicateTransition.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/ActionTransition.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/AmbiguityInfo.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/ArrayPredictionContext.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/AtomTransition.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/BasicBlockStartState.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/BasicState.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/BlockEndState.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/BlockStartState.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/ContextSensitivityInfo.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/DecisionEventInfo.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/DecisionInfo.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/DecisionState.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/EmptyPredictionContext.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/EpsilonTransition.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/ErrorInfo.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/LL1Analyzer.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/LexerATNConfig.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/LexerATNSimulator.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/LexerAction.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/LexerActionExecutor.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/LexerChannelAction.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/LexerCustomAction.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/LexerIndexedCustomAction.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/LexerModeAction.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/LexerMoreAction.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/LexerPopModeAction.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/LexerPushModeAction.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/LexerSkipAction.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/LexerTypeAction.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/LookaheadEventInfo.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/LoopEndState.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/NotSetTransition.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/OrderedATNConfigSet.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/ParseInfo.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/ParserATNSimulator.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/PlusBlockStartState.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/PlusLoopbackState.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/PrecedencePredicateTransition.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/PredicateEvalInfo.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/PredicateTransition.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/PredictionContext.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/PredictionMode.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/ProfilingATNSimulator.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/RangeTransition.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/RuleStartState.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/RuleStopState.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/RuleTransition.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/SemanticContext.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/SetTransition.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/SingletonPredictionContext.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/StarBlockStartState.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/StarLoopEntryState.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/StarLoopbackState.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/TokensStartState.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/Transition.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/atn/WildcardTransition.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/dfa/DFA.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/dfa/DFASerializer.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/dfa/DFAState.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/dfa/LexerDFASerializer.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/misc/InterpreterDataReader.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/misc/Interval.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/misc/IntervalSet.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/misc/MurmurHash.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/misc/Predicate.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/support/Any.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/support/Arrays.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/support/CPPUtils.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/support/StringUtils.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/support/guid.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/ErrorNode.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/ErrorNodeImpl.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/IterativeParseTreeWalker.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/ParseTree.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/ParseTreeListener.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/ParseTreeVisitor.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/ParseTreeWalker.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/TerminalNode.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/TerminalNodeImpl.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/Trees.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/pattern/Chunk.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/pattern/ParseTreeMatch.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/pattern/ParseTreePattern.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/pattern/ParseTreePatternMatcher.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/pattern/RuleTagToken.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/pattern/TagChunk.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/pattern/TextChunk.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/pattern/TokenTagToken.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/xpath/XPath.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/xpath/XPathElement.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/xpath/XPathLexer.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/xpath/XPathLexerErrorListener.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/xpath/XPathRuleAnywhereElement.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/xpath/XPathRuleElement.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/xpath/XPathTokenAnywhereElement.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/xpath/XPathTokenElement.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/xpath/XPathWildcardAnywhereElement.cpp"
-    "cppapi/src/lib/filterexpressions/antlr4-runtime/tree/xpath/XPathWildcardElement.cpp"
-    "cppapi/src/lib/transport/ActiveMeasurementsSchema.cpp"
-    "cppapi/src/lib/transport/CompactMeasurement.cpp"
-    "cppapi/src/lib/transport/Constants.cpp"
-    "cppapi/src/lib/transport/DataPublisher.cpp"
-    "cppapi/src/lib/transport/DataSubscriber.cpp"
-    "cppapi/src/lib/transport/MetadataSchema.cpp"
-    "cppapi/src/lib/transport/PublisherInstance.cpp"
-    "cppapi/src/lib/transport/RoutingTables.cpp"
-    "cppapi/src/lib/transport/SignalIndexCache.cpp"
-    "cppapi/src/lib/transport/SubscriberConnection.cpp"
-    "cppapi/src/lib/transport/SubscriberInstance.cpp"
-    "cppapi/src/lib/transport/TransportTypes.cpp"
-    "cppapi/src/lib/transport/tssc/TSSCEncoder.cpp"
-    "cppapi/src/lib/transport/tssc/TSSCDecoder.cpp"
-    "cppapi/src/lib/transport/tssc/TSSCPointMetadata.cpp"
+set (CMAKE_POSITION_INDEPENDENT_CODE ON)
+
+# Embed Boost in the NuGet native library. Its static archives must be built with -fPIC.
+set (Boost_USE_STATIC_LIBS ON)
+find_package (Boost REQUIRED COMPONENTS thread date_time iostreams chrono)
+if ("${Boost_MAJOR_VERSION}.${Boost_MINOR_VERSION}" VERSION_LESS "1.69")
+    find_package (Boost REQUIRED COMPONENTS system)
+endif ()
+
+# Reuse the native API's source list, compiler settings, and transitive dependencies.
+add_subdirectory (cppapi/src cppapi EXCLUDE_FROM_ALL)
+target_compile_definitions (sttp PRIVATE SWIG)
+
+# Replace the native target's bare Boost linker names with imported static targets.
+# Preserve the native target's other dependencies.
+get_target_property (STTP_NATIVE_LIBRARIES sttp LINK_LIBRARIES)
+set (STTP_WRAPPER_LIBRARIES)
+foreach (dependency IN LISTS STTP_NATIVE_LIBRARIES)
+    if (dependency MATCHES "^boost_(.+)$")
+        list (APPEND STTP_WRAPPER_LIBRARIES "Boost::${CMAKE_MATCH_1}")
+    else ()
+        list (APPEND STTP_WRAPPER_LIBRARIES "${dependency}")
+    endif ()
+endforeach ()
+set_target_properties (sttp PROPERTIES
+    LINK_LIBRARIES "${STTP_WRAPPER_LIBRARIES}"
+    INTERFACE_LINK_LIBRARIES "${STTP_WRAPPER_LIBRARIES}"
+)
+add_library (sttp.net.lib SHARED sttp.net.lib/sttp.net.lib.cpp)
+target_compile_features (sttp.net.lib PRIVATE cxx_std_20)
+target_compile_definitions (sttp.net.lib PRIVATE SWIG BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE ANTLR4CPP_STATIC)
+target_include_directories (sttp.net.lib PRIVATE ${Boost_INCLUDE_DIRS})
+target_link_libraries (sttp.net.lib PRIVATE sttp)
+
+# Match the name used by the managed loader and NuGet native asset paths.
+set_target_properties (sttp.net.lib PROPERTIES
+    PREFIX ""
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/Libraries"
 )
 
-add_definitions(
-   -DSWIG 
-   -DBOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE 
-   -DBOOST_ASIO_ENABLE_CANCELIO 
-   -DANTLR4CPP_STATIC 
-)
+# Fail at link time if any native dependency is missing.
+if (UNIX AND NOT APPLE)
+    target_link_options (sttp.net.lib PRIVATE "-Wl,--no-undefined")
+endif ()
 
-# Define include directories
-include_directories(
-    "cppapi/src/lib/filterexpressions/antlr4-runtime"
-)
-
-# Define compile flags
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -ftabstop=4 -finput-charset=UTF-8 -fextended-identifiers -Wno-attributes")
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
-endif()
-
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
-
-# Build sttp.net.lib
-add_library (sttp.net.lib SHARED ${STTP_SOURCE_FILES} sttp.net.lib/sttp.net.lib.cpp)
-target_link_libraries (sttp.net.lib pthread m z bz2 boost_system boost_thread boost_date_time boost_iostreams)
-
-set_target_properties(sttp.net.lib PROPERTIES VERSION ${PROJECT_VERSION})
+# Stage Linux x64 binaries where sttp.net.csproj collects the NuGet native assets.
+if (CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|amd64|AMD64)$")
+    get_filename_component (STTP_REPOSITORY_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../.." ABSOLUTE)
+    set (STTP_PACKAGE_NATIVE_DIRECTORY "${STTP_REPOSITORY_ROOT}/build/output/x64/$<CONFIG>/lib")
+    add_custom_command (TARGET sttp.net.lib POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E make_directory "${STTP_PACKAGE_NATIVE_DIRECTORY}"
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "$<TARGET_FILE:sttp.net.lib>" "${STTP_PACKAGE_NATIVE_DIRECTORY}/$<TARGET_FILE_NAME:sttp.net.lib>"
+        COMMENT "Copying Linux native library to the NuGet input directory"
+        VERBATIM
+    )
+endif ()

@@ -16,19 +16,23 @@ pause
 ECHO.
 ECHO Building Debug x86
 ECHO.
-msbuild /p:Configuration=Debug /p:Platform=x86
+msbuild "%~dp0sttp-libraries.sln" /p:Configuration=Debug /p:Platform=x86 /p:PreferredToolArchitecture=x64 /p:GeneratePackageOnBuild=false
+if errorlevel 1 exit /b 1
 ECHO.
 ECHO Building Release x86
 ECHO.
-msbuild /p:Configuration=Release /p:Platform=x86
+msbuild "%~dp0sttp-libraries.sln" /p:Configuration=Release /p:Platform=x86 /p:WholeProgramOptimization=false /p:PreferredToolArchitecture=x64 /p:GeneratePackageOnBuild=false
+if errorlevel 1 exit /b 1
 ECHO.
 ECHO Building Debug x64
 ECHO.
-msbuild /p:Configuration=Debug /p:Platform=x64
+msbuild "%~dp0sttp-libraries.sln" /p:Configuration=Debug /p:Platform=x64 /p:PreferredToolArchitecture=x64 /p:GeneratePackageOnBuild=false
+if errorlevel 1 exit /b 1
 ECHO.
 ECHO Building Release x64
 ECHO.
-msbuild /p:Configuration=Release /p:Platform=x64
+msbuild "%~dp0sttp-libraries.sln" /p:Configuration=Release /p:Platform=x64 /p:PreferredToolArchitecture=x64 /p:GeneratePackageOnBuild=false
+if errorlevel 1 exit /b 1
 ECHO.
 ECHO Builds complete.
 pause

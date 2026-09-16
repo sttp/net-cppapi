@@ -1,33 +1,16 @@
-# Verify "SWIG_LIB " is defined
-if [[ -z "$SWIG_LIB" ]]; then
-    echo 'The "SWIG_LIB" environmental variable not found, abroting compile.'
-    exit
-fi
+#!/usr/bin/env bash
+set -euo pipefail
 
-echo ' Compiling inpendendent debug version of "libsttp.a"...'
-mkdir -p bin/Debug
-pushd bin/Debug
-cmake ../../../cppapi/src -DCMAKE_BUILD_TYPE=Debug -DCMAKE_POSITION_INDEPENDENT_CODE=ON -DCMAKE_CXX_FLAGS="-Wno-unknown-pragmas"
-make -j6
-popd
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+repo_root="$(cd -- "$script_dir/../../.." && pwd)"
+build_root="${STTP_BUILD_ROOT:-$script_dir/bin/linux}"
+jobs="${STTP_BUILD_JOBS:-6}"
 
-echo ' Compiling debug version of "sttp.net.lib.so"...'
-mkdir -p obj/Debug
-gcc -g -D SWIG -c -fPIC sttp.net.lib.cpp -o obj/Debug/sttp.net.lib.o
-gcc -g -shared obj/Debug/sttp.net.lib.o bin/Debug/Libraries/libsttp.a -o bin/Debug/sttp.net.lib.so
-
-echo ' Compiling inpendendent release version of "libsttp.a"...'
-mkdir -p bin/Release
-pushd bin/Release
-cmake ../../../cppapi/src -DCMAKE_POSITION_INDEPENDENT_CODE=ON -DCMAKE_CXX_FLAGS="-Wno-unknown-pragmas"
-make -j6
-popd
-
-echo ' Compiling release version of "sttp.net.lib.so"...'
-mkdir -p obj/Release
-gcc -D SWIG -c -fPIC sttp.net.lib.cpp -o obj/Release/sttp.net.lib.o
-gcc -shared obj/Release/sttp.net.lib.o bin/Release/Libraries/libsttp.a -o bin/Release/sttp.net.lib.so
-
-# Copy resulting compiled "sttp.net.lib.so" files to target folders:
-cp bin/Debug/sttp.net.lib.so ../../../build/output/x64/Debug/lib
-cp bin/Release/sttp.net.lib.so ../../../build/output/x64/Release/lib
+# Uses the checked-in SWIG-generated C++ source; SWIG is needed only to regenerate it.
+for config in Debug Release; do
+    cmake -S "$script_dir/.." -B "$build_root/$config" -DCMAKE_BUILD_TYPE="$config" "$@"
+    cmake --build "$build_root/$config" --target sttp.net.lib --parallel "$jobs"
+    destination="$repo_root/build/output/x64/$config/lib"
+    mkdir -p "$destination"
+    cp "$build_root/$config/Libraries/sttp.net.lib.so" "$destination/sttp.net.lib.so"
+done

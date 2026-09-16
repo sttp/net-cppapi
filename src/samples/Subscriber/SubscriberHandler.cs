@@ -117,7 +117,7 @@ namespace Subscriber
             //    if (TryFindTargetConfigurationFrame(signalID, out ConfigurationFrame configurationFrame))
             //    {
             //        // Lookup measurement metadata - it's faster to find metadata from within configuration frame
-            //        if (TryGetMeasurementMetdataFromConfigurationFrame(signalID, configurationFrame, out measurementMetadata))
+            //        if (TryGetMeasurementMetadataFromConfigurationFrame(signalID, configurationFrame, out measurementMetadata))
             //        {
             //            SignalReference reference = measurementMetadata.Reference;
 
@@ -128,7 +128,7 @@ namespace Subscriber
             //            // TODO: Handle measurement processing here...
             //        }
             //    }
-            //    else if (TryGetMeasurementMetdata(signalID, out measurementMetadata))
+            //    else if (TryGetMeasurementMetadata(signalID, out measurementMetadata))
             //    {
             //        // Received measurement is not part of a defined configuration frame, e.g., a statistic
             //        SignalReference reference = measurementMetadata.Reference;

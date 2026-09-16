@@ -179,11 +179,15 @@
         {
             System.Reflection.Assembly assembly = typeof(SubscriberInstance).Assembly;
             System.Reflection.AssemblyName assemblyInfo = assembly.GetName();
-            System.DateTime buildDate = System.IO.File.GetLastWriteTime(assembly.Location);
+            // Single-file publishing embeds this assembly, so Location can be empty.
+            string assemblyPath = assembly.Location;
+            string buildDate = string.IsNullOrEmpty(assemblyPath)
+                ? "unknown (bundled assembly)"
+                : System.IO.File.GetLastWriteTime(assemblyPath).ToString("yyyy-MM-dd HH:mm:ss");
 
             GetAssemblyInfo(out string source, out string version, out string updatedOn);
             string wrapperAssemblyInfo = $", wrapping {source} version {version} updated on {updatedOn}";
-            SetAssemblyInfo(assemblyInfo.Name, $"{assemblyInfo.Version.Major}.{assemblyInfo.Version.Minor}.{assemblyInfo.Version.Build}", $"{buildDate:yyyy-MM-dd HH:mm:ss}{wrapperAssemblyInfo}");
+            SetAssemblyInfo(assemblyInfo.Name, $"{assemblyInfo.Version.Major}.{assemblyInfo.Version.Minor}.{assemblyInfo.Version.Build}", $"{buildDate}{wrapperAssemblyInfo}");
         }
 
         internal override unsafe void ReceivedNewMeasurements(SimpleMeasurement simpleMeasurementArray, int length)
@@ -1206,7 +1210,7 @@ namespace data
 namespace transport
 {
     // Measurement state flags.
-    %typemap(csbase) MeasurementStateFlags "uint"
+    %typemap(csbase, replace="1") MeasurementStateFlags "uint"
     enum class MeasurementStateFlags : unsigned int
     {
         // Defines normal state.
@@ -1294,7 +1298,7 @@ namespace transport
         MeasurementStateFlags Flags;
     };
 
-    %typemap(csbase) SignalKind "ushort"
+    %typemap(csbase, replace="1") SignalKind "ushort"
     enum SignalKind : int16_t
     {
         Angle,          // Phase angle
@@ -1327,7 +1331,7 @@ namespace transport
     {
         Guid SignalID;          // Unique UUID of this individual measurement (key to MeasurementMetadata.SignalID)
         std::string Acronym;    // Associated (parent) device for measurement (key to DeviceMetadata.Acronym / MeasurementMetadata.DeviceAcronym)
-        uint16_t Index;         // For phasors, digitals and analogs - this is the ordered index, uses 1-based indexing
+        int32_t Index;         // For phasors, digitals and analogs - this is the ordered index, uses 1-based indexing
         SignalKind Kind;        // Signal classification (e.g., phase angle, but not specific type of voltage or current)
 
         SignalReference();
@@ -1341,7 +1345,7 @@ namespace transport
         Guid SignalID;              // Unique UUID of this individual measurement (lookup key!)
         std::string PointTag;       // Well formatted tag name for historians, e.g., OSI-PI, etc.
         SignalReference Reference;  // Parsed signal reference structure
-        uint16_t PhasorSourceIndex; // Measurement phasor index, if measurement represents a "Phasor"
+        int32_t PhasorSourceIndex; // Measurement phasor index, if measurement represents a "Phasor"
         std::string Description;    // Detailed measurement description (free-form)
         datetime_t UpdatedOn;       // Time of last meta-data update
     };
@@ -1355,7 +1359,7 @@ namespace transport
         std::string Label;          // Channel name for "phasor" (covers two measurements)
         std::string Type;           // Phasor type, i.e., "V" for voltage or "I" for current
         std::string Phase;          // Phasor phase, one of, "+", "-", "0", "A", "B" or "C"
-        uint16_t SourceIndex;       // Phasor ordered index, uses 1-based indexing (key to MeasurementMetadata.PhasorSourceIndex)
+        int32_t SourceIndex;       // Phasor ordered index, uses 1-based indexing (key to MeasurementMetadata.PhasorSourceIndex)
         datetime_t UpdatedOn;       // Time of last meta-data update
     };
 
@@ -1811,14 +1815,14 @@ namespace transport
 
         // Metadata record lookup functions (post-parse)
         bool TryGetDeviceMetadata(const std::string& deviceAcronym, DeviceMetadataPtr& deviceMetadata);
-        bool TryGetMeasurementMetdata(const Guid& signalID, MeasurementMetadataPtr& measurementMetadata);
+        bool TryGetMeasurementMetadata(const Guid& signalID, MeasurementMetadataPtr& measurementMetadata);
         bool TryGetConfigurationFrame(const std::string& deviceAcronym, ConfigurationFramePtr& configurationFrame);
         bool TryFindTargetConfigurationFrame(const Guid& signalID, ConfigurationFramePtr& targetFrame);
 
         // Configuration frame limits the required search range for measurement metadata,
         // searching the frame members for a matching signal ID should normally be much
         // faster than executing a lookup in the full measurement map cache.
-        static bool TryGetMeasurementMetdataFromConfigurationFrame(const Guid& signalID, const ConfigurationFramePtr& sourceFrame, MeasurementMetadataPtr& measurementMetadata);
+        static bool TryGetMeasurementMetadataFromConfigurationFrame(const Guid& signalID, const ConfigurationFramePtr& sourceFrame, MeasurementMetadataPtr& measurementMetadata);
     };
 
     // Proxy getters and setters as actual .NET properties
@@ -2008,8 +2012,7 @@ namespace transport
         std::vector<uint8_t> Keys(int32_t cipherIndex);
         std::vector<uint8_t> IVs(int32_t cipherIndex);
 
-        void Start(bool connectionAccepted = true);
-        void Stop(bool shutdownSocket = true);
+        void Stop();
 
         void CancelTemporalSubscription();
 
