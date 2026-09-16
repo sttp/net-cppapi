@@ -61,8 +61,8 @@ internal static class Program
                     long first = subscriber.FirstDataTick;
                     if (!reported && first != 0)
                     {
-                        Console.WriteLine($"Connection to first measurement: {ElapsedTime(subscriber.ConnectedTick, first).TotalMilliseconds:N3} ms");
-                        Console.WriteLine($"Total from connection attempt: {ElapsedTime(subscriber.StartTick, first).TotalMilliseconds:N3} ms");
+                        Console.WriteLine($"Connection to first measurement: {FormatDuration(ElapsedTime(subscriber.ConnectedTick, first))}");
+                        Console.WriteLine($"Total from connection attempt: {FormatDuration(ElapsedTime(subscriber.StartTick, first))}");
                         Console.WriteLine();
                         reported = true;
                         previousTick = first;
@@ -110,6 +110,21 @@ internal static class Program
     private static TimeSpan ElapsedTime(long start, long end) =>
         TimeSpan.FromSeconds((end - start) / (double)Stopwatch.Frequency);
 
+    internal static string FormatDuration(TimeSpan duration)
+    {
+        // Round to microseconds, preserving fractional milliseconds for short operations.
+        long microseconds = (duration.Ticks + 5) / 10;
+        long hours = microseconds / 3_600_000_000;
+        long minutes = microseconds / 60_000_000 % 60;
+        long seconds = microseconds / 1_000_000 % 60;
+        double milliseconds = microseconds % 1_000_000 / 1000.0;
+        var parts = new List<string>(4);
+        if (hours > 0) parts.Add($"{hours} h");
+        if (minutes > 0) parts.Add($"{minutes} min");
+        if (seconds > 0) parts.Add($"{seconds} s");
+        if (milliseconds > 0 || parts.Count == 0) parts.Add($"{milliseconds:0.###} ms");
+        return string.Join(" ", parts);
+    }
     private static void Usage() => Console.WriteLine("Usage: ConnectionTest <IP> [port]\nPort defaults to 7165 (valid range: 1-65535).");
 }
 
@@ -136,6 +151,14 @@ internal sealed class TimingSubscriber : SubscriberInstance
         Messages.Enqueue("Connected; waiting for measurements...");
     }
 
+    protected override void ReceivedMetadata(ByteBuffer payload)
+    {
+        Messages.Enqueue("Metadata received; processing...");
+        var timer = Stopwatch.StartNew();
+        base.ReceivedMetadata(payload);
+        timer.Stop();
+        Messages.Enqueue($"Metadata processing: {Program.FormatDuration(timer.Elapsed)}");
+    }
     public override unsafe void ReceivedNewMeasurements(Measurement* measurements, int length)
     {
         if (length <= 0) return;
